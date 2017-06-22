@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例. 一.event.preventDefault()​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;例:   下方为html代码:&amp;lt;a lin">
+<meta name="description" content="​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例. 一.event.preventDefault()​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;例:   下方为html代码:    百度 ​">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js处理手势冲突之冒泡用法">
 <meta property="og:url" content="http://yoursite.com/2017/06/22/js-article/index.html">
 <meta property="og:site_name" content="帅斌的个人博客">
-<meta property="og:description" content="​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例. 一.event.preventDefault()​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;例:   下方为html代码:&amp;lt;a lin">
-<meta property="og:updated_time" content="2017-06-22T07:25:40.000Z">
+<meta property="og:description" content="​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例. 一.event.preventDefault()​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;例:   下方为html代码:    百度 ​">
+<meta property="og:updated_time" content="2017-06-22T07:34:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js处理手势冲突之冒泡用法">
-<meta name="twitter:description" content="​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例. 一.event.preventDefault()​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;例:   下方为html代码:&amp;lt;a lin">
+<meta name="twitter:description" content="​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例. 一.event.preventDefault()​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;例:   下方为html代码:    百度 ​">
 
 
 
@@ -355,14 +355,14 @@
 
       
         <p>​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例.</p>
-<h4 id="一-event-preventDefault"><a href="#一-event-preventDefault" class="headerlink" title="一.event.preventDefault()"></a>一.event.preventDefault()</h4><p>​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;<br>例:<br>   下方为html代码:<br><code>&lt;a link=&quot;https://www.baidu.com&quot;&gt;百度&lt;/a&gt;</code></p>
-<p>​    具体处理方式如下:<br> ` <script type="text/javascript"></p>
+<h4 id="一-event-preventDefault"><a href="#一-event-preventDefault" class="headerlink" title="一.event.preventDefault()"></a>一.event.preventDefault()</h4><p>​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;<br>例:<br>   下方为html代码:<br>    <a link="https://www.baidu.com">百度</a></p>
+<p>​    具体处理方式如下:<br>``  <script type="text/javascript"></p>
 <p>  $(document).ready(function(){</p>
 <p>   $(“a”).click(function(event){</p>
 <p>​     event.preventDefault();</p>
 <p>​      });</p>
-<p>});</p>
-<p></script> `</p>
+<p>});``</p>
+<p></script></p>
 <p>参考链接:<br><a href="http://www.w3school.com.cn/jquery/event_preventdefault.asp" target="_blank" rel="external">jQuery 事件 - preventDefault() 方法</a></p>
 <h4 id="二-event-stopPropagation"><a href="#二-event-stopPropagation" class="headerlink" title="二.event.stopPropagation()"></a>二.event.stopPropagation()</h4><p>​    该方法将停止事件的传播，阻止它被分派到其他 Document 节点。在事件传播的任何阶段都可以调用它。注意，虽然该方法不能阻止同一个 Document 节点上的其他事件句柄被调用，但是它可以阻止把事件分派到其他节点。</p>
 <p>例:<br>​    下方为html代码:<br>` <div click="outsideDivAction()" style="background:blue;"></div></p>
