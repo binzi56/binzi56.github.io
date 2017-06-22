@@ -358,29 +358,18 @@
 
       
         
-          
-            <p>​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例.</p>
-<h4 id="一-event-preventDefault"><a href="#一-event-preventDefault" class="headerlink" title="一.event.preventDefault()"></a>一.event.preventDefault()</h4><p>​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;<br>例:<br>   下方为html代码:<br>        <a link="https://www.baidu.com">百度</a><br>​    具体处理方式如下:<br>  <script type="text/javascript"></p>
-<pre><code>$(document).ready(function(){
-
- $(&quot;a&quot;).click(function(event){
-</code></pre><p>  ​     event.preventDefault();</p>
-<p>  ​      });</p>
-<p>  });</p>
-<p>  </script></p>
+          <p>​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例.</p>
+<h4 id="一-event-preventDefault"><a href="#一-event-preventDefault" class="headerlink" title="一.event.preventDefault()"></a>一.event.preventDefault()</h4><p>​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;<br>例:<br>   下方为html代码:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">link</span>=<span class="string">"https://www.baidu.com"</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>​    具体处理方式如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">  $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  $(<span class="string">"a"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">​     event.preventDefault();</div><div class="line">​   &#125;);</div><div class="line">&#125;);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
 <p>参考链接:<br><a href="http://www.w3school.com.cn/jquery/event_preventdefault.asp" target="_blank" rel="external">jQuery 事件 - preventDefault() 方法</a></p>
-<h4 id="二-event-stopPropagation"><a href="#二-event-stopPropagation" class="headerlink" title="二.event.stopPropagation()"></a>二.event.stopPropagation()</h4><p>​    该方法将停止事件的传播，阻止它被分派到其他 Document 节点。在事件传播的任何阶段都可以调用它。注意，虽然该方法不能阻止同一个 Document 节点上的其他事件句柄被调用，但是它可以阻止把事件分派到其他节点。</p>
-<p>例:<br>​    下方为html代码:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">click</span>=<span class="string">"outsideDivAction()"</span> <span class="attr">style</span>=<span class="string">"background:blue;"</span>&gt;</span></div><div class="line">​    <span class="tag">&lt;<span class="name">div</span> <span class="attr">click</span>=<span class="string">"insideDivAction()"</span> <span class="attr">style</span>=<span class="string">"background:red;"</span>&gt;</span></div><div class="line">​     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>​    js中代码如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> $scope.outsideDivAction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">​     <span class="built_in">console</span>.log(<span class="string">"外面div方法执行"</span>);</div><div class="line">&#125;;</div><div class="line"> $scope.insideDivAction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">​      <span class="built_in">console</span>.log(<span class="string">"里面div方法执行"</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>​    执行上方代码发现, 点击里面的div, 外面的方法也会执行; 往往在实际工程中, 需要屏蔽外面的方法, 解决代码如下:<br>` $scope.insideDivAction = function($event){</p>
-<p>​       $event.stopPropagation();</p>
-<p>​        console.log(“里面div方法执行”);</p>
-<p>}; `</p>
-<p>​    本以为这样就可以了, 但是后来才发现$event其实也算一个参数, 所以得在html中传递一下;<br>​    html中添加参数如下:<br>` <div click="insideDivAction($event)" style="background:red;"></div></p>
-<p> `</p>
-<p>参考链接:<br><a href="http://www.w3school.com.cn/jsref/event_stoppropagation.asp" target="_blank" rel="external">stopPropagation() 方法</a><br>希望这篇文章能帮到大家, 谢谢;</p>
-
-          
+<h4 id="二-event-stopPropagation"><a href="#二-event-stopPropagation" class="headerlink" title="二.event.stopPropagation()"></a>二.event.stopPropagation()</h4><p>​    该方法将停止事件的传播，阻止它被分派到其他 Document 节点。在事件传播的任何阶段都可以调用它。注意，虽然该方法不能阻止同一个 Document 节点上的其他事件句柄被调用，但是它可以阻止把事件分派到其他节点。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/22/js-article/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -521,9 +510,15 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/21/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
