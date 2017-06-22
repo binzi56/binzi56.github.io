@@ -360,29 +360,18 @@
         
           
             <p>​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例.</p>
-<h4 id="一-event-preventDefault"><a href="#一-event-preventDefault" class="headerlink" title="一.event.preventDefault()"></a>一.event.preventDefault()</h4><p>​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;<br>例:<br>   下方为html代码:<br>    <pre><code><a link="https://www.baidu.com">百度</a><br>    </code></pre><br>​    具体处理方式如下:<br>    <script type="text/javascript"></p>
-<pre><code>  $(document).ready(function(){
+<h4 id="一-event-preventDefault"><a href="#一-event-preventDefault" class="headerlink" title="一.event.preventDefault()"></a>一.event.preventDefault()</h4><p>​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;<br>例:<br>   下方为html代码:<br>        <a link="https://www.baidu.com">百度</a><br>​    具体处理方式如下:<br>  <script type="text/javascript"></p>
+<pre><code>$(document).ready(function(){
 
-   $(&quot;a&quot;).click(function(event){
-
-​     event.preventDefault();
-
-​      });
-
-});
-</code></pre><p></script></p>
+ $(&quot;a&quot;).click(function(event){
+</code></pre><p>  ​     event.preventDefault();</p>
+<p>  ​      });</p>
+<p>  });</p>
+<p>  </script></p>
 <p>参考链接:<br><a href="http://www.w3school.com.cn/jquery/event_preventdefault.asp" target="_blank" rel="external">jQuery 事件 - preventDefault() 方法</a></p>
 <h4 id="二-event-stopPropagation"><a href="#二-event-stopPropagation" class="headerlink" title="二.event.stopPropagation()"></a>二.event.stopPropagation()</h4><p>​    该方法将停止事件的传播，阻止它被分派到其他 Document 节点。在事件传播的任何阶段都可以调用它。注意，虽然该方法不能阻止同一个 Document 节点上的其他事件句柄被调用，但是它可以阻止把事件分派到其他节点。</p>
-<p>例:<br>​    下方为html代码:<br>` <div click="outsideDivAction()" style="background:blue;"></div></p>
-<p>​    <div click="insideDivAction()" style="background:red;"></div></p>
-<p>​     </p>
-<p> `</p>
-<p>​    js中代码如下:<br>` $scope.outsideDivAction = function(){</p>
-<p>​     console.log(“外面div方法执行”);</p>
-<p>};</p>
-<p>$scope.insideDivAction = function(){</p>
-<p>​      console.log(“里面div方法执行”);</p>
-<p>}; `</p>
+<p>例:<br>​    下方为html代码:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">click</span>=<span class="string">"outsideDivAction()"</span> <span class="attr">style</span>=<span class="string">"background:blue;"</span>&gt;</span></div><div class="line">​    <span class="tag">&lt;<span class="name">div</span> <span class="attr">click</span>=<span class="string">"insideDivAction()"</span> <span class="attr">style</span>=<span class="string">"background:red;"</span>&gt;</span></div><div class="line">​     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>​    js中代码如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> $scope.outsideDivAction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">​     <span class="built_in">console</span>.log(<span class="string">"外面div方法执行"</span>);</div><div class="line">&#125;;</div><div class="line"> $scope.insideDivAction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">​      <span class="built_in">console</span>.log(<span class="string">"里面div方法执行"</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>​    执行上方代码发现, 点击里面的div, 外面的方法也会执行; 往往在实际工程中, 需要屏蔽外面的方法, 解决代码如下:<br>` $scope.insideDivAction = function($event){</p>
 <p>​       $event.stopPropagation();</p>
 <p>​        console.log(“里面div方法执行”);</p>
