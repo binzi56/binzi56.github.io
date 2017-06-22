@@ -359,14 +359,24 @@
       
         
           
-            <p>​        嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例.</p>
-<h4 id="一-event-preventDefault"><a href="#一-event-preventDefault" class="headerlink" title="一.event.preventDefault()"></a>一.event.preventDefault()</h4><p>​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;<br>例:<br>   下方为html代码:<br>        <a link="https://www.baidu.com">百度</a></p>
-<p>​    具体处理方式如下:<br>        <script type="text/javascript"><br>          $(document).ready(function(){<br>           $(“a”).click(function(event){<br>        ​     event.preventDefault();<br>        ​      });<br>        });<br>        </script></p>
+            <p>​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例.</p>
+<h4 id="一-event-preventDefault"><a href="#一-event-preventDefault" class="headerlink" title="一.event.preventDefault()"></a>一.event.preventDefault()</h4><p>​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;<br>例:<br>   下方为html代码:<br><code>&lt;a link=&quot;https://www.baidu.com&quot;&gt;百度&lt;/a&gt;</code></p>
+<p>​    具体处理方式如下:<br> <code>&lt;script type=&quot;text/javascript&quot;&gt;
+  $(document).ready(function(){
+   $(&quot;a&quot;).click(function(event){
+​     event.preventDefault();
+​      });
+});
+&lt;/script&gt;</code></p>
 <p>参考链接:</p>
 <p><a href="http://www.w3school.com.cn/jquery/event_preventdefault.asp" target="_blank" rel="external">jQuery 事件 - preventDefault() 方法</a></p>
 <h4 id="二-event-stopPropagation"><a href="#二-event-stopPropagation" class="headerlink" title="二.event.stopPropagation()"></a>二.event.stopPropagation()</h4><p>​    该方法将停止事件的传播，阻止它被分派到其他 Document 节点。在事件传播的任何阶段都可以调用它。注意，虽然该方法不能阻止同一个 Document 节点上的其他事件句柄被调用，但是它可以阻止把事件分派到其他节点。</p>
 <p>例:</p>
-<p>​    下方为html代码:<br>        <div click="outsideDivAction()" style="background:blue;"><br>        ​    <div click="insideDivAction()" style="background:red;"><br>        ​     </div><br>        </div></p>
+<p>​    下方为html代码:</p>
+<p>`<div click="outsideDivAction()" style="background:blue;"></div></p>
+<p>​    <div click="insideDivAction()" style="background:red;"></div></p>
+<p>​     </p>
+<p>`</p>
 <p>​    js中代码如下:</p>
 <p>`$scope.outsideDivAction = function(){</p>
 <p>​     console.log(“外面div方法执行”);</p>
