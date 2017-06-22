@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript," />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -87,19 +87,20 @@
 
 
 
-<meta name="description" content="​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例. 一.event.preventDefault()​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;例:   下方为html代码:1&amp;lt;a li">
-<meta name="keywords" content="javascript">
+<meta name="description" content="这个是之前开发中遇到的一个问题. 当一个视图同时响应单双击手势, 而实际上需要它只响应一个手势就行; 这种情况当手势同时加在一个视图上或者两个视图的关系为父子级时出现, 下面就来介绍一下处理的方法;这里展示一个demo:如图所示, 在storyboard中拖入两个view, 分别为bigView和smallView, smallView为bigView的子视图; 接下来给这两个视图拖入属性后, 给">
+<meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js处理手势冲突之冒泡用法">
-<meta property="og:url" content="http://yoursite.com/2017/06/22/js-article/index.html">
+<meta property="og:title" content="iOS处理单双击手势冲突问题">
+<meta property="og:url" content="http://yoursite.com/2017/06/22/ios-article/index.html">
 <meta property="og:site_name" content="火の玉">
-<meta property="og:description" content="​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例. 一.event.preventDefault()​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;例:   下方为html代码:1&amp;lt;a li">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/22/594b8239c64d5.jpeg">
-<meta property="og:updated_time" content="2017-06-22T08:39:53.000Z">
+<meta property="og:description" content="这个是之前开发中遇到的一个问题. 当一个视图同时响应单双击手势, 而实际上需要它只响应一个手势就行; 这种情况当手势同时加在一个视图上或者两个视图的关系为父子级时出现, 下面就来介绍一下处理的方法;这里展示一个demo:如图所示, 在storyboard中拖入两个view, 分别为bigView和smallView, smallView为bigView的子视图; 接下来给这两个视图拖入属性后, 给">
+<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/22/594b8b9fda051.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/22/594b9063a315f.png">
+<meta property="og:updated_time" content="2017-06-22T09:52:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js处理手势冲突之冒泡用法">
-<meta name="twitter:description" content="​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例. 一.event.preventDefault()​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;例:   下方为html代码:1&amp;lt;a li">
-<meta name="twitter:image" content="https://ooo.0o0.ooo/2017/06/22/594b8239c64d5.jpeg">
+<meta name="twitter:title" content="iOS处理单双击手势冲突问题">
+<meta name="twitter:description" content="这个是之前开发中遇到的一个问题. 当一个视图同时响应单双击手势, 而实际上需要它只响应一个手势就行; 这种情况当手势同时加在一个视图上或者两个视图的关系为父子级时出现, 下面就来介绍一下处理的方法;这里展示一个demo:如图所示, 在storyboard中拖入两个view, 分别为bigView和smallView, smallView为bigView的子视图; 接下来给这两个视图拖入属性后, 给">
+<meta name="twitter:image" content="https://ooo.0o0.ooo/2017/06/22/594b8b9fda051.png">
 
 
 
@@ -127,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/22/js-article/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/22/ios-article/"/>
 
 
 
 
 
-  <title> js处理手势冲突之冒泡用法 | 火の玉 </title>
+  <title> iOS处理单双击手势冲突问题 | 火の玉 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -262,7 +263,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/22/js-article/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/22/ios-article/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="火の玉">
@@ -283,7 +284,7 @@
             
             
               
-                js处理手势冲突之冒泡用法
+                iOS处理单双击手势冲突问题
               
             
           </h1>
@@ -298,7 +299,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-22T12:07:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-22T16:57:51+08:00">
                 2017-06-22
               </time>
             
@@ -321,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -356,16 +357,11 @@
       
 
       
-        <p><img src="https://ooo.0o0.ooo/2017/06/22/594b8239c64d5.jpeg" alt=""><br>​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例.</p>
-<h4 id="一-event-preventDefault"><a href="#一-event-preventDefault" class="headerlink" title="一.event.preventDefault()"></a>一.event.preventDefault()</h4><p>​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;<br>例:<br>   下方为html代码:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">link</span>=<span class="string">"https://www.baidu.com"</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>​    具体处理方式如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">  $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  $(<span class="string">"a"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">​     event.preventDefault();</div><div class="line">​   &#125;);</div><div class="line">&#125;);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<p>参考链接:<br><a href="http://www.w3school.com.cn/jquery/event_preventdefault.asp" target="_blank" rel="external">jQuery 事件 - preventDefault() 方法</a></p>
-<h4 id="二-event-stopPropagation"><a href="#二-event-stopPropagation" class="headerlink" title="二.event.stopPropagation()"></a>二.event.stopPropagation()</h4><p>​    该方法将停止事件的传播，阻止它被分派到其他 Document 节点。在事件传播的任何阶段都可以调用它。注意，虽然该方法不能阻止同一个 Document 节点上的其他事件句柄被调用，但是它可以阻止把事件分派到其他节点。<br>例:<br>​    下方为html代码:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">click</span>=<span class="string">"outsideDivAction()"</span> <span class="attr">style</span>=<span class="string">"background:blue;"</span>&gt;</span></div><div class="line">​    <span class="tag">&lt;<span class="name">div</span> <span class="attr">click</span>=<span class="string">"insideDivAction()"</span> <span class="attr">style</span>=<span class="string">"background:red;"</span>&gt;</span></div><div class="line">​     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>​    js中代码如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">  $scope.outsideDivAction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">​     <span class="built_in">console</span>.log(<span class="string">"外面div方法执行"</span>);</div><div class="line">&#125;;</div><div class="line">  $scope.insideDivAction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">​      <span class="built_in">console</span>.log(<span class="string">"里面div方法执行"</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>​    执行上方代码发现, 点击里面的div, 外面的方法也会执行; 往往在实际工程中, 需要屏蔽外面的方法, 解决代码如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> $scope.insideDivAction = <span class="function"><span class="keyword">function</span>(<span class="params">$event</span>)</span>&#123;</div><div class="line">​       $event.stopPropagation();</div><div class="line">​       <span class="built_in">console</span>.log(<span class="string">"里面div方法执行"</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>​    本以为这样就可以了, 但是后来才发现$event其实也算一个参数, 所以得在html中传递一下;<br>​    html中添加参数如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">click</span>=<span class="string">"insideDivAction($event)"</span> <span class="attr">style</span>=<span class="string">"background:red;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>参考链接:<br><a href="http://www.w3school.com.cn/jsref/event_stoppropagation.asp" target="_blank" rel="external">stopPropagation() 方法</a><br>希望这篇文章能帮到大家, 谢谢;</p>
+        <p>这个是之前开发中遇到的一个问题. 当一个视图同时响应单双击手势, 而实际上需要它只响应一个手势就行; 这种情况当手势同时加在一个视图上或者两个视图的关系为父子级时出现, 下面就来介绍一下处理的方法;<br>这里展示一个demo:<br>如图所示, 在storyboard中拖入两个view, 分别为bigView和smallView, smallView为bigView的子视图;</p>
+<p><img src="https://ooo.0o0.ooo/2017/06/22/594b8b9fda051.png" alt=""><br>接下来给这两个视图拖入属性后, 给smallView加上单击事件, bigView加上双击事件;<br><a id="more"></a><br>代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">#import &quot;ViewController.h&quot;</div><div class="line"></div><div class="line">@interface ViewController ()</div><div class="line">@property (weak, nonatomic) IBOutlet UIView *bigView;</div><div class="line">@property (weak, nonatomic) IBOutlet UIView *smallView;</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad</div><div class="line">&#123;</div><div class="line">    [super viewDidLoad];</div><div class="line"></div><div class="line">   UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(singleTap:)];</div><div class="line"></div><div class="line">   [singleTapGestureRecognizer setNumberOfTapsRequired:1];</div><div class="line">   [_smallView addGestureRecognizer:singleTapGestureRecognizer];</div><div class="line"></div><div class="line">   UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(doubleTap:)];</div><div class="line">   [doubleTapGestureRecognizer setNumberOfTapsRequired:2];</div><div class="line">   [_bigView addGestureRecognizer:doubleTapGestureRecognizer];</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)singleTap:(UIGestureRecognizer*)gestureRecognizer</div><div class="line">&#123;</div><div class="line">   NSLog(@&quot;-----singleTap-----&quot;);</div><div class="line">   [_smallView setBackgroundColor:[UIColor yellowColor]];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)doubleTap:(UIGestureRecognizer*)gestureRecognizer</div><div class="line">&#123;</div><div class="line">   NSLog(@&quot;-----doubleTap-----&quot;);</div><div class="line">   [_bigView setBackgroundColor:[UIColor redColor]];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>接下来如果双击smallView, 你会发现视图变成下面这样:</p>
+<p><img src="https://ooo.0o0.ooo/2017/06/22/594b9063a315f.png" alt=""><br>本来双击只加载在smallView的父视图bigView上, 结果smallView也响应了, 这就尴尬了😓了;<br>处理方式其实挺简单, 只不过最开始找了好久;<br>下面贴出代码:(在viewDidLoad方法末尾添加)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//这行很关键，意思是只有当没有检测到doubleTapGestureRecognizer或者检测doubleTapGestureRecognizer失败，singleTapGestureRecognizer才有效</div><div class="line">    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];</div></pre></td></tr></table></figure></p>
+<p>好了, 完美解决(<em>^__^</em>) 嘻嘻……</p>
 
       
     </div>
@@ -395,7 +391,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript/" rel="tag"># javascript</a>
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
           
         </div>
       
@@ -408,15 +404,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/06/22/js-article/" rel="next" title="js处理手势冲突之冒泡用法">
+                <i class="fa fa-chevron-left"></i> js处理手势冲突之冒泡用法
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/22/ios-article/" rel="prev" title="iOS处理单双击手势冲突问题">
-                iOS处理单双击手势冲突问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -463,17 +459,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -560,22 +547,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-event-preventDefault"><span class="nav-number">1.</span> <span class="nav-text">一.event.preventDefault()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-event-stopPropagation"><span class="nav-number">2.</span> <span class="nav-text">二.event.stopPropagation()</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
