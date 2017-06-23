@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ionic,resources," />
+  <meta name="keywords" content="ionic,objective-c,plugin," />
 
 
 
@@ -87,21 +87,21 @@
 
 
 
-<meta name="description" content="网上关于ionic的资源比较少, 好多刚入门的开发者找不到入门指导资源, 下面就推荐一些个人觉得比较好的资源; 一. 入门级指导官方文档, 这个当然必不可少https://ionicframework.com/docs/ 中文版的ionic文档，给英文不好的朋友 http://www.ionic.wang/js_doc-index.html ionic菜鸟教程, 里面有许多基础知识http://w">
-<meta name="keywords" content="ionic,resources">
+<meta name="description" content="本文主要介绍iOS的逆地理定位插件,  用过官方的cordova-plugin-geolocation插件的都清楚, 该插件虽然得到了经纬度, 但是没法转换成我们想要位置信息, 于是就需要一个插件将经纬度转化为位置信息, 即逆地理编码;1.插件介绍该插件是用OC做的一个经纬度转换为位置的插件; OC内部通过CLGeocoder的方法实现逆地理编码;由于需要调用系统硬件, 所以该插件直到device">
+<meta name="keywords" content="ionic,objective-c,plugin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ionic优秀资源整理">
-<meta property="og:url" content="http://yoursite.com/2017/06/23/ionic-article/index.html">
+<meta property="og:title" content="cordova 逆地理编码插件(OC)">
+<meta property="og:url" content="http://yoursite.com/2017/06/23/cordova-plugin-geolocation/index.html">
 <meta property="og:site_name" content="火の玉">
-<meta property="og:description" content="网上关于ionic的资源比较少, 好多刚入门的开发者找不到入门指导资源, 下面就推荐一些个人觉得比较好的资源; 一. 入门级指导官方文档, 这个当然必不可少https://ionicframework.com/docs/ 中文版的ionic文档，给英文不好的朋友 http://www.ionic.wang/js_doc-index.html ionic菜鸟教程, 里面有许多基础知识http://w">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-d07abd750a56720f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-fa60330810a1263a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-b3f6c206cdca3f22.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-06-23T02:58:08.000Z">
+<meta property="og:description" content="本文主要介绍iOS的逆地理定位插件,  用过官方的cordova-plugin-geolocation插件的都清楚, 该插件虽然得到了经纬度, 但是没法转换成我们想要位置信息, 于是就需要一个插件将经纬度转化为位置信息, 即逆地理编码;1.插件介绍该插件是用OC做的一个经纬度转换为位置的插件; OC内部通过CLGeocoder的方法实现逆地理编码;由于需要调用系统硬件, 所以该插件直到device">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-5d33d29e9c1850f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-039a6f17e6c3fa99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-6ba19405be8da24f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-06-23T03:14:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ionic优秀资源整理">
-<meta name="twitter:description" content="网上关于ionic的资源比较少, 好多刚入门的开发者找不到入门指导资源, 下面就推荐一些个人觉得比较好的资源; 一. 入门级指导官方文档, 这个当然必不可少https://ionicframework.com/docs/ 中文版的ionic文档，给英文不好的朋友 http://www.ionic.wang/js_doc-index.html ionic菜鸟教程, 里面有许多基础知识http://w">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1893416-d07abd750a56720f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="cordova 逆地理编码插件(OC)">
+<meta name="twitter:description" content="本文主要介绍iOS的逆地理定位插件,  用过官方的cordova-plugin-geolocation插件的都清楚, 该插件虽然得到了经纬度, 但是没法转换成我们想要位置信息, 于是就需要一个插件将经纬度转化为位置信息, 即逆地理编码;1.插件介绍该插件是用OC做的一个经纬度转换为位置的插件; OC内部通过CLGeocoder的方法实现逆地理编码;由于需要调用系统硬件, 所以该插件直到device">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1893416-5d33d29e9c1850f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/23/ionic-article/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/23/cordova-plugin-geolocation/"/>
 
 
 
 
 
-  <title> ionic优秀资源整理 | 火の玉 </title>
+  <title> cordova 逆地理编码插件(OC) | 火の玉 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -264,7 +264,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/23/ionic-article/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/23/cordova-plugin-geolocation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="火の玉">
@@ -285,7 +285,7 @@
             
             
               
-                ionic优秀资源整理
+                cordova 逆地理编码插件(OC)
               
             
           </h1>
@@ -300,7 +300,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T10:53:57+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T11:02:52+08:00">
                 2017-06-23
               </time>
             
@@ -358,23 +358,16 @@
       
 
       
-        <p>网上关于ionic的资源比较少, 好多刚入门的开发者找不到入门指导资源, 下面就推荐一些个人觉得比较好的资源;</p>
-<p>一. 入门级指导<br>官方文档, 这个当然必不可少<br><a href="https://ionicframework.com/docs/" target="_blank" rel="external">https://ionicframework.com/docs/</a></p>
-<p>中文版的ionic文档，给英文不好的朋友<br> <a href="http://www.ionic.wang/js_doc-index.html" target="_blank" rel="external">http://www.ionic.wang/js_doc-index.html</a></p>
-<p>ionic菜鸟教程, 里面有许多基础知识<br><a href="http://www.runoob.com/ionic/ionic-install.html" target="_blank" rel="external">http://www.runoob.com/ionic/ionic-install.html</a></p>
-<p>ionic2文档整理, 里面包含了所有控件的用法整理,很实用<br><a href="http://rainey.space/2016/04/06/Ionic2_Chinese_Document/" target="_blank" rel="external">http://rainey.space/2016/04/06/Ionic2_Chinese_Document/</a></p>
-<p>小虎Oni的博客, 里面算是一些进阶的内容(包括按需加载controller, 一些性能优化等等)<br><a href="http://blog.csdn.net/onil_chen/article/category/6113346/2" target="_blank" rel="external">http://blog.csdn.net/onil_chen/article/category/6113346/2</a><br><a id="more"></a><br>二.解决一些问题<br>cnodejs社区ionic，可以学习一下<br><a href="https://cnodejs.org/topic/545aee5a3e1f39344c5b3b3e" target="_blank" rel="external">https://cnodejs.org/topic/545aee5a3e1f39344c5b3b3e</a></p>
-<p>皓眸IT的博客，有许多ionic的知识，挺有价值的<a href="http://haomou.Net/2014/10/06/2014_ionic_learn/" target="_blank" rel="external">http://haomou.Net/2014/10/06/2014_ionic_learn/</a></p>
-<p>ionic国内社区，可以互相学习下<br><a href="http://ionichina.com/" target="_blank" rel="external">http://ionichina.com/</a></p>
-<p>三. 插件学习<br>cordova插件用法详述(内含demo), 这个是我之前写的, 入门级的demo, 可以看看简单插件怎么写, OC与js的交互是怎样的<br><a href="http://www.jianshu.com/p/138568e87e7e" target="_blank" rel="external">http://www.jianshu.com/p/138568e87e7e</a></p>
-<p>cordova插件学习，对用ionic做开发会有帮助的<br><a href="http://rensanning.iteye.com/blog/2163892" target="_blank" rel="external">http://rensanning.iteye.com/blog/2163892</a></p>
-<p>四. 一些demo合集<br>一些ionic的简单例子，从这些简单代码可以学到很多知识和理念  <a href="http://codepen.io/ionic/public-list/" target="_blank" rel="external">http://codepen.io/ionic/public-list/</a></p>
-<p>Ionic系列——CodePen上的优秀Ionic_Demo<br><a href="https://my.oschina.net/u/1416844/blog/514361?fromerr=bbFC5JIl" target="_blank" rel="external">https://my.oschina.net/u/1416844/blog/514361?fromerr=bbFC5JIl</a></p>
-<p>ionic扩展插件, 包括:时间选择; 日期选择; 省市县三级联动等;<br><a href="http://www.cnblogs.com/luckyuns/p/6168715.html" target="_blank" rel="external">http://www.cnblogs.com/luckyuns/p/6168715.html</a></p>
-<p>五.爬坑指南(一些问题的解决办法)<br>1.新建的工程一般写在外面的www文件中, build后会自动同步到staging文件夹下的www文件中;添加插件会自动build;</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1893416-d07abd750a56720f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2017-03-13 下午2.31.04.png"></p>
-<p>2.cordova没有跨域问题<br><img src="http://upload-images.jianshu.io/upload_images/1893416-fa60330810a1263a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2017-03-28 下午4.41.56.png"><br>开发的时候遇到这个问题, 试了网上许多跨域的方法都没用;<br>解决方案:(config.xml中修改)<br><img src="http://upload-images.jianshu.io/upload_images/1893416-b3f6c206cdca3f22.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="BEEEF561E73FD4C16CF33EA81BFC2AEF.jpg"><br>如果是浏览器，启动浏览器时带上参数 –disable-web-security “C:\Program Files (x86)\Google\Chrome\Application\chrome.exe” –user-data-dir=”” –disable-web-security</p>
-<p>附:<br>Ionic常见问题及解决方案<br><a href="http://blog.csdn.net/molong421/article/details/51587853" target="_blank" rel="external">http://blog.csdn.net/molong421/article/details/51587853</a></p>
+        <p>本文主要介绍iOS的逆地理定位插件,  用过官方的cordova-plugin-geolocation插件的都清楚, 该插件虽然得到了经纬度, 但是没法转换成我们想要位置信息, 于是就需要一个插件将经纬度转化为位置信息, 即逆地理编码;<br>1.插件介绍<br>该插件是用OC做的一个经纬度转换为位置的插件; OC内部通过CLGeocoder的方法实现逆地理编码;由于需要调用系统硬件, 所以该插件直到deviceready事件发生后才可用;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"deviceready"</span>, onDeviceReady, <span class="literal">false</span>);</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onDeviceReady</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"deviceready"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>2.自定义插件的添加<br>下载好插件后, 直接添加本地目录即可;(插件最下方附上链接地址)</p>
+<blockquote>
+<p>cordova plugin add  /Users/apple/Desktop/cordova-plugin-reverseGeocoding</p>
+</blockquote>
+<p>3.用法实例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"deviceready"</span>, onDeviceReady, <span class="literal">false</span>);</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onDeviceReady</span>(<span class="params"></span>) </span>&#123;</div><div class="line">     <span class="function"><span class="keyword">function</span> <span class="title">success</span>(<span class="params">message</span>)</span>&#123;</div><div class="line">           alert(<span class="string">"定位成功:"</span> + message);</div><div class="line">           &#125;;</div><div class="line"></div><div class="line">           <span class="function"><span class="keyword">function</span> <span class="title">error</span>(<span class="params">message</span>)</span>&#123;</div><div class="line">           alert(<span class="string">"定位失败:"</span> + message);</div><div class="line">           &#125;;</div><div class="line">           cordova.plugins.reverseGeocoding.address([<span class="number">24.840882</span>, <span class="number">102.843752</span>], success, error);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4.使用说明<br>返回的message是一个对象, 对象的结构如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// &#123;</div><div class="line">//     City = &quot;昆明市&quot;;</div><div class="line">//     Country = &quot;中国&quot;;</div><div class="line">//     CountryCode = CN;</div><div class="line">//     FormattedAddressLines =     (</div><div class="line">//         &quot;中国云南省昆明市呈贡区吴家营街道仕林街&quot;</div><div class="line">//     );</div><div class="line">//     Name = &quot;仕林街&quot;;</div><div class="line">//     State = &quot;云南省&quot;;</div><div class="line">//     Street = &quot;仕林街&quot;;</div><div class="line">//     SubLocality = &quot;呈贡区&quot;;</div><div class="line">//     Thoroughfare = &quot;仕林街&quot;;</div><div class="line">// &#125;</div></pre></td></tr></table></figure></p>
+<p>5.要点介绍<br>由于系统默认的语言是英文, 有些工程返回的数据信息是英文;之前试过更改NSUserDefaults里面的AppleLanguages, 去改变系统语言, 但是估计系统做了缓存处理, 所以程序重启后才生效.  最后用了一种简便的方法来实现切换语言, 如下图所示;<br>(1)首先打开工程的edit scheme;<br><img src="http://upload-images.jianshu.io/upload_images/1893416-5d33d29e9c1850f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2017-03-27 上午9.37.45.png"><br>(2)在run-options-application language中选择中文简体;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1893416-039a6f17e6c3fa99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2017-03-27 上午9.38.09.png"><br>(3)如果(2)中可以选择中文简体则不用执行这步;<br>有的工程里面没有其他语言;则可在Localizations中添加;<br><img src="http://upload-images.jianshu.io/upload_images/1893416-6ba19405be8da24f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2017-03-27 上午9.48.44.png"><br>注:<br>如果(3)还不可以选择中文的话, 可以新建一个OC工程(不是ionic工程哦, 用Xcode打开一个工程, 然后command+shift+n新建一个), 执行(3)中添加中文简体, 然后将最外面的zh-Hans.lproj文件夹copy到你的工程里面最外面的文件夹, 之后问题解决;值得注意的是, 执行了(3)后的添加localizations, 还得执行(2)中的切换系统语言;</p>
+<p>附:<br><a href="https://github.com/binzi56/cordova-plugin-reverseGeocoding.git" target="_blank" rel="external">插件下载地址</a></p>
 
       
     </div>
@@ -406,7 +399,9 @@
           
             <a href="/tags/ionic/" rel="tag"># ionic</a>
           
-            <a href="/tags/resources/" rel="tag"># resources</a>
+            <a href="/tags/objective-c/" rel="tag"># objective-c</a>
+          
+            <a href="/tags/plugin/" rel="tag"># plugin</a>
           
         </div>
       
@@ -419,8 +414,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/22/ios-article/" rel="next" title="iOS处理单双击手势冲突问题">
-                <i class="fa fa-chevron-left"></i> iOS处理单双击手势冲突问题
+              <a href="/2017/06/23/ionic-article/" rel="next" title="ionic优秀资源整理">
+                <i class="fa fa-chevron-left"></i> ionic优秀资源整理
               </a>
             
           </div>
@@ -429,8 +424,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/23/cordova-plugin-geolocation/" rel="prev" title="cordova 逆地理编码插件(OC)">
-                cordova 逆地理编码插件(OC) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/23/plugin-method-of-use/" rel="prev" title="cordova插件用法详述(内含demo)">
+                cordova插件用法详述(内含demo) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
