@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>火の玉</title>
+  <subtitle>一枚普通iOS程序猿</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-06-23T08:48:31.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>火の玉</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>上传苹果商店时一个不太平常的error</title>
+    <link href="http://yoursite.com/2017/06/23/appStore-upload-error/"/>
+    <id>http://yoursite.com/2017/06/23/appStore-upload-error/</id>
+    <published>2017-06-23T03:20:54.000Z</published>
+    <updated>2017-06-23T08:48:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>This action could not be completed. Try again. (-22421)</p>
+</blockquote>
+<p>报错如图所示:<br><img src="http://upload-images.jianshu.io/upload_images/1893416-85e459204bdd5bc4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="-22421上传appStore错误.png"></p>
+<p>以前一直以为像这种错误只可能是网络问题, 最近升级了xcode, 出现这个问题, 解决两天才弄出来. 想来也最怕这种定位不到的问题, 网上众说纷纭, 最后在苹果的官方论坛里找到这个解决办法, 下面几十个点赞, 看来出问题的不止我一个, 也谢谢他们的分享, 哈哈;<br><a id="more"></a><br>解决办法如下, 在终端按照步骤依次输入code:<br>step1:</p>
+<blockquote>
+<p>cd ~  </p>
+</blockquote>
+<p>step2:</p>
+<blockquote>
+<p>mv .itmstransporter/ .old_itmstransporter/  </p>
+</blockquote>
+<p>step3:</p>
+<blockquote>
+<p>“/Applications/Xcode.app/Contents/Applications/Application Loader.app/Contents/itms/bin/iTMSTransporter”</p>
+</blockquote>
+<p>之后再次提交应该可以了, 希望能帮助到大家;</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;This action could not be completed. Try again. (-22421)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;报错如图所示:&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1893416-85e459204bdd5bc4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;-22421上传appStore错误.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;以前一直以为像这种错误只可能是网络问题, 最近升级了xcode, 出现这个问题, 解决两天才弄出来. 想来也最怕这种定位不到的问题, 网上众说纷纭, 最后在苹果的官方论坛里找到这个解决办法, 下面几十个点赞, 看来出问题的不止我一个, 也谢谢他们的分享, 哈哈;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+      <category term="appStore" scheme="http://yoursite.com/tags/appStore/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cordova插件用法详述(内含demo)</title>
+    <link href="http://yoursite.com/2017/06/23/plugin-method-of-use/"/>
+    <id>http://yoursite.com/2017/06/23/plugin-method-of-use/</id>
+    <published>2017-06-23T03:13:37.000Z</published>
+    <updated>2017-06-23T03:33:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一. 导入插件用法(以cordova-plugin-appversion为例)<br>1.导入方法:<br>添加插件;</p>
+<blockquote>
+<p>cordova plugin add cordova-plugin-appversion</p>
+</blockquote>
+<p>2.文件概述:<br>导入的文件, 系统已自动配置好了一切需要配置的文件, 所以直接调用就OK了;<br>js:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"deviceready"</span>, onDeviceReady, <span class="literal">false</span>);</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onDeviceReady</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       <span class="comment">// 设置App的版本号</span></div><div class="line">       $scope.version = AppVersion.version;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>h5:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></div><div class="line">   当前myFirstProject的版本为&#123;&#123;version&#125;&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>效果图:(包含了该插件的其他方法, 具体参见demo)</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1893416-0a34f6839beed93c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="导入插件用法.png"><br>注意:<br>       一般的插件，可以直接调用; 但是这种涉及到硬件或者系统的插件，就需要加上这个监听事件;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 监听事件</span></div><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"deviceready"</span>, onDeviceReady, <span class="literal">false</span>);</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onDeviceReady</span>(<span class="params"></span>)</span>&#123;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>附:<br><a href="https://www.npmjs.com/package/cordova-plugin-appversion" target="_blank" rel="external">cordova-plugin-appversion插件官方解释</a><br><a href="http://www.hangge.com/blog/cache/detail_1158.html" target="_blank" rel="external">Cordova - 常用的插件与终端插件命令汇总</a></p>
+<p>二.自定义插件用法<br>1.创建自定义插件<br>插件目录如下:</p>
+<blockquote>
+<p>|MyMath<br>—-|src<br>———|android<br>————–MyMath.java<br>———|ios<br>————–MyMath.m<br>—-|www<br>———|MyMath.js<br>—-plugin.xml</p>
+</blockquote>
+<p>注意:<br> 创建插件可以自己按照插件目录创建, 这样plugin.xml文件中太繁琐; 本文推荐用plugman创建插件, 既方便又不容易出错;<br>附:<br><a href="http://blog.csdn.net/b2259909/article/details/52471178?locationNum=2" target="_blank" rel="external"><a href="http://blog.csdn.net/b2259909/article/details/52471178" target="_blank" rel="external">使用plugman 创建一个自己的cordova插件</a></a></p>
+<p>2.导入自定义插件<br>按照链接创建好插件后, 就开始导入插件了; 这里我被坑的不浅啊, 看网上把插件放在plugins文件下, 然后update platforms; 可是完全不起作用, 还一顿报错; 原来此处就一句代码解决了;<br>下方为终端输入:</p>
+<blockquote>
+<p>cordova plugin add /Users/apple/Desktop/test1</p>
+</blockquote>
+<p>该方法添加插件后, 相应的config.xml, cordova_plugins.js, plugins会自动配置, 无需像手动导入的那么繁琐, 还容易出错;</p>
+<p>3.使用说明<br>demo给plugman创建的插件重新写入了方法, 具体实现看demo, 下方附上效果图;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1893416-0d5d18bb372b58c5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="自定义插件用法.png"></p>
+<p><a href="https://github.com/binzi56/test1.git" target="_blank" rel="external">点击下载demo</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一. 导入插件用法(以cordova-plugin-appversion为例)&lt;br&gt;1.导入方法:&lt;br&gt;添加插件;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;cordova plugin add cordova-plugin-appversion&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;2.文件概述:&lt;br&gt;导入的文件, 系统已自动配置好了一切需要配置的文件, 所以直接调用就OK了;&lt;br&gt;js:&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.addEventListener(&lt;span class=&quot;string&quot;&gt;&quot;deviceready&quot;&lt;/span&gt;, onDeviceReady, &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onDeviceReady&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       &lt;span class=&quot;comment&quot;&gt;// 设置App的版本号&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;       $scope.version = AppVersion.version;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
+    
+    
+      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
+    
+      <category term="plugin" scheme="http://yoursite.com/tags/plugin/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cordova 逆地理编码插件(OC)</title>
+    <link href="http://yoursite.com/2017/06/23/cordova-plugin-geolocation/"/>
+    <id>http://yoursite.com/2017/06/23/cordova-plugin-geolocation/</id>
+    <published>2017-06-23T03:02:52.000Z</published>
+    <updated>2017-06-23T03:32:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文主要介绍iOS的逆地理定位插件,  用过官方的cordova-plugin-geolocation插件的都清楚, 该插件虽然得到了经纬度, 但是没法转换成我们想要位置信息, 于是就需要一个插件将经纬度转化为位置信息, 即逆地理编码;<br>1.插件介绍<br>该插件是用OC做的一个经纬度转换为位置的插件; OC内部通过CLGeocoder的方法实现逆地理编码;由于需要调用系统硬件, 所以该插件直到deviceready事件发生后才可用;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"deviceready"</span>, onDeviceReady, <span class="literal">false</span>);</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onDeviceReady</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"deviceready"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>2.自定义插件的添加<br>下载好插件后, 直接添加本地目录即可;(插件最下方附上链接地址)</p>
+<blockquote>
+<p>cordova plugin add  /Users/apple/Desktop/cordova-plugin-reverseGeocoding</p>
+</blockquote>
+<p>3.用法实例<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"deviceready"</span>, onDeviceReady, <span class="literal">false</span>);</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onDeviceReady</span>(<span class="params"></span>) </span>&#123;</div><div class="line">     <span class="function"><span class="keyword">function</span> <span class="title">success</span>(<span class="params">message</span>)</span>&#123;</div><div class="line">           alert(<span class="string">"定位成功:"</span> + message);</div><div class="line">           &#125;;</div><div class="line"></div><div class="line">           <span class="function"><span class="keyword">function</span> <span class="title">error</span>(<span class="params">message</span>)</span>&#123;</div><div class="line">           alert(<span class="string">"定位失败:"</span> + message);</div><div class="line">           &#125;;</div><div class="line">           cordova.plugins.reverseGeocoding.address([<span class="number">24.840882</span>, <span class="number">102.843752</span>], success, error);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4.使用说明<br>返回的message是一个对象, 对象的结构如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// &#123;</div><div class="line">//     City = &quot;昆明市&quot;;</div><div class="line">//     Country = &quot;中国&quot;;</div><div class="line">//     CountryCode = CN;</div><div class="line">//     FormattedAddressLines =     (</div><div class="line">//         &quot;中国云南省昆明市呈贡区吴家营街道仕林街&quot;</div><div class="line">//     );</div><div class="line">//     Name = &quot;仕林街&quot;;</div><div class="line">//     State = &quot;云南省&quot;;</div><div class="line">//     Street = &quot;仕林街&quot;;</div><div class="line">//     SubLocality = &quot;呈贡区&quot;;</div><div class="line">//     Thoroughfare = &quot;仕林街&quot;;</div><div class="line">// &#125;</div></pre></td></tr></table></figure></p>
+<p>5.要点介绍<br>由于系统默认的语言是英文, 有些工程返回的数据信息是英文;之前试过更改NSUserDefaults里面的AppleLanguages, 去改变系统语言, 但是估计系统做了缓存处理, 所以程序重启后才生效.  最后用了一种简便的方法来实现切换语言, 如下图所示;<br>(1)首先打开工程的edit scheme;<br><img src="http://upload-images.jianshu.io/upload_images/1893416-5d33d29e9c1850f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2017-03-27 上午9.37.45.png"><br>(2)在run-options-application language中选择中文简体;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1893416-039a6f17e6c3fa99.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2017-03-27 上午9.38.09.png"><br>(3)如果(2)中可以选择中文简体则不用执行这步;<br>有的工程里面没有其他语言;则可在Localizations中添加;<br><img src="http://upload-images.jianshu.io/upload_images/1893416-6ba19405be8da24f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2017-03-27 上午9.48.44.png"><br>注:<br>如果(3)还不可以选择中文的话, 可以新建一个OC工程(不是ionic工程哦, 用Xcode打开一个工程, 然后command+shift+n新建一个), 执行(3)中添加中文简体, 然后将最外面的zh-Hans.lproj文件夹copy到你的工程里面最外面的文件夹, 之后问题解决;值得注意的是, 执行了(3)后的添加localizations, 还得执行(2)中的切换系统语言;</p>
+<p>附:<br><a href="https://github.com/binzi56/cordova-plugin-reverseGeocoding.git" target="_blank" rel="external">插件下载地址</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要介绍iOS的逆地理定位插件,  用过官方的cordova-plugin-geolocation插件的都清楚, 该插件虽然得到了经纬度, 但是没法转换成我们想要位置信息, 于是就需要一个插件将经纬度转化为位置信息, 即逆地理编码;&lt;br&gt;1.插件介绍&lt;br&gt;该插件是用OC做的一个经纬度转换为位置的插件; OC内部通过CLGeocoder的方法实现逆地理编码;由于需要调用系统硬件, 所以该插件直到deviceready事件发生后才可用;&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.addEventListener(&lt;span class=&quot;string&quot;&gt;&quot;deviceready&quot;&lt;/span&gt;, onDeviceReady, &lt;span class=&quot;literal&quot;&gt;false&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onDeviceReady&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(&lt;span class=&quot;string&quot;&gt;&quot;deviceready&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
+    
+    
+      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
+    
+      <category term="objective-c" scheme="http://yoursite.com/tags/objective-c/"/>
+    
+      <category term="plugin" scheme="http://yoursite.com/tags/plugin/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ionic优秀资源整理</title>
+    <link href="http://yoursite.com/2017/06/23/ionic-article/"/>
+    <id>http://yoursite.com/2017/06/23/ionic-article/</id>
+    <published>2017-06-23T02:53:57.000Z</published>
+    <updated>2017-06-23T08:56:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>网上关于ionic的资源比较少, 好多刚入门的开发者找不到入门指导资源, 下面就推荐一些个人觉得比较好的资源;</p>
+<p>一. 入门级指导<br>官方文档, 这个当然必不可少<br><a href="https://ionicframework.com/docs/" target="_blank" rel="external">https://ionicframework.com/docs/</a></p>
+<p>中文版的ionic文档，给英文不好的朋友<br> <a href="http://www.ionic.wang/js_doc-index.html" target="_blank" rel="external">http://www.ionic.wang/js_doc-index.html</a></p>
+<p>ionic菜鸟教程, 里面有许多基础知识<br><a href="http://www.runoob.com/ionic/ionic-install.html" target="_blank" rel="external">http://www.runoob.com/ionic/ionic-install.html</a><br><a id="more"></a><br>ionic2文档整理, 里面包含了所有控件的用法整理,很实用<br><a href="http://rainey.space/2016/04/06/Ionic2_Chinese_Document/" target="_blank" rel="external">http://rainey.space/2016/04/06/Ionic2_Chinese_Document/</a></p>
+<p>小虎Oni的博客, 里面算是一些进阶的内容(包括按需加载controller, 一些性能优化等等)<br><a href="http://blog.csdn.net/onil_chen/article/category/6113346/2" target="_blank" rel="external">http://blog.csdn.net/onil_chen/article/category/6113346/2</a></p>
+<p>二.解决一些问题<br>cnodejs社区ionic，可以学习一下<br><a href="https://cnodejs.org/topic/545aee5a3e1f39344c5b3b3e" target="_blank" rel="external">https://cnodejs.org/topic/545aee5a3e1f39344c5b3b3e</a></p>
+<p>皓眸IT的博客，有许多ionic的知识，挺有价值的<a href="http://haomou.Net/2014/10/06/2014_ionic_learn/" target="_blank" rel="external">http://haomou.Net/2014/10/06/2014_ionic_learn/</a></p>
+<p>ionic国内社区，可以互相学习下<br><a href="http://ionichina.com/" target="_blank" rel="external">http://ionichina.com/</a></p>
+<p>三. 插件学习<br>cordova插件用法详述(内含demo), 这个是我之前写的, 入门级的demo, 可以看看简单插件怎么写, OC与js的交互是怎样的<br><a href="http://www.jianshu.com/p/138568e87e7e" target="_blank" rel="external">http://www.jianshu.com/p/138568e87e7e</a></p>
+<p>cordova插件学习，对用ionic做开发会有帮助的<br><a href="http://rensanning.iteye.com/blog/2163892" target="_blank" rel="external">http://rensanning.iteye.com/blog/2163892</a></p>
+<p>四. 一些demo合集<br>一些ionic的简单例子，从这些简单代码可以学到很多知识和理念  <a href="http://codepen.io/ionic/public-list/" target="_blank" rel="external">http://codepen.io/ionic/public-list/</a></p>
+<p>Ionic系列——CodePen上的优秀Ionic_Demo<br><a href="https://my.oschina.net/u/1416844/blog/514361?fromerr=bbFC5JIl" target="_blank" rel="external">https://my.oschina.net/u/1416844/blog/514361?fromerr=bbFC5JIl</a></p>
+<p>ionic扩展插件, 包括:时间选择; 日期选择; 省市县三级联动等;<br><a href="http://www.cnblogs.com/luckyuns/p/6168715.html" target="_blank" rel="external">http://www.cnblogs.com/luckyuns/p/6168715.html</a></p>
+<p>五.爬坑指南(一些问题的解决办法)<br>1.新建的工程一般写在外面的www文件中, build后会自动同步到staging文件夹下的www文件中;添加插件会自动build;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1893416-d07abd750a56720f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2017-03-13 下午2.31.04.png"></p>
+<p>2.cordova没有跨域问题<br><img src="http://upload-images.jianshu.io/upload_images/1893416-fa60330810a1263a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2017-03-28 下午4.41.56.png"><br>开发的时候遇到这个问题, 试了网上许多跨域的方法都没用;<br>解决方案:(config.xml中修改)<br><img src="http://upload-images.jianshu.io/upload_images/1893416-b3f6c206cdca3f22.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="BEEEF561E73FD4C16CF33EA81BFC2AEF.jpg"><br>如果是浏览器，启动浏览器时带上参数 –disable-web-security “C:\Program Files (x86)\Google\Chrome\Application\chrome.exe” –user-data-dir=”” –disable-web-security</p>
+<p>附:<br>Ionic常见问题及解决方案<br><a href="http://blog.csdn.net/molong421/article/details/51587853" target="_blank" rel="external">http://blog.csdn.net/molong421/article/details/51587853</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;网上关于ionic的资源比较少, 好多刚入门的开发者找不到入门指导资源, 下面就推荐一些个人觉得比较好的资源;&lt;/p&gt;
+&lt;p&gt;一. 入门级指导&lt;br&gt;官方文档, 这个当然必不可少&lt;br&gt;&lt;a href=&quot;https://ionicframework.com/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://ionicframework.com/docs/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;中文版的ionic文档，给英文不好的朋友&lt;br&gt; &lt;a href=&quot;http://www.ionic.wang/js_doc-index.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.ionic.wang/js_doc-index.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ionic菜鸟教程, 里面有许多基础知识&lt;br&gt;&lt;a href=&quot;http://www.runoob.com/ionic/ionic-install.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.runoob.com/ionic/ionic-install.html&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
+    
+    
+      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
+    
+      <category term="resources" scheme="http://yoursite.com/tags/resources/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS处理单双击手势冲突问题</title>
+    <link href="http://yoursite.com/2017/06/22/ios-article/"/>
+    <id>http://yoursite.com/2017/06/22/ios-article/</id>
+    <published>2017-06-22T08:57:51.000Z</published>
+    <updated>2017-06-23T03:04:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这个是之前开发中遇到的一个问题. 当一个视图同时响应单双击手势, 而实际上需要它只响应一个手势就行; 这种情况当手势同时加在一个视图上或者两个视图的关系为父子级时出现, 下面就来介绍一下处理的方法;<br>这里展示一个demo:<br>如图所示, 在storyboard中拖入两个view, 分别为bigView和smallView, smallView为bigView的子视图;</p>
+<p><img src="https://ooo.0o0.ooo/2017/06/22/594b8b9fda051.png" alt=""><br>接下来给这两个视图拖入属性后, 给smallView加上单击事件, bigView加上双击事件;<br><a id="more"></a><br>代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">#import &quot;ViewController.h&quot;</div><div class="line"></div><div class="line">@interface ViewController ()</div><div class="line">@property (weak, nonatomic) IBOutlet UIView *bigView;</div><div class="line">@property (weak, nonatomic) IBOutlet UIView *smallView;</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad</div><div class="line">&#123;</div><div class="line">    [super viewDidLoad];</div><div class="line"></div><div class="line">   UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(singleTap:)];</div><div class="line"></div><div class="line">   [singleTapGestureRecognizer setNumberOfTapsRequired:1];</div><div class="line">   [_smallView addGestureRecognizer:singleTapGestureRecognizer];</div><div class="line"></div><div class="line">   UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(doubleTap:)];</div><div class="line">   [doubleTapGestureRecognizer setNumberOfTapsRequired:2];</div><div class="line">   [_bigView addGestureRecognizer:doubleTapGestureRecognizer];</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)singleTap:(UIGestureRecognizer*)gestureRecognizer</div><div class="line">&#123;</div><div class="line">   NSLog(@&quot;-----singleTap-----&quot;);</div><div class="line">   [_smallView setBackgroundColor:[UIColor yellowColor]];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)doubleTap:(UIGestureRecognizer*)gestureRecognizer</div><div class="line">&#123;</div><div class="line">   NSLog(@&quot;-----doubleTap-----&quot;);</div><div class="line">   [_bigView setBackgroundColor:[UIColor redColor]];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>接下来如果双击smallView, 你会发现视图变成下面这样:</p>
+<p><img src="https://ooo.0o0.ooo/2017/06/22/594b9063a315f.png" alt=""><br>本来双击只加载在smallView的父视图bigView上, 结果smallView也响应了, 这就尴尬了😓了;<br>处理方式其实挺简单, 只不过最开始找了好久;<br>下面贴出代码:(在viewDidLoad方法末尾添加)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//这行很关键，意思是只有当没有检测到doubleTapGestureRecognizer或者检测doubleTapGestureRecognizer失败，singleTapGestureRecognizer才有效</div><div class="line">    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];</div></pre></td></tr></table></figure></p>
+<p>好了, 完美解决(<em>^__^</em>) 嘻嘻……</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这个是之前开发中遇到的一个问题. 当一个视图同时响应单双击手势, 而实际上需要它只响应一个手势就行; 这种情况当手势同时加在一个视图上或者两个视图的关系为父子级时出现, 下面就来介绍一下处理的方法;&lt;br&gt;这里展示一个demo:&lt;br&gt;如图所示, 在storyboard中拖入两个view, 分别为bigView和smallView, smallView为bigView的子视图;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ooo.0o0.ooo/2017/06/22/594b8b9fda051.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;接下来给这两个视图拖入属性后, 给smallView加上单击事件, bigView加上双击事件;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+      <category term="objective-c" scheme="http://yoursite.com/tags/objective-c/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js处理手势冲突之冒泡用法</title>
+    <link href="http://yoursite.com/2017/06/22/js-article/"/>
+    <id>http://yoursite.com/2017/06/22/js-article/</id>
+    <published>2017-06-22T04:07:01.000Z</published>
+    <updated>2017-06-23T03:24:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://ooo.0o0.ooo/2017/06/22/594b8239c64d5.jpeg" alt=""><br>​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例.</p>
+<h4 id="一-event-preventDefault"><a href="#一-event-preventDefault" class="headerlink" title="一.event.preventDefault()"></a>一.event.preventDefault()</h4><p>​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;<br>例:<br>   下方为html代码:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">link</span>=<span class="string">"https://www.baidu.com"</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>​    具体处理方式如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">  $(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  $(<span class="string">"a"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">​     event.preventDefault();</div><div class="line">​   &#125;);</div><div class="line">&#125;);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>参考链接:<br><a href="http://www.w3school.com.cn/jquery/event_preventdefault.asp" target="_blank" rel="external">jQuery 事件 - preventDefault() 方法</a></p>
+<h4 id="二-event-stopPropagation"><a href="#二-event-stopPropagation" class="headerlink" title="二.event.stopPropagation()"></a>二.event.stopPropagation()</h4><p>​    该方法将停止事件的传播，阻止它被分派到其他 Document 节点。在事件传播的任何阶段都可以调用它。注意，虽然该方法不能阻止同一个 Document 节点上的其他事件句柄被调用，但是它可以阻止把事件分派到其他节点。<br>例:<br>​    下方为html代码:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">click</span>=<span class="string">"outsideDivAction()"</span> <span class="attr">style</span>=<span class="string">"background:blue;"</span>&gt;</span></div><div class="line">​    <span class="tag">&lt;<span class="name">div</span> <span class="attr">click</span>=<span class="string">"insideDivAction()"</span> <span class="attr">style</span>=<span class="string">"background:red;"</span>&gt;</span></div><div class="line">​     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>​    js中代码如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">  $scope.outsideDivAction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">​     <span class="built_in">console</span>.log(<span class="string">"外面div方法执行"</span>);</div><div class="line">&#125;;</div><div class="line">  $scope.insideDivAction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">​      <span class="built_in">console</span>.log(<span class="string">"里面div方法执行"</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>​    执行上方代码发现, 点击里面的div, 外面的方法也会执行; 往往在实际工程中, 需要屏蔽外面的方法, 解决代码如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"> $scope.insideDivAction = <span class="function"><span class="keyword">function</span>(<span class="params">$event</span>)</span>&#123;</div><div class="line">​       $event.stopPropagation();</div><div class="line">​       <span class="built_in">console</span>.log(<span class="string">"里面div方法执行"</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>​    本以为这样就可以了, 但是后来才发现$event其实也算一个参数, 所以得在html中传递一下;<br>​    html中添加参数如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">click</span>=<span class="string">"insideDivAction($event)"</span> <span class="attr">style</span>=<span class="string">"background:red;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>参考链接:<br><a href="http://www.w3school.com.cn/jsref/event_stoppropagation.asp" target="_blank" rel="external">stopPropagation() 方法</a><br>希望这篇文章能帮到大家, 谢谢;</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://ooo.0o0.ooo/2017/06/22/594b8239c64d5.jpeg&quot; alt=&quot;&quot;&gt;&lt;br&gt;​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例.&lt;/p&gt;
+&lt;h4 id=&quot;一-event-preventDefault&quot;&gt;&lt;a href=&quot;#一-event-preventDefault&quot; class=&quot;headerlink&quot; title=&quot;一.event.preventDefault()&quot;&gt;&lt;/a&gt;一.event.preventDefault()&lt;/h4&gt;&lt;p&gt;​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;&lt;br&gt;例:&lt;br&gt;   下方为html代码:&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;link&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;https://www.baidu.com&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;百度&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="js" scheme="http://yoursite.com/categories/js/"/>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
+  
+</feed>
