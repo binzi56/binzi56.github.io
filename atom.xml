@@ -140,9 +140,9 @@
       <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
     
     
-      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
-    
       <category term="objective-c" scheme="http://yoursite.com/tags/objective-c/"/>
+    
+      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
     
       <category term="plugin" scheme="http://yoursite.com/tags/plugin/"/>
     
