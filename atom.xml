@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-30T07:32:32.000Z</updated>
+  <updated>2017-07-03T06:11:55.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,116 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《AngularJs权威指南》学习笔记---指令</title>
+    <link href="http://yoursite.com/2017/06/30/angularjs-bookNote/"/>
+    <id>http://yoursite.com/2017/06/30/angularjs-bookNote/</id>
+    <published>2017-06-30T08:45:16.000Z</published>
+    <updated>2017-07-03T06:11:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://ooo.0o0.ooo/2017/06/30/5956101095606.png" alt="《AngularJs权威指南》"><br>记得最开始学习ionic混合开发的时候, 朋友们都推荐我先学学angular.js, 然后再看ionic框架的东西; 现在想来也确实, ionic框架基本都是UI相关的知识, 并不难, 而页面里面涉及到angular.js的各种逻辑才是真正能让一个人成为大牛的知识;</p>
+<p>选这本书就是因为朋友们都推荐这本, 而且讲的还不错, 最重要的是他们有资源, O(∩_∩)O哈哈~</p>
+<p>首先介绍一下本书中关于指令的知识结构:</p>
+<p><img src="https://ooo.0o0.ooo/2017/06/30/595622359f429.png" alt="AngularJs权威指南之指令思维导图"><br><a id="more"></a></p>
+<h4 id="一-指令简介"><a href="#一-指令简介" class="headerlink" title="一. 指令简介"></a>一. 指令简介</h4><p>用过HTML的都知道, 往往在实现一些特殊功能的时候, 原有的HTML标签并不完全能满足设计要求, 这时候指令就派上用场了; 指令本质上就是扩展一些自定义的HTML元素以实现一些特定的功能;</p>
+<h4 id="二-内置指令"><a href="#二-内置指令" class="headerlink" title="二. 内置指令"></a>二. 内置指令</h4><p>AngularJS事实上也是在原生JS的基础上进行一些扩展和优化, 自然就会包括一些自定义的内置指令; 除了form和a等一些重载了原生的HTML元素, 其他的内置指令通常以ng作为前缀; 这样做的目的也是对原生的一种优化, 比如常用的href指令, 无论里面的链接是可用还是, 不可用的, 当调用href的时候, 就会直接返回调用结果; 而ng-href指令则是当里面的表达式调用并且返回一个值的时候才开启, 否则会是一个禁用状态; 当然既然人家官方用ng这个前缀, 你就不要跟人家抢了, 换一个, 大家和谐一点儿;</p>
+<p>有网友总结了一下AngularJS的内置指令, 一共有63个;</p>
+<p><img src="https://ooo.0o0.ooo/2017/07/02/595868ba9db00.png" alt=""></p>
+<p>简单介绍一下form指令:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></div><div class="line">First name:<span class="tag">&lt;/<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"firstname"</span> <span class="attr">value</span>=<span class="string">"huo"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">Last name:<span class="tag">&lt;/<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"lastname"</span> <span class="attr">value</span>=<span class="string">"yu"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>效果图:</p>
+<p><img src="https://ooo.0o0.ooo/2017/07/02/59586ae064bcd.png" alt=""></p>
+<p>要注意一下几点:</p>
+<ul>
+<li>HTML原生的form表单是不能嵌套的, 但Angular封装后可以嵌套</li>
+<li>Angular为form扩展了自动校验, 防止重复提交等功能</li>
+<li>Angular对input元素的type进行了了扩展, 一共提供一下10中类型:<br>text, number, url, email, radio, checkbox, hidden, button, submit, reset;</li>
+<li>Angular为表单内置了4种CSS样式<br>ng-valid, ng-invalid, ng-pristine, ng-dirty;</li>
+<li>内置校验器: require, minlength, maxlength</li>
+</ul>
+<h4 id="三-指令详解"><a href="#三-指令详解" class="headerlink" title="三. 指令详解"></a>三. 指令详解</h4><h5 id="1-指令定义"><a href="#1-指令定义" class="headerlink" title="1. 指令定义"></a>1. 指令定义</h5><p>本书中对指令的定义是在特定DOM元素上运行的函数, 指令可以扩展这个元素的功能;<br>在Angular中是通过directive()这个模块来定义指令的;而directive()可以接受两个参数:</p>
+<ul>
+<li>name<br>指令的名字</li>
+<li>factory_function(函数)<br>这个函数定义了指令的行为<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"> angular.application(<span class="string">'myApp'</span>, [])</div><div class="line">     .directive(<span class="string">'myDirective'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">     <span class="comment">//  一个指令定义对象</span></div><div class="line">     <span class="keyword">return</span> &#123;</div><div class="line">             <span class="comment">//  通过设置项来定义指令, 在这里进行填写</span></div><div class="line">            &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>在HTML中调用就行:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">my-directive</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h5 id="2-指令函数介绍"><a href="#2-指令函数介绍" class="headerlink" title="2. 指令函数介绍"></a>2. 指令函数介绍</h5><p><strong>2.1 restrict(字符串)</strong></p>
+<p><img src="https://ooo.0o0.ooo/2017/07/02/5958743024814.png" alt=""></p>
+<p>这些选项可以单独使用, 也可以混合使用;</p>
+<p><strong>2.2 优先级(数值型)</strong><br>由于考虑到性能问题, ngRepeat被设置成所有内置指令中优先级最高的; 当然如果两个元素的优先级一样, 会执行先声明的那个;</p>
+<p><strong>2.3 terminal(布尔型)</strong><br>它用来告诉AngularJs停止运行当前元素上比本指令优先级低的指令, 但当优先级相同的情况还是会运行;<br>例如:ngView和ngIf, ngIf的优先级略高于ngView, 如果ngIf表达式为true, ngView就可以被正常执行; 但如果ngIf的表达式为false, ngView就不会被执行;</p>
+<p><strong>2.4 template(字符串或函数)</strong><br>template参数必须被设置成以下两种形式之一:</p>
+<ul>
+<li>一段HTML文本</li>
+<li>一个可以接受两个参数的的函数, 参数为tElement和tAttrs, 并返回一个代表模板的字符串;</li>
+</ul>
+<p><strong>2.5 templateUrl(字符串或函数)</strong><br>templateUrl参数可以是以下形式:</p>
+<ul>
+<li>一个代表外部HTML文件的路径字符串</li>
+<li>一个可以接受两个参数的的函数, 参数为tElement和tAttrs, 并返回一个代表模板的字符串;</li>
+</ul>
+<p><strong>2.6 replace(布尔型)</strong><br>replace是个可选参数, 默认为false; 当设置为true后<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.directive(<span class="string">'someDirective'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">         <span class="keyword">return</span> &#123;</div><div class="line">             <span class="attr">replace</span>: <span class="literal">true</span></div><div class="line">             template: <span class="string">'&lt;div&gt;looking for something&lt;div&gt;'</span></div><div class="line">                &#125;;</div><div class="line"> &#125;);</div></pre></td></tr></table></figure></p>
+<p>输出结果为:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>looking for something<span class="tag">&lt;<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><strong>2.7 scope参数(布尔型或对象)</strong><br>scope参数有三种取值方式;<br><strong>2.7.1 false(默认值)</strong><br>直接使用父scope, 内部并没有一个新的scope，它和指令以外的代码共享同一个scope。<br>①指令<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">app.directive(<span class="string">'myDirective'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">restrict</span>: <span class="string">'E'</span>,</div><div class="line">        <span class="attr">replace</span>: <span class="literal">true</span>,</div><div class="line">        <span class="attr">templateUrl</span>: <span class="string">'../templates/my_template.html'</span>,</div><div class="line">        <span class="attr">scope</span>: <span class="literal">false</span>,   <span class="comment">// 默认值</span></div><div class="line">        controller: <span class="literal">null</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>②指令模板(my_template.html)<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--这里ng-model绑定的input，就是父scope的变量input--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>自定义指令scope：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"input"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>结果：&#123;&#123;input&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>③指令的使用(index.html)<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"scopeTest"</span> <span class="attr">ng-controller</span>=<span class="string">"scopeTestStr"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>父scope：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"input"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--自定义指令--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">my-directive</span>&gt;</span><span class="tag">&lt;/<span class="name">my-directive</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>效果如下:</p>
+<p><img src="https://ooo.0o0.ooo/2017/07/03/5959b443bb7d1.gif" alt=""></p>
+<p><strong>2.7.2 true</strong>(继承父scope)<br>当设置为true的时候, 会从父作用域继承并创建一个新的作用域对象;<br>参照值为false的情况, 只是将值改为true; 效果如下:</p>
+<p><img src="https://ooo.0o0.ooo/2017/07/03/5959b5dfe7c63.gif" alt=""></p>
+<p><strong>2.7.3 { }</strong><br>创建一个新的”隔离”scope，但仍可与父scope通信;<br>隔离的scope，通常用于创建可复用的指令，也就是它不用管父scope中的model。然而虽然说是“隔离”，但通常我们还是需要让这个子scope跟父scope中的变量进行绑定。绑定的策略有3种：</p>
+<p><img src="https://ooo.0o0.ooo/2017/07/03/5959aee692741.png" alt=""></p>
+<p>①@ 单项绑定<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"scopeTest"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--外部scope--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>父scope：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"input"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--内部隔离scope--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">my-directive</span> <span class="attr">my-text</span>=<span class="string">"&#123;&#123;input&#125;&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-directive</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">        <span class="keyword">var</span> app = angular.module(<span class="string">'scopeTest'</span>, []);</div><div class="line">        app.directive(<span class="string">'myDirective'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> &#123;</div><div class="line">                <span class="attr">restrict</span>: <span class="string">'E'</span>,</div><div class="line">                <span class="attr">replace</span>: <span class="literal">true</span>,</div><div class="line">                <span class="attr">template</span>: <span class="string">'&lt;p&gt;自定义指令scope：&lt;input type="text" ng-model="myText"&gt;&lt;/p&gt;'</span>,</div><div class="line">                <span class="attr">scope</span>: &#123;</div><div class="line">                    <span class="attr">myText</span>: <span class="string">'@'</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>效果图:</p>
+<p><img src="https://ooo.0o0.ooo/2017/07/03/5959b6e8e19ad.gif" alt=""></p>
+<p>②= 双向绑定<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"scopeTest"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--外部scope--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>父scope：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"input"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!--内部隔离scope--&gt;</span></div><div class="line">    <span class="comment">&lt;!--注意这里，因为是双向绑定，所以这里不要“&#123;&#123;&#125;&#125;”这个符号--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">my-directive</span> <span class="attr">my-text</span>=<span class="string">"input"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-directive</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">        <span class="keyword">var</span> app = angular.module(<span class="string">'scopeTest'</span>, []);</div><div class="line">        app.directive(<span class="string">'myDirective'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> &#123;</div><div class="line">                <span class="attr">restrict</span>: <span class="string">'E'</span>,</div><div class="line">                <span class="attr">replace</span>: <span class="literal">true</span>,</div><div class="line">                <span class="attr">template</span>: <span class="string">'&lt;p&gt;自定义指令scope：&lt;input type="text" ng-model="myText"&gt;&lt;/p&gt;'</span>,</div><div class="line">                <span class="attr">scope</span>: &#123;</div><div class="line">                    <span class="attr">myText</span>: <span class="string">'='</span> <span class="comment">// 这里改成了双向绑定</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>效果图:</p>
+<p><img src="https://ooo.0o0.ooo/2017/07/03/5959b77332f29.gif" alt=""></p>
+<p>③&amp; 内部scope的函数返回值和外部scope绑定<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"scopeTest"</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!--外部scope--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>父scope：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">ng-model</span>=<span class="string">"input"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="comment">&lt;!--内部隔离scope--&gt;</span></div><div class="line">    <span class="comment">&lt;!--注意这里，函数名字也要用 连字符命名法--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">my-directive</span> <span class="attr">get-my-text</span>=<span class="string">"input"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-directive</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">        <span class="keyword">var</span> app = angular.module(<span class="string">'scopeTest'</span>, []);</div><div class="line">        app.directive(<span class="string">'myDirective'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">return</span> &#123;</div><div class="line">                <span class="attr">restrict</span>: <span class="string">'E'</span>,</div><div class="line">                <span class="attr">replace</span>: <span class="literal">true</span>,</div><div class="line">                <span class="attr">template</span>: <span class="string">'&lt;p&gt;结果：&#123;&#123; getMyText() &#125;&#125;&lt;/p&gt;'</span>,</div><div class="line">                <span class="attr">scope</span>: &#123;</div><div class="line">                    <span class="attr">getMyText</span>: <span class="string">'&amp;'</span> <span class="comment">// 这里改成了函数返回值的绑定</span></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>效果图:</p>
+<p><img src="https://ooo.0o0.ooo/2017/07/03/5959b7cd90cdd.gif" alt=""></p>
+<p><strong>2.8 transclude(布尔型)</strong><br>默认为false; 只有当你希望创建一个可以包含任意内容的指令的时候才会为true; 代码如下所示:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">app.directive('myDirective', function() &#123;</div><div class="line">    return &#123;</div><div class="line">        restrict: 'AE',</div><div class="line">        transclude: true,</div><div class="line">        template: "<span class="tag">&lt;<span class="name">div</span>&gt;</span> hellow angular ! <span class="tag">&lt;<span class="name">div</span> <span class="attr">ng-transclude</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>"</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><strong>2.9 controller(字符串或函数)</strong><br>指令内部的controller, 暴露一些public方法给内部指令使用;<br>①字符串;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>, [])</div><div class="line">  .directive(<span class="string">'myDirective'</span>,  <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">     restrict: <span class="string">'A'</span>, <span class="comment">// 始终需要</span></div><div class="line">     controller: <span class="string">'SomeController'</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 在应用中其他地方定义该控制器</span></div><div class="line">angular.module(<span class="string">'myApp'</span>)</div><div class="line">   .controller(<span class="string">'SomeController'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">$scope, $element, $attrs, $transclude</span>) </span>&#123;</div><div class="line">        <span class="comment">// 控制器逻辑</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>②函数<br>可以是指令内部通过匿名构造函数的方式来定义一个内联的控制器;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> angular.module(<span class="string">'myApp'</span>,[])</div><div class="line">     .directive(<span class="string">'myDirective'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">         restrict: <span class="string">'A'</span>,</div><div class="line">         <span class="attr">controller</span>:</div><div class="line">         <span class="function"><span class="keyword">function</span>(<span class="params">$scope, $element, $attrs, $transclude</span>) </span>&#123;</div><div class="line">               <span class="comment">// 控制器逻辑</span></div><div class="line">        &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>现在你也可以知道, 控制器中还有其他一些特殊的服务可以注入到指令中, 这些服务有:</p>
+<ul>
+<li>$scope  指令对应的作用域</li>
+<li>$element  指令对应的元素</li>
+<li>$attrs  当前元素属性组成的对象</li>
+<li>$transclude  嵌入链式函数会与对应的嵌入作用域进行预绑定</li>
+</ul>
+<blockquote>
+<p>在控制器内部操作DOM和angular.js风格相悖的做法, 但通过链式函数就可以实现这个需求; 例如在compile参数中使用transcludeFn是推荐的做法;</p>
+</blockquote>
+<p>本文提供了一个添加超链接的例子:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"> angular.module(<span class="string">'myApp'</span>)</div><div class="line">     .directive(<span class="string">'link'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> &#123;</div><div class="line">          <span class="attr">restrict</span>: <span class="string">'EA'</span>,</div><div class="line">          <span class="attr">transclude</span>: <span class="literal">true</span>,</div><div class="line">          <span class="attr">controller</span>:</div><div class="line">               <span class="function"><span class="keyword">function</span>(<span class="params">$scope, $element, $transclude, $log</span>) </span>&#123;</div><div class="line">               $transclude(<span class="function"><span class="keyword">function</span>(<span class="params">clone</span>) </span>&#123;</div><div class="line">                    <span class="keyword">var</span> a = angular.element(<span class="string">'&lt;a&gt;'</span>);</div><div class="line">                    a.attr(<span class="string">'href'</span>, clone.text());</div><div class="line">                    a.text(clone.text()); <span class="number">8</span> $log.info(<span class="string">"Created new a tag in link directive"</span>);</div><div class="line">                    $element.append(a);</div><div class="line">               &#125;);</div><div class="line">          &#125;</div><div class="line">      &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>link函数可以与控制器指令的控制器互换; 控制器用来提供指令间的复用行为, 但链接函数只能在当前内部指令中定义行为且无法在指令间复用;</p>
+<blockquote>
+<p>link函数可以将指令互相隔离, 而controller则定义可复用的行为;</p>
+</blockquote>
+<p>下面附一张link函数与compile函数的比较图:</p>
+<p><img src="https://ooo.0o0.ooo/2017/07/03/5959c0b371aa4.png" alt=""></p>
+<p><strong>2.10 require(字符串或数组)</strong><br>字符串或数组的值会是当前指令作用域中使用的指令名称, 即用来调用暴露的内部方法;</p>
+<p>对于指令的学习, 书中提供了内部原理, 当然光这些还是远远不够, 附上一个第三方指令库, 看看源码, 体验一下别人是怎么写的;<br><a href="https://angular-ui.github.io/" target="_blank" rel="external">AngularUI</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://ooo.0o0.ooo/2017/06/30/5956101095606.png&quot; alt=&quot;《AngularJs权威指南》&quot;&gt;&lt;br&gt;记得最开始学习ionic混合开发的时候, 朋友们都推荐我先学学angular.js, 然后再看ionic框架的东西; 现在想来也确实, ionic框架基本都是UI相关的知识, 并不难, 而页面里面涉及到angular.js的各种逻辑才是真正能让一个人成为大牛的知识;&lt;/p&gt;
+&lt;p&gt;选这本书就是因为朋友们都推荐这本, 而且讲的还不错, 最重要的是他们有资源, O(∩_∩)O哈哈~&lt;/p&gt;
+&lt;p&gt;首先介绍一下本书中关于指令的知识结构:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ooo.0o0.ooo/2017/06/30/595622359f429.png&quot; alt=&quot;AngularJs权威指南之指令思维导图&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="js" scheme="http://yoursite.com/categories/js/"/>
+    
+    
+      <category term="angular.js" scheme="http://yoursite.com/tags/angular-js/"/>
+    
+      <category term="读书笔记" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>关于IPV6审核被拒的完整分析</title>
@@ -96,9 +206,9 @@
       <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
-    
       <category term="appStore" scheme="http://yoursite.com/tags/appStore/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
     
   </entry>
   
@@ -188,9 +298,9 @@
       <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
-    
       <category term="appStore" scheme="http://yoursite.com/tags/appStore/"/>
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
     
   </entry>
   
@@ -350,9 +460,9 @@
       <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
     
     
-      <category term="objective-c" scheme="http://yoursite.com/tags/objective-c/"/>
-    
       <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+      <category term="objective-c" scheme="http://yoursite.com/tags/objective-c/"/>
     
   </entry>
   
