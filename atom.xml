@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-03T06:14:49.000Z</updated>
+  <updated>2017-07-07T08:50:41.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS性能优化---tableView懒加载图片</title>
+    <link href="http://yoursite.com/2017/07/07/iOS-tableView-image/"/>
+    <id>http://yoursite.com/2017/07/07/iOS-tableView-image/</id>
+    <published>2017-07-07T08:47:39.000Z</published>
+    <updated>2017-07-07T08:50:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>关于tableView的性能优化问题一直都是iOS开发者必备的一项优化技能, 可以好不夸张的说, app里面半数以上的页面都需要用到tableView; 对于它的优化网友也总结的非常详细, 鄙人就不详细解释了, 附个链接:<br><a href="http://www.jianshu.com/p/478b9424ec9b" target="_blank" rel="external">关于tableview的优化</a></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>本文主要介绍一下如何在tableView中实现懒加载图片, 别怪我多嘴, 一些初学者对懒加载的印象可能是这样的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">@interface ViewController()</div><div class="line">@property (nonatomic,strong) NSMutableArray *lazyLoadArr;</div><div class="line">@end</div><div class="line">@implementation ViewController</div><div class="line">- (NSMutableArray *)lazyLoadArr</div><div class="line">&#123;</div><div class="line">    if (!_lazyLoadArr) &#123;</div><div class="line">        _lazyLoadArr = [NSMutableArray array];</div><div class="line">    &#125;</div><div class="line">    return _lazyLoadArr;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>实例中定义了一个懒加载的可变数组, 重写数组的getter方法, 在该方法中判断是否存在<code>lazyLoadArr</code>, 如果存在就返回, 不存在就初始化, 这样保证数组只加载了一次; 而这个只是懒加载中比较常见的一种用法;<br>那么什么是懒加载呢?</p>
+<blockquote>
+<p><strong>懒加载</strong>也叫<strong>延迟加载</strong>, 或者通俗来讲就是<strong>用到时再去加载对象</strong></p>
+</blockquote>
+<p>也就是说用到这种思想的基本上都属于懒加载;</p>
+<hr>
+<p>其实在tableView懒加载图片也是app中比较常见的功能; 它可以可以减轻服务器的压力, 节约流量, 提高页面的加载速度等等, 费这么大劲儿, 最终也是为了更好的用户体验;<br>先附上实现效果图, 让大家感受一下:</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1893416-b3eef803d21197a4.gif?imageMogr2/auto-orient/strip" alt="效果图.gif"><br>这个例子节选自苹果的官方例子LazyTableImages实现图片懒加载;<br><a href="https://developer.apple.com/library/content/samplecode/LazyTableImages/Introduction/Intro.html#//apple_ref/doc/uid/DTS40009394" target="_blank" rel="external">LazyTableImages下载</a></p>
+<p>OK, 现在我们开始剖析一下代码;<br>附上工程目录:</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1893416-1a1201fce24801bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="工程目录.png"></p>
+<p>首先说一下细节部分, 其实也不是什么大问题, 留意一下:<br>①工程里面的AppDelegate类被替换成LazyTableAppDelegate, 其实在函数入口main.m替换下类就行;<br>②pch文件导入了Foundation, UIKit框架全局调用, 所以出现了以下情况:</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1893416-d80fea8b4712be69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="AppRecord.h"></p>
+<p>一般对对象的基础操作都放在了Foundation.h, 为了方便, 通常也就直接引入<foundation foundation.h="">;</foundation></p>
+<h4 id="数据请求"><a href="#数据请求" class="headerlink" title="数据请求"></a>数据请求</h4><p>为了减少数据延迟加载的卡顿感, demo里直接把数据请求写在了LazyTableAppDelegate文件中; 选一小段代码说一下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">__weak ParseOperation *weakParser = self.parser;</div><div class="line">self.parser.completionBlock = ^(void) &#123;</div><div class="line">    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;</div><div class="line">    if (weakParser.appRecordList != nil)</div><div class="line">    &#123;</div><div class="line">        dispatch_async(dispatch_get_main_queue(), ^&#123;</div><div class="line">            RootViewController *rootViewController =</div><div class="line">                (RootViewController*)[(UINavigationController*)weakSelf.window.rootViewController topViewController];</div><div class="line">            rootViewController.entries = weakParser.appRecordList;</div><div class="line">            [rootViewController.tableView reloadData];</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    weakSelf.queue = nil;</div><div class="line">&#125;;</div><div class="line">[self.queue addOperation:self.parser];</div></pre></td></tr></table></figure></p>
+<ul>
+<li>block循环引用问题, 这个经常遇到, 就不多说了;</li>
+<li>数据请求是在子线程里进行了, 然而要想对UI进行操作, 需要回到主线程, 刷新数据;</li>
+<li>对于<code>networkActivityIndicatorVisible</code>,  这个是UIApplication的一个属性, 用于在状态栏上显示菊花转的图标，表明网络状态,  而我们平常都是用MB或者SVP来表示网络加载的, 有可能没见过, 说明一下;</li>
+</ul>
+<h4 id="UI部分-tableView"><a href="#UI部分-tableView" class="headerlink" title="UI部分(tableView)"></a>UI部分(tableView)</h4><p>看了示意图我们发现只有在tableView松开的时候才加载图片, 那这个是怎么实现的呢, 我从tableView的<code>cellForRowAtIndexPath:</code>代理方法中选了一段代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">if (!appRecord.appIcon)</div><div class="line">   &#123;</div><div class="line">       if (self.tableView.dragging == NO &amp;&amp; self.tableView.decelerating == NO)</div><div class="line">       &#123;</div><div class="line">           [self startIconDownload:appRecord forIndexPath:indexPath];</div><div class="line">       &#125;</div><div class="line">       cell.imageView.image = [UIImage imageNamed:@&quot;Placeholder.png&quot;];</div><div class="line">   &#125;</div><div class="line">   else</div><div class="line">   &#123;</div><div class="line">      cell.imageView.image = appRecord.appIcon;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>当没有下载好的图片, 即<code>!appRecord.appIcon</code>时, 判断是否停止拖拽(<code>self.tableView.dragging == NO</code>)或者加速度为0(<code>self.tableView.decelerating == NO</code>), 都满足的话就下载图片, 这样就实现了图示效果;<br>但是光这样处理是不够的, 如果连续拖动, 不让tableView停止, 里面的图片是空的, 所以还要进行下面的操作:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate</div><div class="line">&#123;</div><div class="line">    if (!decelerate)</div><div class="line">	&#123;</div><div class="line">        [self loadImagesForOnscreenRows];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView</div><div class="line">&#123;</div><div class="line">    [self loadImagesForOnscreenRows];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由于tableView继承了scrollView, 所以才在<code>dragging</code>和<code>decelerating</code>结束的时候加载图片, 最终实现了图示效果;</p>
+<h4 id="优化亮点"><a href="#优化亮点" class="headerlink" title="优化亮点"></a>优化亮点</h4><h5 id="一-图片圆角优化"><a href="#一-图片圆角优化" class="headerlink" title="一. 图片圆角优化"></a>一. 图片圆角优化</h5><p>一般在开发中我们是这样给图片切圆角的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">myImage.layer.cornerRadius = 50;</div><div class="line">myImage.layer.masksToBounds = YES;</div></pre></td></tr></table></figure></p>
+<p>其中<code>masksToBounds(CALayer)</code>表示视图的图层上的子图层,如果超出父图层的部分就截取掉；还有<code>clipsToBounds(UIView)</code>，是指视图上的子视图,如果超出父视图的部分就截取掉。<br>在iOS9.0之前这样设置会触发离屏渲染，比较消耗性能。尤其是tableView中(处理了大量图片)，会明显的感到页面有轻微卡顿。<br>那要怎么处理呢, 一般我们用Core Graphics绘制圆角, 附上工程里的代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">CGSize itemSize = CGSizeMake(kAppIconSize, kAppIconSize);</div><div class="line">UIGraphicsBeginImageContextWithOptions(itemSize, NO, 0.0f);</div><div class="line">CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);</div><div class="line">[image drawInRect:imageRect];</div><div class="line">self.appRecord.appIcon = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">UIGraphicsEndImageContext();</div></pre></td></tr></table></figure></p>
+<h5 id="二-model的小技巧"><a href="#二-model的小技巧" class="headerlink" title="二. model的小技巧"></a>二. model的小技巧</h5><p>我们发现在工程中, 无论对于tableView来说, 还是下载图片来说, 都是对同一个对象进行操作, demo中把tableView数据里面的对象扩展了下面这两条属性:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@property (nonatomic, strong) UIImage *appIcon;</div><div class="line">@property (nonatomic, strong) NSString *imageURLString;</div></pre></td></tr></table></figure></p>
+<p>这样我们去下载图片的时候, 只需要传进去一个AppRecord类的对象, 返回来也是同一个对象:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> // 将下载完成的网络图片的data值传给这个对象</div><div class="line">UIImage *image = [[UIImage alloc] initWithData:data];</div><div class="line">self.appRecord.appIcon = image;</div></pre></td></tr></table></figure></p>
+<p>有人要问了只是简化了传入的数据嘛, 没什么特别的, 但是你细看tableView里面<code>cellForRowAtIndexPath</code>方法就会发现, 这样做既简化了逻辑判断, 又易于理解, 因为是同一个对象;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">AppRecord *appRecord = (self.entries)[indexPath.row];</div><div class="line">  if (!appRecord.appIcon)         //  简便的判断条件</div><div class="line">        &#123;</div><div class="line">            if (self.tableView.dragging == NO &amp;&amp; self.tableView.decelerating == NO)</div><div class="line">            &#123;</div><div class="line">                [self startIconDownload:appRecord forIndexPath:indexPath];</div><div class="line">            &#125;</div><div class="line">            cell.imageView.image = [UIImage imageNamed:@&quot;Placeholder.png&quot;];</div><div class="line">        &#125;</div><div class="line">        else</div><div class="line">        &#123;</div><div class="line">           cell.imageView.image = appRecord.appIcon;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p>
+<p>这个思想真是不由得让老铁双击666啊, 非常棒👍;</p>
+<p>好的, 这次就分享那么多, 以后还得研究更多更深的源码, 加油⛽️;</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关于tableView的性能优化问题一直都是iOS开发者必备的一项优化技能, 可以好不夸张的说, app里面半数以上的页面都需要用到tableView; 对于它的优化网友也总结的非常详细, 鄙人就不详细解释了, 附个链接:&lt;br&gt;&lt;a href=&quot;http://www.jianshu.com/p/478b9424ec9b&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;关于tableview的优化&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+      <category term="性能优化" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
   
   <entry>
     <title>《AngularJs权威指南》学习笔记---指令</title>
@@ -521,9 +577,9 @@
       <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
     
     
-      <category term="objective-c" scheme="http://yoursite.com/tags/objective-c/"/>
-    
       <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+    
+      <category term="objective-c" scheme="http://yoursite.com/tags/objective-c/"/>
     
   </entry>
   
