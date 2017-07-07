@@ -96,14 +96,15 @@
 <meta property="og:url" content="http://yoursite.com/2017/07/07/iOS-tableView-image/index.html">
 <meta property="og:site_name" content="火の玉">
 <meta property="og:description" content="关于tableView的性能优化问题一直都是iOS开发者必备的一项优化技能, 可以好不夸张的说, app里面半数以上的页面都需要用到tableView; 对于它的优化网友也总结的非常详细, 鄙人就不详细解释了, 附个链接:关于tableview的优化">
+<meta property="og:image" content="http://ospquvjh2.bkt.clouddn.com/17-7-7/422937.jpg">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-b3eef803d21197a4.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-1a1201fce24801bc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-d80fea8b4712be69.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-07-07T08:50:41.000Z">
+<meta property="og:updated_time" content="2017-07-07T09:16:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS性能优化---tableView懒加载图片">
 <meta name="twitter:description" content="关于tableView的性能优化问题一直都是iOS开发者必备的一项优化技能, 可以好不夸张的说, app里面半数以上的页面都需要用到tableView; 对于它的优化网友也总结的非常详细, 鄙人就不详细解释了, 附个链接:关于tableview的优化">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1893416-b3eef803d21197a4.gif?imageMogr2/auto-orient/strip">
+<meta name="twitter:image" content="http://ospquvjh2.bkt.clouddn.com/17-7-7/422937.jpg">
 
 
 
@@ -420,12 +421,11 @@
       
 
       
-        <p>关于tableView的性能优化问题一直都是iOS开发者必备的一项优化技能, 可以好不夸张的说, app里面半数以上的页面都需要用到tableView; 对于它的优化网友也总结的非常详细, 鄙人就不详细解释了, 附个链接:<br><a href="http://www.jianshu.com/p/478b9424ec9b" target="_blank" rel="external">关于tableview的优化</a></p>
+        <p><img src="http://ospquvjh2.bkt.clouddn.com/17-7-7/422937.jpg" alt=""><br>关于tableView的性能优化问题一直都是iOS开发者必备的一项优化技能, 可以好不夸张的说, app里面半数以上的页面都需要用到tableView; 对于它的优化网友也总结的非常详细, 鄙人就不详细解释了, 附个链接:<br><a href="http://www.jianshu.com/p/478b9424ec9b" target="_blank" rel="external">关于tableview的优化</a></p>
 <h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>本文主要介绍一下如何在tableView中实现懒加载图片, 别怪我多嘴, 一些初学者对懒加载的印象可能是这样的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">@interface ViewController()</div><div class="line">@property (nonatomic,strong) NSMutableArray *lazyLoadArr;</div><div class="line">@end</div><div class="line">@implementation ViewController</div><div class="line">- (NSMutableArray *)lazyLoadArr</div><div class="line">&#123;</div><div class="line">    if (!_lazyLoadArr) &#123;</div><div class="line">        _lazyLoadArr = [NSMutableArray array];</div><div class="line">    &#125;</div><div class="line">    return _lazyLoadArr;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
 <p>实例中定义了一个懒加载的可变数组, 重写数组的getter方法, 在该方法中判断是否存在<code>lazyLoadArr</code>, 如果存在就返回, 不存在就初始化, 这样保证数组只加载了一次; 而这个只是懒加载中比较常见的一种用法;<br>那么什么是懒加载呢?</p>
-<blockquote>
-<p><strong>懒加载</strong>也叫<strong>延迟加载</strong>, 或者通俗来讲就是<strong>用到时再去加载对象</strong></p>
-</blockquote>
+<blockquote class="blockquote-center"><strong>懒加载</strong>也叫<strong>延迟加载</strong>, 或者通俗来讲就是<strong>用到时再去加载对象</strong></blockquote>
+
 <p>也就是说用到这种思想的基本上都属于懒加载;</p>
 <hr>
 <p>其实在tableView懒加载图片也是app中比较常见的功能; 它可以可以减轻服务器的压力, 节约流量, 提高页面的加载速度等等, 费这么大劲儿, 最终也是为了更好的用户体验;<br>先附上实现效果图, 让大家感受一下:</p>
