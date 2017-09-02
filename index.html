@@ -326,7 +326,7 @@
               
                 
                 <a class="post-title-link" href="/2017/09/02/iOS-SDAutoLayout/" itemprop="url">
-                  ???????SDAutoLayout
+                  为什么我喜欢用SDAutoLayout
                 </a>
               
             
@@ -342,7 +342,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-02T13:27:37+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-02T13:40:59+08:00">
                 2017-09-02
               </time>
             
@@ -382,7 +382,7 @@
 
           
           
-             <span id="/2017/09/02/iOS-SDAutoLayout/" class="leancloud_visitors" data-flag-title="???????SDAutoLayout">
+             <span id="/2017/09/02/iOS-SDAutoLayout/" class="leancloud_visitors" data-flag-title="为什么我喜欢用SDAutoLayout">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -412,13 +412,13 @@
 
       
         
-          <p>?????????????, ????????????SDAutoLayout????;</p>
-<p>###??1—— UILabel</p>
+          <p>基本的适配方法就不做介绍了, 👇主要介绍一些个人认为的SDAutoLayout适配亮点;</p>
+<p>###亮点1—— UILabel</p>
 <blockquote>
-<p>1.1 label?????????</p>
+<p>1.1 label设置最大宽度与行数</p>
 </blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/1893416-877a4ea704dbbae7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="testLabel?????????"></p>
-<p>testLabel?????????:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">_testLabel.text = @&quot;???????????????????????????????????????????????????????????????????????????????????????&quot;;</div><div class="line"></div><div class="line">_testLabel.sd_layout</div><div class="line">.topSpaceToView(self.view, 50)</div><div class="line">.leftSpaceToView(self.view, 20)</div><div class="line">.autoHeightRatio(0);</div><div class="line"></div><div class="line">// ??????</div><div class="line">[_testLabel setSingleLineAutoResizeWithMaxWidth:200];</div><div class="line"></div><div class="line">// ??????</div><div class="line">[_testLabel setMaxNumberOfLinesToShow:3];</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1893416-877a4ea704dbbae7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="testLabel设置最大宽度与行数"></p>
+<p>testLabel设置最大宽度与行数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">_testLabel.text = @&quot;近段时间，人民币出现快速升值，到底是因为人民币“自强了”，还是美元“弱爆了”？对比美元指数跌幅与人民币对美元升幅，不难发现，美元走弱依旧是推动人民币兑美元汇率升值的主要原因。&quot;;</div><div class="line"></div><div class="line">_testLabel.sd_layout</div><div class="line">.topSpaceToView(self.view, 50)</div><div class="line">.leftSpaceToView(self.view, 20)</div><div class="line">.autoHeightRatio(0);</div><div class="line"></div><div class="line">// 设置最大宽度</div><div class="line">[_testLabel setSingleLineAutoResizeWithMaxWidth:200];</div><div class="line"></div><div class="line">// 设置最大行数</div><div class="line">[_testLabel setMaxNumberOfLinesToShow:3];</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/09/02/iOS-SDAutoLayout/#more" rel="contents">
