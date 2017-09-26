@@ -1,0 +1,1226 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS,objective-c," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="火の玉" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/hack.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="最近接触了一个international的项目, 用到Google地图, 在此稍微总结一下, 方便以后使用; 一. 准备工作开发Google地图当然离不开翻墙了, 先分享几个好用的免费翻墙软件: 1.软件:lantern(For Window, Mac, Android, Ubuntu) LetsVPN(appStore直接下载)(For iOS)">
+<meta name="keywords" content="iOS,objective-c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS Google地图开发小结(2017)">
+<meta property="og:url" content="http://yoursite.com/2017/09/26/iOS-GoogleMap/index.html">
+<meta property="og:site_name" content="火の玉">
+<meta property="og:description" content="最近接触了一个international的项目, 用到Google地图, 在此稍微总结一下, 方便以后使用; 一. 准备工作开发Google地图当然离不开翻墙了, 先分享几个好用的免费翻墙软件: 1.软件:lantern(For Window, Mac, Android, Ubuntu) LetsVPN(appStore直接下载)(For iOS)">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-0b21e2d562a95cc5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-69497dbaa0b1ba8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-84c46dcc2f1d7623.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-658ab6980c184c22.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-1d597406f6308d98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-09-26T15:17:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS Google地图开发小结(2017)">
+<meta name="twitter:description" content="最近接触了一个international的项目, 用到Google地图, 在此稍微总结一下, 方便以后使用; 一. 准备工作开发Google地图当然离不开翻墙了, 先分享几个好用的免费翻墙软件: 1.软件:lantern(For Window, Mac, Android, Ubuntu) LetsVPN(appStore直接下载)(For iOS)">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1893416-0b21e2d562a95cc5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/26/iOS-GoogleMap/"/>
+
+
+
+
+
+  <title> iOS Google地图开发小结(2017) | 火の玉 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?7c232cbb5354c8000ff0f7fb2c83918b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">火の玉</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一枚普通iOS程序猿</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/26/iOS-GoogleMap/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="火の玉">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="火の玉">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS Google地图开发小结(2017)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-26T23:06:29+08:00">
+                2017-09-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/09/26/iOS-GoogleMap/" class="leancloud_visitors" data-flag-title="iOS Google地图开发小结(2017)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近接触了一个international的项目, 用到Google地图, 在此稍微总结一下, 方便以后使用;</p>
+<h3 id="一-准备工作"><a href="#一-准备工作" class="headerlink" title="一. 准备工作"></a>一. 准备工作</h3><p>开发Google地图当然离不开翻墙了, 先分享几个好用的免费翻墙软件:</p>
+<h5 id="1-软件"><a href="#1-软件" class="headerlink" title="1.软件:"></a>1.软件:</h5><p><strong><a href="https://www.getlantern.org/en_US/" target="_blank" rel="external">lantern</a></strong><br>(For Window, Mac, Android, Ubuntu)</p>
+<p><strong>LetsVPN</strong>(appStore直接下载)<br>(For iOS)<br><a id="more"></a></p>
+<h5 id="2-相关资料"><a href="#2-相关资料" class="headerlink" title="2.相关资料:"></a>2.相关资料:</h5><p><a href="https://developers.google.com/maps/documentation/ios-sdk/start?hl=zh-cn" target="_blank" rel="external">Google地图API</a><br>官方Google地图API</p>
+<p><a href="https://github.com/nfarina/calloutview" target="_blank" rel="external">SMCalloutView</a><br>这个是点击大头针弹出信息框的自定义视图, 官方地图自定义有局限性, 下面👇会讲到, 示例如图:</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1893416-0b21e2d562a95cc5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="自定义视图"></p>
+<h3 id="二-开发内容"><a href="#二-开发内容" class="headerlink" title="二.开发内容"></a>二.开发内容</h3><p>对于iOS开发者, Google地图提供了两个开发入口:<br><a href="https://developers.google.com/maps/documentation/ios-sdk/?hl=zh-cn" target="_blank" rel="external">Maps SDK for iOS</a><br>添加 Google 地图</p>
+<p><a href="https://developers.google.com/places/ios-api/?hl=zh-cn" target="_blank" rel="external">Places API for iOS</a><br>添加位置的最新信息</p>
+<h5 id="1-Places-API-for-iOS"><a href="#1-Places-API-for-iOS" class="headerlink" title="1.Places API for iOS"></a>1.Places API for iOS</h5><p>这个一般开发Google地图用不到, 不过还是简单说一下, 官方demo截图;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1893416-69497dbaa0b1ba8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Places API官方demo截图"></p>
+<p>section0: (Autocomplete)<br><img src="http://upload-images.jianshu.io/upload_images/1893416-84c46dcc2f1d7623.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Autocomplete"><br>Autocomplete主要功能是搜索相关的位置信息(文本方式);<br>里面还会展示UISearchBar/UISearchViewController的几种呈现方法, 感兴趣的可以看看;</p>
+<p>section1: (Programmatic APIs)</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1893416-658ab6980c184c22.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Programmatic APIs"><br>Programmatic APIs主要展示搜索或所选点附近的信息(地图方式);</p>
+<h5 id="2-Maps-SDK-for-iOS"><a href="#2-Maps-SDK-for-iOS" class="headerlink" title="2.Maps SDK for iOS"></a>2.Maps SDK for iOS</h5><p>重点介绍内容, mark, mark….<br>还是一样, 先看下官方demo, 大概浏览一下Google地图的功能;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//基本组成部分</div><div class="line">Map(地图): 基本的地图创建, 组件, 类别等;</div><div class="line">Panorama(全景): 固定/可旋转的街景;</div><div class="line">Overlays(覆盖物): 地图视图的自定义(地图大头针, 弹出信息框等);</div><div class="line">Camera(摄像头): 当前地图的可视范围(设置摄像头中心点坐标、镜头缩放比例、方向、视角等);</div><div class="line">Services(服务): 地理编码/逆地理编码;</div></pre></td></tr></table></figure></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1893416-1d597406f6308d98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Maps SDK Demos 结构概览"></p>
+<h6 id="2-1-常用类介绍"><a href="#2-1-常用类介绍" class="headerlink" title="2.1 常用类介绍:"></a>2.1 常用类介绍:</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">GMSMapView 最主要的地图类</div><div class="line">GMSCameraPosition 地图摄像头，可以理解为当前地图的可视范围，可以获取到摄像头中心点坐标、镜头缩放比例、方向、视角等参数</div><div class="line">GMSMarker 地图大头针</div><div class="line">GMSGeocoder 反向地理编码类</div><div class="line">GMSAddress 反向地理编码返回的类,包含坐标及地理位置描述等信息</div><div class="line">CLLocationManager 就是CoreLocation框架下的地理位置管理类</div><div class="line">GMSAutocompleteFetcher 搜索自动补全抓取器，通过该类的代理方法实现搜索自动补全</div></pre></td></tr></table></figure>
+<h6 id="2-2-常用方法介绍"><a href="#2-2-常用方法介绍" class="headerlink" title="2.2 常用方法介绍:"></a>2.2 常用方法介绍:</h6><p><code>GMSMapViewDelegate</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">mapView:willMove: 镜头即将移动时调用</div><div class="line">mapView:didChangeCameraPosition:镜头移动完成后调用mapView:didTapAtCoordinate: 点击地图时调用</div><div class="line">mapView:didLongPressAtCoordinate: 长按地图时调用</div><div class="line">mapView:didTapMarker: 点击大头针时调用</div><div class="line">mapView:didTapInfoWindowOfMarker: 点击大头针的弹出视窗时调用</div><div class="line">mapView:didLongPressInfoWindowOfMarker: 长按大头针视窗时调用</div><div class="line">mapView:markerInfoWindow: 自定义大头针弹出视窗，返回UIView</div><div class="line">mapView:didCloseInfoWindowOfMarker: 自定义大头针弹出视窗关闭时调用</div><div class="line">mapView:didDragMarker: 拖拽大头针时调用</div><div class="line">didTapMyLocationButtonForMapView: 点击定位大头针, 返回BOOL值</div></pre></td></tr></table></figure></p>
+<h6 id="2-3-Google-Maps-URL-架构-单独介绍一下"><a href="#2-3-Google-Maps-URL-架构-单独介绍一下" class="headerlink" title="2.3 Google Maps URL 架构(单独介绍一下):"></a>2.3 Google Maps URL 架构(单独介绍一下):</h6><p>确实与国内不同, Google地图URL架构没在demo中介绍;</p>
+<h2 id="👇介绍一下"><a href="#👇介绍一下" class="headerlink" title="👇介绍一下:"></a>👇介绍一下:</h2><blockquote>
+<p><strong><em>iOS 版 Google Maps 应用支持以下 URL 架构:</em></strong></p>
+<ul>
+<li><code>comgooglemaps://</code><br>和 <code>comgooglemaps-x-callback://</code><br>– 这些架构允许您启动 iOS 版 Google Maps 应用，并执行下列几项操作之一：<ul>
+<li>以指定的缩放级别显示指定位置的地图。</li>
+<li>搜索位置或地点，并将它们显示在地图上。</li>
+<li>请求从一个位置前往另一个位置的路线。 可以返回以下四种交通方式的路线：驾车、步行、骑自行车和乘坐公共交通工具。</li>
+<li>向应用添加导航。</li>
+<li>当应用完成后，使用 <a href="https://developers.google.com/maps/documentation/ios-sdk/urlscheme?hl=zh-cn#specify-a-callback-url" target="_blank" rel="external">comgooglemaps-x-callback://
+</a> 发出一个回调。 回调经常用来使用户返回到最初打开 iOS 版 Google Maps 的应用。</li>
+</ul>
+</li>
+<li><code>comgooglemapsurl://</code> – 此架构允许您使用从桌面 Google Maps 网站得到的 URL 启动 iOS 版 Google Maps 应用。 这意味着您可以为用户提供原生移动体验，而不是简单地加载 Google Maps 网站。<ul>
+<li>原始 URL 可以是 maps.google.com，或者 google.com/maps，也可以使用任何有效的国家代码顶级域名来代替 com。<ul>
+<li>您还可以传递 goo.gl/maps 重定向 URL。<br>您可以将 x-source 和 x-success 参数与 comgooglemapsurl:// URL 架构结合使用来发出回调。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+</blockquote>
+<p><strong>2.3.1 检查设备上是否已安装 Google Maps 应用;</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">if ([[UIApplication sharedApplication] canOpenURL:</div><div class="line">     [NSURL URLWithString:@&quot;comgooglemaps://&quot;]]) &#123;</div><div class="line">      //已安装Google地图APP</div><div class="line">&#125; else &#123;</div><div class="line">     //未安装Google地图APP</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>2.3.2 显示地图</strong><br><strong>参数:</strong></p>
+<ul>
+<li><code>center</code>：这是地图视口中心点。 其格式为用逗号分隔的字符串 <code>latitude</code>,<code>longitude</code>。</li>
+<li><code>mapmode</code>：设置所显示地图的种类。 可以设置为：standard 或 streetview。 如果未指定，则将使用当前的应用设置。</li>
+<li><code>views</code>：开启/关闭特定视图。 可以设置为：<code>satellite</code>、<code>traffic</code> 或 <code>transit</code>。 可以使用逗号分隔符来设置多个值。 如果指定了不带任何值的参数，那么将清除所有的视图。</li>
+<li><code>zoom</code>：指定地图的缩放级别。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//示例 URL，它以纽约为中心、采用 14 级缩放级别来显示地图，且开启了交通视图</div><div class="line">comgooglemaps://?center=40.765819,-73.975866&amp;zoom=14&amp;views=traffic</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>2.3.3 搜索</strong><br><strong>参数:</strong></p>
+<ul>
+<li><code>q</code>：用于搜索的查询字符串。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//示例 URL 用来在指定位置附近搜索“Pizza&quot;</div><div class="line">comgooglemaps://?q=Pizza&amp;center=37.759748,-122.427135</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>2.3.4 显示路线</strong><br><strong>参数:</strong></p>
+<ul>
+<li><code>saddr</code>：设置路线搜索的起点。 它可以是一个纬度、经度或查询格式的地址。 如果它是返回多个结果的查询字符串， 将选择第一个结果。 如果该值留空，那么将使用该用户的当前位置。</li>
+<li><code>daddr</code>：设置路线搜索的终点。 具有与 <code>saddr</code> 相同的格式和行为。</li>
+<li><code>directionsmode</code>：交通方式。 可以设置为：<code>driving</code>、<code>transit</code>、<code>bicycling</code> 或 <code>walking</code>。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// 示例 URL 用来显示 Google 纽约办事处与肯尼迪国际机场之间的交通路线</div><div class="line">comgooglemaps://?saddr=Google+Inc,+8th+Avenue,+New+York,+NY&amp;daddr=John+F.+Kennedy+International+Airport,+Van+Wyck+Expressway,+Jamaica,+New+York&amp;directionsmode=transit</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>2.3.5 指定回调URL</strong><br><strong>参数:</strong></p>
+<ul>
+<li><code>x-source</code> – 发送 <code>x-callback</code> 请求的应用的名称。 最好使用短名称。</li>
+<li><code>x-success</code> – 完成时调用的 URL。 通常，这是您自己的应用的 URL 架构，可以让用户返回到原来的应用。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// 示例将启动 iOS 版 Google Maps 应用，并以纽约为中心显示地图。 该应用还会显示标有“SourceApp”的按钮。 当点击“SourceApp”按钮时，iOS 版 Google Maps 应用将发出一个指向虚拟的 URL 架构的回调， sourceapp://?resume=true.</div><div class="line">comgooglemaps-x-callback://?center=40.765819,-73.975866&amp;zoom=14</div><div class="line">   &amp;x-success=sourceapp://?resume=true</div><div class="line">   &amp;x-source=SourceApp</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>2.3.6 向应用添加导航</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 代码展示了如何使用 comgooglemaps-x-callback:// 架构来请求路线，然后在您的用户准备就绪后返回到您的应用。 该代码将执行以下操作</div><div class="line">NSURL *testURL = [NSURL URLWithString:@&quot;comgooglemaps-x-callback://&quot;];</div><div class="line">if ([[UIApplication sharedApplication] canOpenURL:testURL]) &#123;</div><div class="line">  NSString *directionsRequest = @&quot;comgooglemaps-x-callback://&quot; +</div><div class="line">      @&quot;?daddr=John+F.+Kennedy+International+Airport,+Van+Wyck+Expressway,+Jamaica,+New+York&quot; +</div><div class="line">      @&quot;&amp;x-success=sourceapp://?resume=true&amp;x-source=AirApp&quot;;</div><div class="line">  NSURL *directionsURL = [NSURL URLWithString:directionsRequest];</div><div class="line">  [[UIApplication sharedApplication] openURL:directionsURL];</div><div class="line">&#125; else &#123;</div><div class="line">  NSLog(@&quot;Can&apos;t use comgooglemaps-x-callback:// on this device.&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>该代码将执行以下操作：</p>
+<ul>
+<li>验证 comgooglemaps-x-callback:// URL 架构是否可用。</li>
+<li>启动 iOS 版 Google Maps 应用，并请求前往纽约市肯尼迪国际机场的路线。 将起始地址留空即可请求从用户的当前位置出发的路线。</li>
+<li>将标记为“AirApp”的按钮添加到 iOS 版 Google Maps 应用中。 该按钮标签由 x-source 参数定义。</li>
+<li>当用户点击返回按钮时，调用虚拟 URL 架构 sourceapp://,。</li>
+</ul>
+<h3 id="三-遇到的问题"><a href="#三-遇到的问题" class="headerlink" title="三.遇到的问题"></a>三.遇到的问题</h3><p>开发中难免遇到一些稀奇古怪的问题, 这里就着我遇到的问题分享一下;</p>
+<p><strong>需求:</strong><br>实现一个自定义的弹窗, 要求点击弹窗左边视图返回上一页, 点击右边视图跳转导航功能;</p>
+<p><strong>问题:</strong><br>在<code>mapView:markerInfoWindow:</code>中我自定义了一个气泡视图, 视图左右各一个按钮, 按钮的点击方法被屏蔽, 只响应了整个气泡视图的点击方法(<code>mapView:didTapInfoWindowOfMarker:</code>);</p>
+<p><strong>解决办法:</strong><br>在试了n个方法后, 终于让我找到了<a href="https://github.com/nfarina/calloutview" target="_blank" rel="external">SMCalloutView</a>, github上的一个自定义气泡的三方, 可以自由定义左右,中间, 背景视图, 非常棒👍, O(∩_∩)O哈哈~</p>
+<p>首先是基础操作:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#import &lt;SMCalloutView/SMCalloutView.h&gt;</div><div class="line"></div><div class="line">static const CGFloat CalloutYOffset = 10.0f;</div><div class="line"></div><div class="line">@interface ViewController ()</div><div class="line">@property (strong, nonatomic) SMCalloutView *calloutView;</div><div class="line">@property (strong, nonatomic) UIView *emptyCalloutView;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>之后初始化<code>SMCalloutView</code>, 创建一个空View;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad</div><div class="line">&#123;</div><div class="line">        self.calloutView = [[SMCalloutView alloc] init];</div><div class="line">    self.calloutView.contentView = [UIView new];</div><div class="line"></div><div class="line">    self.emptyCalloutView = [[UIView alloc] initWithFrame:CGRectZero];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>其次是GMSMapViewDelegate里面的设置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line">- (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker &#123;</div><div class="line">    CLLocationCoordinate2D anchor = marker.position;</div><div class="line"></div><div class="line">    CGPoint point = [mapView.projection pointForCoordinate:anchor];</div><div class="line"></div><div class="line">    self.calloutView.calloutOffset = CGPointMake(0, -CalloutYOffset);</div><div class="line"></div><div class="line">    //SMCalloutView中contentView</div><div class="line">    UIView *googleTipView = [UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 50);</div><div class="line"></div><div class="line">    //左方按钮</div><div class="line">    UIButton *leftButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 50)];</div><div class="line">    [googleTipView addSubview:bView];</div><div class="line">    [leftButton addTarget:self action:@selector(leftButtonClick:) forControlEvents:UIControlEventTouchUpInside];</div><div class="line"></div><div class="line">    //右方按钮</div><div class="line">    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 0, 100, 50)];</div><div class="line">    [googleTipView addSubview:bView];</div><div class="line">    [rightButton addTarget:self action:@selector(rightButtonClick:) forControlEvents:UIControlEventTouchUpInside];</div><div class="line"></div><div class="line">    //取消默认背景</div><div class="line">    SMCalloutBackgroundView *calloutBgView = [[SMCalloutBackgroundView alloc] initWithFrame:CGRectZero];</div><div class="line"></div><div class="line">    self.calloutView.backgroundView = calloutBgView;</div><div class="line">    self.calloutView.contentView = googleTipView;</div><div class="line"></div><div class="line">    self.calloutView.hidden = NO;</div><div class="line"></div><div class="line">    CGRect calloutRect = CGRectZero;</div><div class="line">    calloutRect.origin = point;</div><div class="line">    calloutRect.size = CGSizeZero;</div><div class="line"></div><div class="line">    [self.calloutView presentCalloutFromRect:calloutRect</div><div class="line">                                      inView:mapView</div><div class="line">                           constrainedToView:mapView</div><div class="line">                                    animated:YES];</div><div class="line"></div><div class="line">    return self.emptyCalloutView;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)mapView:(GMSMapView *)pMapView didChangeCameraPosition:(GMSCameraPosition *)position &#123;</div><div class="line">    if (pMapView.selectedMarker != nil &amp;&amp; !self.calloutView.hidden) &#123;</div><div class="line">        CLLocationCoordinate2D anchor = [pMapView.selectedMarker position];</div><div class="line"></div><div class="line">        CGPoint arrowPt = self.calloutView.backgroundView.arrowPoint;</div><div class="line">        CGPoint pt = [pMapView.projection pointForCoordinate:anchor];</div><div class="line">        pt.x -= arrowPt.x;</div><div class="line">        pt.y -= arrowPt.y + CalloutYOffset;</div><div class="line"></div><div class="line">        self.calloutView.frame = (CGRect) &#123;.origin = pt, .size = self.calloutView.frame.size &#125;;</div><div class="line">    &#125; else &#123;</div><div class="line">        self.calloutView.hidden = YES;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)mapView:(GMSMapView *)mapView didTapAtCoordinate:(CLLocationCoordinate2D)coordinate &#123;</div><div class="line">    self.calloutView.hidden = YES;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (BOOL)mapView:(GMSMapView *)mapView didTapMarker:(GMSMarker *)marker &#123;</div><div class="line">    mapView.selectedMarker = marker;</div><div class="line">    return YES;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>结果就可以在点击方法里面尽情的调用了:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//左边按钮点击方法</div><div class="line">- (void)leftButtonClick:(UIButton *)button&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">//右边按钮点击方法</div><div class="line">- (void)rightButtonClick:(UIButton *)button&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>最后感谢这位网友的分享, 附上链接:<br><a href="https://stackoverflow.com/questions/15267183/custom-annotation-view-in-google-maps-sdk" target="_blank" rel="external">stackoverflow网友的分享</a></p>
+<p>关于Google地图开发:<br><a href="http://www.jianshu.com/p/dc7d267d63d0" target="_blank" rel="external">iOS Google地图SDK入门教程</a><br><a href="http://www.jianshu.com/p/2a1bf192e496" target="_blank" rel="external">iOS－－谷歌地图相关功能的实现</a></p>
+
+      
+    </div>
+
+    <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------文章结束标记O(∩_∩)O哈哈~-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>知我者谓我心忧</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ospquvjh2.bkt.clouddn.com/17-9-7/54856753.jpg" alt="火の玉 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ospquvjh2.bkt.clouddn.com/17-9-7/47242159.jpg" alt="火の玉 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+            <a href="/tags/objective-c/" rel="tag"># objective-c</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/09/ionic-diffict-problems/" rel="next" title="ionic难点问题整理(持续更新)">
+                <i class="fa fa-chevron-left"></i> ionic难点问题整理(持续更新)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTIyMS81Nzg4"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="火の玉" />
+          <p class="site-author-name" itemprop="name">火の玉</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/binzi56" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jianshu.com/u/715753f68a27" title="简书" target="_blank">简书</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      <!--增加网易云音乐-->
+      <!--<div id="music163player">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=486194121&auto=0&height=66"></iframe>
+      </div>-->
+
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-准备工作"><span class="nav-number">1.</span> <span class="nav-text">一. 准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-软件"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.软件:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-相关资料"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.相关资料:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-开发内容"><span class="nav-number">2.</span> <span class="nav-text">二.开发内容</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Places-API-for-iOS"><span class="nav-number">2.0.1.</span> <span class="nav-text">1.Places API for iOS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Maps-SDK-for-iOS"><span class="nav-number">2.0.2.</span> <span class="nav-text">2.Maps SDK for iOS</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2-1-常用类介绍"><span class="nav-number">2.0.2.1.</span> <span class="nav-text">2.1 常用类介绍:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-2-常用方法介绍"><span class="nav-number">2.0.2.2.</span> <span class="nav-text">2.2 常用方法介绍:</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-3-Google-Maps-URL-架构-单独介绍一下"><span class="nav-number">2.0.2.3.</span> <span class="nav-text">2.3 Google Maps URL 架构(单独介绍一下):</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#👇介绍一下"><span class="nav-number"></span> <span class="nav-text">👇介绍一下:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三-遇到的问题"><span class="nav-number">1.</span> <span class="nav-text">三.遇到的问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-fire"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">火の玉</span>
+</div>
+
+<!--
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="powered-by">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="theme-info">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("hLVhUYTh4lQNUUph0IChaHA0-gzGzoHsz", "Ccm8gqxlwvreXniXJ6kF5SeV");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+
+  
+    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>
