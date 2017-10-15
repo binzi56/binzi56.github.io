@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://binzi56.github.io/"/>
-  <updated>2017-10-15T02:15:11.000Z</updated>
+  <updated>2017-10-15T05:04:28.000Z</updated>
   <id>https://binzi56.github.io/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="https://binzi56.github.io/2017/10/03/iOS11-problems/"/>
     <id>https://binzi56.github.io/2017/10/03/iOS11-problems/</id>
     <published>2017-10-03T10:48:03.000Z</published>
-    <updated>2017-10-15T02:15:11.000Z</updated>
+    <updated>2017-10-15T05:04:28.000Z</updated>
     
     <content type="html"><![CDATA[<p>iOS11最终还是来了, 这次改版屏幕尺寸, 控件特性都有一些比较大的改变. 网上看的问题零零散散, 👇收集了一下开发中出现的问题, 整理一下, 方便之后使用.</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/1893416-6d5aad792a241000.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目录概览" title="目录概览"><br><a id="more"></a></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1893416-a195c2b81590dd7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目录概览"><br><a id="more"></a></p>
 <h3 id="1-导航栏"><a href="#1-导航栏" class="headerlink" title="1. 导航栏"></a>1. 导航栏</h3><blockquote>
 <p>导航栏高度一直是固定的64P, 到了iOS11这个规则被打破了, 除了iPhoneX全面屏, 刘海等适配问题, 还增加了大标题的属性, <code>titleView</code>支持<code>autolayout</code>;<br><img src="http://upload-images.jianshu.io/upload_images/1893416-daac4a32e952f600.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="大标题示例" title="大标题示例"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; //根据prefersLargeTitles设置, 默认为NO;</div><div class="line">&gt;  self.navigationController.navigationBar.prefersLargeTitles = YES;</div><div class="line">&gt;</div></pre></td></tr></table></figure></p>
 <p>下方附一个导航栏的对比图:<br><img src="http://upload-images.jianshu.io/upload_images/1893416-91dd5506e292db2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="一般机型导航栏尺寸图(除了iPhoneX)" title="一般机型导航栏尺寸图(除了iPhoneX)"><br><img src="http://upload-images.jianshu.io/upload_images/1893416-ae10d86857447eb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iPhoneX导航栏尺寸图" title="iPhoneX导航栏尺寸图"></p>
@@ -64,6 +64,9 @@
 <p><img src="http://upload-images.jianshu.io/upload_images/1893416-1290960facc55d59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <h5 id="4-5-相册权限变更"><a href="#4-5-相册权限变更" class="headerlink" title="4.5 相册权限变更"></a>4.5 相册权限变更</h5><p><strong>iOS11以前：</strong><br><code>NSPhotoLibraryUsageDescription</code>：访问相册和存储照片到相册（读写），会出现用户授权;</p>
 <p><strong>iOS11之后：</strong><br><code>NSPhotoLibraryUsageDescription</code>：无需添加。默认开启访问相册权限（读），无需用户授权;<br><code>NSPhotoLibraryAddUsageDescription</code>： 添加内容到相册（写），会出现用户授权;</p>
+<h5 id="4-6-跳转App-Store评论变更"><a href="#4-6-跳转App-Store评论变更" class="headerlink" title="4.6 跳转App Store评论变更"></a>4.6 跳转App Store评论变更</h5><p><strong>iOS11以前：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (void)goToAppStore</div><div class="line">&#123;</div><div class="line"> NSString *itunesurl = @&quot;[http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=XXXXXXXX&amp;pageNumber=0&amp;sortOrdering=2&amp;type=Purple](http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=XXXXXXXX&amp;pageNumber=0&amp;sortOrdering=2&amp;type=Purple)+Software&amp;mt=8&quot;;</div><div class="line"> [[UIApplication sharedApplication] openURL:[NSURL URLWithString:itunesurl]]; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>iOS11之后：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (void)goToAppStore</div><div class="line">&#123;</div><div class="line">NSString *itunesurl = @</div><div class="line">&quot;itms-[apps://itunes.apple.com/cn/app/idXXXXXX?mt=8&amp;action=write-review](apps://itunes.apple.com/cn/app/idXXXXXX?mt=8&amp;action=write-review)&quot;;</div><div class="line">[[UIApplication sharedApplication] openURL:[NSURL URLWithString:itunesurl]];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注：XXX为你自己的APP ID;</p>
 <p>这些问题是网友们趟过的坑,希望简友们如果遇到过其他问题,  能积极补充, 共同进步;</p>
 <h5 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h5><p>一个人的国庆, 浪不起来, 写篇博客压压惊😓</p>
 <blockquote>
@@ -74,7 +77,7 @@
     <summary type="html">
     
       &lt;p&gt;iOS11最终还是来了, 这次改版屏幕尺寸, 控件特性都有一些比较大的改变. 网上看的问题零零散散, 👇收集了一下开发中出现的问题, 整理一下, 方便之后使用.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1893416-6d5aad792a241000.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;目录概览&quot; title=&quot;目录概览&quot;&gt;&lt;br&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1893416-a195c2b81590dd7f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;目录概览&quot;&gt;&lt;br&gt;
     
     </summary>
     
