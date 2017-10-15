@@ -10,7 +10,22 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
 
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -89,12 +104,15 @@
 
 
 
+<meta name="description" content="火の玉">
 <meta property="og:type" content="website">
 <meta property="og:title" content="火の玉">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:url" content="https://binzi56.github.io/page/2/index.html">
 <meta property="og:site_name" content="火の玉">
+<meta property="og:description" content="火の玉">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="火の玉">
+<meta name="twitter:description" content="火の玉">
 
 
 
@@ -122,7 +140,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/2/"/>
+  <link rel="canonical" href="https://binzi56.github.io/page/2/"/>
 
 
 
@@ -303,7 +321,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/23/plugin-method-of-use/">
+    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2017/06/23/plugin-method-of-use/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="火の玉">
@@ -419,7 +437,7 @@
 <p>2.文件概述:<br>导入的文件, 系统已自动配置好了一切需要配置的文件, 所以直接调用就OK了;<br>js:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"deviceready"</span>, onDeviceReady, <span class="literal">false</span>);</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onDeviceReady</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       <span class="comment">// 设置App的版本号</span></div><div class="line">       $scope.version = AppVersion.version;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/23/plugin-method-of-use/#далее" rel="contents">
+            <a class="btn" href="/2017/06/23/plugin-method-of-use/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -431,7 +449,9 @@
     <div>
       
     </div>
-
+    <div>
+          
+    </div>
     <div>
       
     </div>
@@ -469,7 +489,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/23/cordova-plugin-geolocation/">
+    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2017/06/23/cordova-plugin-geolocation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="火の玉">
@@ -581,7 +601,7 @@
           <p>本文主要介绍iOS的逆地理定位插件,  用过官方的cordova-plugin-geolocation插件的都清楚, 该插件虽然得到了经纬度, 但是没法转换成我们想要位置信息, 于是就需要一个插件将经纬度转化为位置信息, 即逆地理编码;<br>1.插件介绍<br>该插件是用OC做的一个经纬度转换为位置的插件; OC内部通过CLGeocoder的方法实现逆地理编码;由于需要调用系统硬件, 所以该插件直到deviceready事件发生后才可用;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">"deviceready"</span>, onDeviceReady, <span class="literal">false</span>);</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onDeviceReady</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"deviceready"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/23/cordova-plugin-geolocation/#далее" rel="contents">
+            <a class="btn" href="/2017/06/23/cordova-plugin-geolocation/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -593,7 +613,9 @@
     <div>
       
     </div>
-
+    <div>
+          
+    </div>
     <div>
       
     </div>
@@ -631,7 +653,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/23/ionic-article/">
+    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2017/06/23/ionic-article/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="火の玉">
@@ -746,7 +768,7 @@
 <p>ionic菜鸟教程, 里面有许多基础知识<br><a href="http://www.runoob.com/ionic/ionic-install.html" target="_blank" rel="external">http://www.runoob.com/ionic/ionic-install.html</a><br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/23/ionic-article/#далее" rel="contents">
+            <a class="btn" href="/2017/06/23/ionic-article/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -758,7 +780,9 @@
     <div>
       
     </div>
-
+    <div>
+          
+    </div>
     <div>
       
     </div>
@@ -796,7 +820,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/22/ios-article/">
+    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2017/06/22/ios-article/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="火の玉">
@@ -909,7 +933,7 @@
 <p><img src="https://ooo.0o0.ooo/2017/06/22/594b8b9fda051.png" alt=""><br>接下来给这两个视图拖入属性后, 给smallView加上单击事件, bigView加上双击事件;<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/22/ios-article/#далее" rel="contents">
+            <a class="btn" href="/2017/06/22/ios-article/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -921,7 +945,9 @@
     <div>
       
     </div>
-
+    <div>
+          
+    </div>
     <div>
       
     </div>
@@ -959,7 +985,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/22/js-article/">
+    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2017/06/22/js-article/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="火の玉">
@@ -1072,7 +1098,7 @@
 <h4 id="一-event-preventDefault"><a href="#一-event-preventDefault" class="headerlink" title="一.event.preventDefault()"></a>一.event.preventDefault()</h4><p>​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;<br>例:<br>   下方为html代码:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">link</span>=<span class="string">"https://www.baidu.com"</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/06/22/js-article/#далее" rel="contents">
+            <a class="btn" href="/2017/06/22/js-article/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1084,7 +1110,9 @@
     <div>
       
     </div>
-
+    <div>
+          
+    </div>
     <div>
       
     </div>
@@ -1154,7 +1182,7 @@
                alt="火の玉" />
           <p class="site-author-name" itemprop="name">火の玉</p>
            
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">火の玉</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -1213,6 +1241,24 @@
                 </a>
               </span>
             
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/715753f68a27" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/59d047c6518825788a443942" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-diamond"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
           
         </div>
 
@@ -1220,20 +1266,6 @@
         
 
         
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              Links
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://www.jianshu.com/u/715753f68a27" title="简书" target="_blank">简书</a>
-                </li>
-              
-            </ul>
-          </div>
         
 
         
@@ -1340,6 +1372,7 @@
   
 
 
+
   
 
 
@@ -1365,7 +1398,7 @@
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
   
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script type="text/javascript" src="/lib/love_click/love.js"></script>
 
 
   
@@ -1689,8 +1722,10 @@
 
 
   
-    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-  
 
+  
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  
 </body>
 </html>

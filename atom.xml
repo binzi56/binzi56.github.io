@@ -4,9 +4,9 @@
   <subtitle>一枚普通iOS程序猿</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2017-10-03T11:02:50.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="https://binzi56.github.io/"/>
+  <updated>2017-10-15T02:15:11.000Z</updated>
+  <id>https://binzi56.github.io/</id>
   
   <author>
     <name>火の玉</name>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>iOS11问题汇总</title>
-    <link href="http://yoursite.com/2017/10/03/iOS11-problems/"/>
-    <id>http://yoursite.com/2017/10/03/iOS11-problems/</id>
+    <link href="https://binzi56.github.io/2017/10/03/iOS11-problems/"/>
+    <id>https://binzi56.github.io/2017/10/03/iOS11-problems/</id>
     <published>2017-10-03T10:48:03.000Z</published>
-    <updated>2017-10-03T11:02:50.000Z</updated>
+    <updated>2017-10-15T02:15:11.000Z</updated>
     
     <content type="html"><![CDATA[<p>iOS11最终还是来了, 这次改版屏幕尺寸, 控件特性都有一些比较大的改变. 网上看的问题零零散散, 👇收集了一下开发中出现的问题, 整理一下, 方便之后使用.</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1893416-6d5aad792a241000.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目录概览" title="目录概览"><br><a id="more"></a></p>
@@ -78,21 +78,21 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/tags/iOS/"/>
     
-      <category term="iOS11" scheme="http://yoursite.com/tags/iOS11/"/>
+      <category term="iOS11" scheme="https://binzi56.github.io/tags/iOS11/"/>
     
   </entry>
   
   <entry>
     <title>iOS Google地图开发小结(2017)</title>
-    <link href="http://yoursite.com/2017/09/26/iOS-GoogleMap/"/>
-    <id>http://yoursite.com/2017/09/26/iOS-GoogleMap/</id>
+    <link href="https://binzi56.github.io/2017/09/26/iOS-GoogleMap/"/>
+    <id>https://binzi56.github.io/2017/09/26/iOS-GoogleMap/</id>
     <published>2017-09-26T15:06:29.000Z</published>
-    <updated>2017-09-26T15:17:10.000Z</updated>
+    <updated>2017-10-15T01:59:41.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近接触了一个international的项目, 用到Google地图, 在此稍微总结一下, 方便以后使用;</p>
 <h3 id="一-准备工作"><a href="#一-准备工作" class="headerlink" title="一. 准备工作"></a>一. 准备工作</h3><p>开发Google地图当然离不开翻墙了, 先分享几个好用的免费翻墙软件:</p>
@@ -191,19 +191,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/tags/iOS/"/>
     
-      <category term="objective-c" scheme="http://yoursite.com/tags/objective-c/"/>
+      <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
     
   </entry>
   
   <entry>
     <title>ionic难点问题整理(持续更新)</title>
-    <link href="http://yoursite.com/2017/09/09/ionic-diffict-problems/"/>
-    <id>http://yoursite.com/2017/09/09/ionic-diffict-problems/</id>
+    <link href="https://binzi56.github.io/2017/09/09/ionic-diffict-problems/"/>
+    <id>https://binzi56.github.io/2017/09/09/ionic-diffict-problems/</id>
     <published>2017-09-09T06:59:57.000Z</published>
     <updated>2017-09-26T15:15:57.000Z</updated>
     
@@ -222,17 +222,17 @@
     
     </summary>
     
-      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
+      <category term="ionic" scheme="https://binzi56.github.io/categories/ionic/"/>
     
     
-      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
+      <category term="ionic" scheme="https://binzi56.github.io/tags/ionic/"/>
     
   </entry>
   
   <entry>
     <title>为什么我喜欢用SDAutoLayout</title>
-    <link href="http://yoursite.com/2017/09/02/iOS-SDAutoLayout/"/>
-    <id>http://yoursite.com/2017/09/02/iOS-SDAutoLayout/</id>
+    <link href="https://binzi56.github.io/2017/09/02/iOS-SDAutoLayout/"/>
+    <id>https://binzi56.github.io/2017/09/02/iOS-SDAutoLayout/</id>
     <published>2017-09-02T05:40:59.000Z</published>
     <updated>2017-09-02T06:00:51.000Z</updated>
     
@@ -285,17 +285,17 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS性能优化---tableView懒加载图片</title>
-    <link href="http://yoursite.com/2017/07/07/iOS-tableView-image/"/>
-    <id>http://yoursite.com/2017/07/07/iOS-tableView-image/</id>
+    <link href="https://binzi56.github.io/2017/07/07/iOS-tableView-image/"/>
+    <id>https://binzi56.github.io/2017/07/07/iOS-tableView-image/</id>
     <published>2017-07-07T08:47:39.000Z</published>
     <updated>2017-07-07T09:16:59.000Z</updated>
     
@@ -338,19 +338,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/tags/iOS/"/>
     
-      <category term="性能优化" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+      <category term="性能优化" scheme="https://binzi56.github.io/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>《AngularJs权威指南》学习笔记---指令</title>
-    <link href="http://yoursite.com/2017/07/03/angularjs-bookNote/"/>
-    <id>http://yoursite.com/2017/07/03/angularjs-bookNote/</id>
+    <link href="https://binzi56.github.io/2017/07/03/angularjs-bookNote/"/>
+    <id>https://binzi56.github.io/2017/07/03/angularjs-bookNote/</id>
     <published>2017-07-03T08:45:16.000Z</published>
     <updated>2017-07-03T06:14:49.000Z</updated>
     
@@ -448,19 +448,19 @@
     
     </summary>
     
-      <category term="js" scheme="http://yoursite.com/categories/js/"/>
+      <category term="js" scheme="https://binzi56.github.io/categories/js/"/>
     
     
-      <category term="angular.js" scheme="http://yoursite.com/tags/angular-js/"/>
+      <category term="angular.js" scheme="https://binzi56.github.io/tags/angular-js/"/>
     
-      <category term="读书笔记" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="读书笔记" scheme="https://binzi56.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>Lottie动画教程</title>
-    <link href="http://yoursite.com/2017/07/03/lottie-simple-tutorial/"/>
-    <id>http://yoursite.com/2017/07/03/lottie-simple-tutorial/</id>
+    <link href="https://binzi56.github.io/2017/07/03/lottie-simple-tutorial/"/>
+    <id>https://binzi56.github.io/2017/07/03/lottie-simple-tutorial/</id>
     <published>2017-07-03T07:02:17.000Z</published>
     <updated>2017-07-03T10:11:06.000Z</updated>
     
@@ -507,21 +507,21 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/tags/iOS/"/>
     
-      <category term="android" scheme="http://yoursite.com/tags/android/"/>
+      <category term="android" scheme="https://binzi56.github.io/tags/android/"/>
     
-      <category term="动画" scheme="http://yoursite.com/tags/%E5%8A%A8%E7%94%BB/"/>
+      <category term="动画" scheme="https://binzi56.github.io/tags/%E5%8A%A8%E7%94%BB/"/>
     
   </entry>
   
   <entry>
     <title>关于IPV6审核被拒的完整分析</title>
-    <link href="http://yoursite.com/2017/06/30/appStore-ipv6/"/>
-    <id>http://yoursite.com/2017/06/30/appStore-ipv6/</id>
+    <link href="https://binzi56.github.io/2017/06/30/appStore-ipv6/"/>
+    <id>https://binzi56.github.io/2017/06/30/appStore-ipv6/</id>
     <published>2017-06-30T02:18:16.000Z</published>
     <updated>2017-06-30T07:32:32.000Z</updated>
     
@@ -596,19 +596,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/categories/iOS/"/>
     
     
-      <category term="appStore" scheme="http://yoursite.com/tags/appStore/"/>
+      <category term="appStore" scheme="https://binzi56.github.io/tags/appStore/"/>
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>iOS网络请求错误整理</title>
-    <link href="http://yoursite.com/2017/06/28/iOS-http-error-code/"/>
-    <id>http://yoursite.com/2017/06/28/iOS-http-error-code/</id>
+    <link href="https://binzi56.github.io/2017/06/28/iOS-http-error-code/"/>
+    <id>https://binzi56.github.io/2017/06/28/iOS-http-error-code/</id>
     <published>2017-06-28T08:41:10.000Z</published>
     <updated>2017-06-28T08:53:08.000Z</updated>
     
@@ -643,19 +643,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/tags/iOS/"/>
     
-      <category term="网络请求" scheme="http://yoursite.com/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/"/>
+      <category term="网络请求" scheme="https://binzi56.github.io/tags/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82/"/>
     
   </entry>
   
   <entry>
     <title>上传苹果商店时一个不太平常的error</title>
-    <link href="http://yoursite.com/2017/06/23/appStore-upload-error/"/>
-    <id>http://yoursite.com/2017/06/23/appStore-upload-error/</id>
+    <link href="https://binzi56.github.io/2017/06/23/appStore-upload-error/"/>
+    <id>https://binzi56.github.io/2017/06/23/appStore-upload-error/</id>
     <published>2017-06-23T03:20:54.000Z</published>
     <updated>2017-06-23T08:48:31.000Z</updated>
     
@@ -688,19 +688,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/categories/iOS/"/>
     
     
-      <category term="appStore" scheme="http://yoursite.com/tags/appStore/"/>
+      <category term="appStore" scheme="https://binzi56.github.io/tags/appStore/"/>
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/tags/iOS/"/>
     
   </entry>
   
   <entry>
     <title>cordova插件用法详述(内含demo)</title>
-    <link href="http://yoursite.com/2017/06/23/plugin-method-of-use/"/>
-    <id>http://yoursite.com/2017/06/23/plugin-method-of-use/</id>
+    <link href="https://binzi56.github.io/2017/06/23/plugin-method-of-use/"/>
+    <id>https://binzi56.github.io/2017/06/23/plugin-method-of-use/</id>
     <published>2017-06-23T03:13:37.000Z</published>
     <updated>2017-06-23T03:33:19.000Z</updated>
     
@@ -739,19 +739,19 @@
     
     </summary>
     
-      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
+      <category term="ionic" scheme="https://binzi56.github.io/categories/ionic/"/>
     
     
-      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
+      <category term="ionic" scheme="https://binzi56.github.io/tags/ionic/"/>
     
-      <category term="plugin" scheme="http://yoursite.com/tags/plugin/"/>
+      <category term="plugin" scheme="https://binzi56.github.io/tags/plugin/"/>
     
   </entry>
   
   <entry>
     <title>自制cordova逆地理编码插件(OC)</title>
-    <link href="http://yoursite.com/2017/06/23/cordova-plugin-geolocation/"/>
-    <id>http://yoursite.com/2017/06/23/cordova-plugin-geolocation/</id>
+    <link href="https://binzi56.github.io/2017/06/23/cordova-plugin-geolocation/"/>
+    <id>https://binzi56.github.io/2017/06/23/cordova-plugin-geolocation/</id>
     <published>2017-06-23T03:02:52.000Z</published>
     <updated>2017-07-04T06:39:17.000Z</updated>
     
@@ -774,21 +774,21 @@
     
     </summary>
     
-      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
+      <category term="ionic" scheme="https://binzi56.github.io/categories/ionic/"/>
     
     
-      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
+      <category term="ionic" scheme="https://binzi56.github.io/tags/ionic/"/>
     
-      <category term="objective-c" scheme="http://yoursite.com/tags/objective-c/"/>
+      <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
     
-      <category term="plugin" scheme="http://yoursite.com/tags/plugin/"/>
+      <category term="plugin" scheme="https://binzi56.github.io/tags/plugin/"/>
     
   </entry>
   
   <entry>
     <title>ionic优秀资源整理</title>
-    <link href="http://yoursite.com/2017/06/23/ionic-article/"/>
-    <id>http://yoursite.com/2017/06/23/ionic-article/</id>
+    <link href="https://binzi56.github.io/2017/06/23/ionic-article/"/>
+    <id>https://binzi56.github.io/2017/06/23/ionic-article/</id>
     <published>2017-06-23T02:53:57.000Z</published>
     <updated>2017-06-23T08:56:16.000Z</updated>
     
@@ -820,19 +820,19 @@
     
     </summary>
     
-      <category term="ionic" scheme="http://yoursite.com/categories/ionic/"/>
+      <category term="ionic" scheme="https://binzi56.github.io/categories/ionic/"/>
     
     
-      <category term="ionic" scheme="http://yoursite.com/tags/ionic/"/>
+      <category term="ionic" scheme="https://binzi56.github.io/tags/ionic/"/>
     
-      <category term="resources" scheme="http://yoursite.com/tags/resources/"/>
+      <category term="resources" scheme="https://binzi56.github.io/tags/resources/"/>
     
   </entry>
   
   <entry>
     <title>iOS处理单双击手势冲突问题</title>
-    <link href="http://yoursite.com/2017/06/22/ios-article/"/>
-    <id>http://yoursite.com/2017/06/22/ios-article/</id>
+    <link href="https://binzi56.github.io/2017/06/22/ios-article/"/>
+    <id>https://binzi56.github.io/2017/06/22/ios-article/</id>
     <published>2017-06-22T08:57:51.000Z</published>
     <updated>2017-06-23T03:04:01.000Z</updated>
     
@@ -850,19 +850,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/categories/iOS/"/>
     
     
-      <category term="iOS" scheme="http://yoursite.com/tags/iOS/"/>
+      <category term="iOS" scheme="https://binzi56.github.io/tags/iOS/"/>
     
-      <category term="objective-c" scheme="http://yoursite.com/tags/objective-c/"/>
+      <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
     
   </entry>
   
   <entry>
     <title>js处理手势冲突之冒泡用法</title>
-    <link href="http://yoursite.com/2017/06/22/js-article/"/>
-    <id>http://yoursite.com/2017/06/22/js-article/</id>
+    <link href="https://binzi56.github.io/2017/06/22/js-article/"/>
+    <id>https://binzi56.github.io/2017/06/22/js-article/</id>
     <published>2017-06-22T04:07:01.000Z</published>
     <updated>2017-06-23T03:24:54.000Z</updated>
     
@@ -885,10 +885,10 @@
     
     </summary>
     
-      <category term="js" scheme="http://yoursite.com/categories/js/"/>
+      <category term="js" scheme="https://binzi56.github.io/categories/js/"/>
     
     
-      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+      <category term="javascript" scheme="https://binzi56.github.io/tags/javascript/"/>
     
   </entry>
   

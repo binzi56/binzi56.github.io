@@ -10,7 +10,22 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
 
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -93,7 +108,7 @@
 <meta name="keywords" content="iOS,android,动画">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Lottie动画教程">
-<meta property="og:url" content="http://yoursite.com/2017/07/03/lottie-simple-tutorial/index.html">
+<meta property="og:url" content="https://binzi56.github.io/2017/07/03/lottie-simple-tutorial/index.html">
 <meta property="og:site_name" content="火の玉">
 <meta property="og:description" content="为了提升用户体验, 在界面中加入一个设计良好的界面动画成为app设计的潮流. 之前听有人说过专业的界面动画是要有设计师、工程师、程序员、平面动画师等组成, 想想这是一个多大的任务量啊. 而且里面的各种逻辑处理, 复杂一些的动画, 一般人几乎是望其项背; 但有了Lottie之后, 就大大降低了开发者的难度. 我们可以直接把Lottie的动画文件导入, 设置一下参数, 就可以使用这个动画了. 为了满足">
 <meta property="og:image" content="https://ooo.0o0.ooo/2017/07/03/5959f6801b403.gif">
@@ -135,7 +150,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/03/lottie-simple-tutorial/"/>
+  <link rel="canonical" href="https://binzi56.github.io/2017/07/03/lottie-simple-tutorial/"/>
 
 
 
@@ -314,7 +329,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/03/lottie-simple-tutorial/">
+    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2017/07/03/lottie-simple-tutorial/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="火の玉">
@@ -471,7 +486,12 @@
 
       
     </div>
+    <div>
+          
+            
 
+          
+    </div>
     <div>
       
         
@@ -510,6 +530,29 @@
     <div>
       
         
+  <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文标题：</strong>
+    Lottie动画教程
+  </li>
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      火の玉
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://binzi56.github.io/2017/07/03/lottie-simple-tutorial/" title="Lottie动画教程">https://binzi56.github.io/2017/07/03/lottie-simple-tutorial/</a>
+    </li>
+    <li class="post-copyright-author">
+      <strong>联系邮箱：</strong>
+      1533607721@qq.com
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处！
+    </li>
+  </ul>
+
 
       
     </div>
@@ -518,11 +561,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
           
-            <a href="/tags/android/" rel="tag"># android</a>
+            <a href="/tags/android/" rel="tag"><i class="fa fa-tag"></i> android</a>
           
-            <a href="/tags/动画/" rel="tag"># 动画</a>
+            <a href="/tags/动画/" rel="tag"><i class="fa fa-tag"></i> 动画</a>
           
         </div>
       
@@ -619,7 +662,7 @@
                alt="火の玉" />
           <p class="site-author-name" itemprop="name">火の玉</p>
            
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">火の玉</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -678,6 +721,24 @@
                 </a>
               </span>
             
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/715753f68a27" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/59d047c6518825788a443942" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-diamond"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
           
         </div>
 
@@ -685,20 +746,6 @@
         
 
         
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              Links
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://www.jianshu.com/u/715753f68a27" title="简书" target="_blank">简书</a>
-                </li>
-              
-            </ul>
-          </div>
         
 
         
@@ -821,6 +868,7 @@
   
 
 
+
   
 
 
@@ -846,7 +894,7 @@
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
   
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script type="text/javascript" src="/lib/love_click/love.js"></script>
 
 
   
@@ -1174,8 +1222,10 @@
 
 
   
-    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-  
 
+  
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  
 </body>
 </html>

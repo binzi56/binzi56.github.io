@@ -10,7 +10,22 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
 
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -93,7 +108,7 @@
 <meta name="keywords" content="iOS,iOS11">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS11问题汇总">
-<meta property="og:url" content="http://yoursite.com/2017/10/03/iOS11-problems/index.html">
+<meta property="og:url" content="https://binzi56.github.io/2017/10/03/iOS11-problems/index.html">
 <meta property="og:site_name" content="火の玉">
 <meta property="og:description" content="iOS11最终还是来了, 这次改版屏幕尺寸, 控件特性都有一些比较大的改变. 网上看的问题零零散散, 👇收集了一下开发中出现的问题, 整理一下, 方便之后使用.">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-6d5aad792a241000.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -101,7 +116,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-91dd5506e292db2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-ae10d86857447eb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-1290960facc55d59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-10-03T11:02:50.000Z">
+<meta property="og:updated_time" content="2017-10-15T02:15:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS11问题汇总">
 <meta name="twitter:description" content="iOS11最终还是来了, 这次改版屏幕尺寸, 控件特性都有一些比较大的改变. 网上看的问题零零散散, 👇收集了一下开发中出现的问题, 整理一下, 方便之后使用.">
@@ -133,7 +148,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/03/iOS11-problems/"/>
+  <link rel="canonical" href="https://binzi56.github.io/2017/10/03/iOS11-problems/"/>
 
 
 
@@ -312,7 +327,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/03/iOS11-problems/">
+    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2017/10/03/iOS11-problems/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="火の玉">
@@ -483,7 +498,12 @@
 
       
     </div>
+    <div>
+          
+            
 
+          
+    </div>
     <div>
       
         
@@ -522,6 +542,29 @@
     <div>
       
         
+  <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文标题：</strong>
+    iOS11问题汇总
+  </li>
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      火の玉
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://binzi56.github.io/2017/10/03/iOS11-problems/" title="iOS11问题汇总">https://binzi56.github.io/2017/10/03/iOS11-problems/</a>
+    </li>
+    <li class="post-copyright-author">
+      <strong>联系邮箱：</strong>
+      1533607721@qq.com
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处！
+    </li>
+  </ul>
+
 
       
     </div>
@@ -530,9 +573,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
           
-            <a href="/tags/iOS11/" rel="tag"># iOS11</a>
+            <a href="/tags/iOS11/" rel="tag"><i class="fa fa-tag"></i> iOS11</a>
           
         </div>
       
@@ -625,7 +668,7 @@
                alt="火の玉" />
           <p class="site-author-name" itemprop="name">火の玉</p>
            
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">火の玉</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -684,6 +727,24 @@
                 </a>
               </span>
             
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/715753f68a27" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/59d047c6518825788a443942" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-diamond"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
           
         </div>
 
@@ -691,20 +752,6 @@
         
 
         
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              Links
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://www.jianshu.com/u/715753f68a27" title="简书" target="_blank">简书</a>
-                </li>
-              
-            </ul>
-          </div>
         
 
         
@@ -827,6 +874,7 @@
   
 
 
+
   
 
 
@@ -852,7 +900,7 @@
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
   
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script type="text/javascript" src="/lib/love_click/love.js"></script>
 
 
   
@@ -1180,8 +1228,10 @@
 
 
   
-    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-  
 
+  
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  
 </body>
 </html>

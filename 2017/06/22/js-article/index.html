@@ -10,7 +10,22 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
 
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -93,7 +108,7 @@
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js处理手势冲突之冒泡用法">
-<meta property="og:url" content="http://yoursite.com/2017/06/22/js-article/index.html">
+<meta property="og:url" content="https://binzi56.github.io/2017/06/22/js-article/index.html">
 <meta property="og:site_name" content="火の玉">
 <meta property="og:description" content="​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例. 一.event.preventDefault()​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;例:   下方为html代码:1&amp;lt;a li">
 <meta property="og:image" content="https://ooo.0o0.ooo/2017/06/22/594b8239c64d5.jpeg">
@@ -129,7 +144,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/22/js-article/"/>
+  <link rel="canonical" href="https://binzi56.github.io/2017/06/22/js-article/"/>
 
 
 
@@ -308,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/22/js-article/">
+    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2017/06/22/js-article/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="火の玉">
@@ -442,7 +457,12 @@
 
       
     </div>
+    <div>
+          
+            
 
+          
+    </div>
     <div>
       
         
@@ -481,6 +501,29 @@
     <div>
       
         
+  <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文标题：</strong>
+    js处理手势冲突之冒泡用法
+  </li>
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      火の玉
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://binzi56.github.io/2017/06/22/js-article/" title="js处理手势冲突之冒泡用法">https://binzi56.github.io/2017/06/22/js-article/</a>
+    </li>
+    <li class="post-copyright-author">
+      <strong>联系邮箱：</strong>
+      1533607721@qq.com
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处！
+    </li>
+  </ul>
+
 
       
     </div>
@@ -489,7 +532,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript/" rel="tag"># javascript</a>
+            <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
           
         </div>
       
@@ -582,7 +625,7 @@
                alt="火の玉" />
           <p class="site-author-name" itemprop="name">火の玉</p>
            
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">火の玉</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -641,6 +684,24 @@
                 </a>
               </span>
             
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/715753f68a27" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/59d047c6518825788a443942" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-diamond"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
           
         </div>
 
@@ -648,20 +709,6 @@
         
 
         
-        
-          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
-            <div class="links-of-blogroll-title">
-              <i class="fa  fa-fw fa-globe"></i>
-              Links
-            </div>
-            <ul class="links-of-blogroll-list">
-              
-                <li class="links-of-blogroll-item">
-                  <a href="http://www.jianshu.com/u/715753f68a27" title="简书" target="_blank">简书</a>
-                </li>
-              
-            </ul>
-          </div>
         
 
         
@@ -784,6 +831,7 @@
   
 
 
+
   
 
 
@@ -809,7 +857,7 @@
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
   
-  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script type="text/javascript" src="/lib/love_click/love.js"></script>
 
 
   
@@ -1137,8 +1185,10 @@
 
 
   
-    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-  
 
+  
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  
 </body>
 </html>
