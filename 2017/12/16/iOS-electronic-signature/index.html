@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="appStore,iOS," />
+  <meta name="keywords" content="iOS,objective-c," />
 
 
 
@@ -104,33 +104,25 @@
 
 
 
-<meta name="description" content="自从去年6月1号Apple明文规定所有开发者提交新版本都必须支持IPV6-Only的网络，估计很多iOS开发者都遇到由于IPV6网络不支持造成的审核被拒的情况, 我被坑的不轻啊, 下面就来分析一下IPV6问题如何解决。 首先附一个审核被拒的原文:  Guideline 2.1 - Performance - App Completeness  We discovered one or more b">
-<meta name="keywords" content="appStore,iOS">
+<meta name="description" content="吃晚饭的时候, 朋友发了一组图片过来, 让我抠个图; 对, 没听错, 知道我是程序猿, 所以让我抠个图; 抠图这个说法, UI设计师们都接受不了; 身为程序猿当然要更高雅一些, 能敲代码的就绝不抠图;">
+<meta name="keywords" content="iOS,objective-c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于IPV6审核被拒的完整分析">
-<meta property="og:url" content="https://binzi56.github.io/2017/06/30/appStore-ipv6/index.html">
+<meta property="og:title" content="iOS处理单双击手势冲突问题">
+<meta property="og:url" content="https://binzi56.github.io/2017/12/16/iOS-electronic-signature/index.html">
 <meta property="og:site_name" content="火の玉">
-<meta property="og:description" content="自从去年6月1号Apple明文规定所有开发者提交新版本都必须支持IPV6-Only的网络，估计很多iOS开发者都遇到由于IPV6网络不支持造成的审核被拒的情况, 我被坑的不轻啊, 下面就来分析一下IPV6问题如何解决。 首先附一个审核被拒的原文:  Guideline 2.1 - Performance - App Completeness  We discovered one or more b">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/30/5955ca4a92010.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/30/5955cb2594ad3.jpeg">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/30/5955ce07c06c1.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/30/5955df8f3b338.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/30/5955e5ed3012a.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/30/5955e6d83e8ae.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/30/5955e8d368d67.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/30/5955e9bfbce6a.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/30/5955eec23edc2.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/30/5955f29a74491.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/30/5955f3ccad535.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/30/5955f55396eff.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/30/5955f883a146c.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/30/5955f995570a4.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2017/06/30/5955f9c5cecb7.png">
-<meta property="og:updated_time" content="2017-06-30T07:32:32.000Z">
+<meta property="og:description" content="吃晚饭的时候, 朋友发了一组图片过来, 让我抠个图; 对, 没听错, 知道我是程序猿, 所以让我抠个图; 抠图这个说法, UI设计师们都接受不了; 身为程序猿当然要更高雅一些, 能敲代码的就绝不抠图;">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-468ef184ce3e1947.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-84dede82b6ccab5a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-207a3d2599590cea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-b66dea0ad03274d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-9d562934957373b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-2ed17a648b9b1d31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1893416-fa2327db028f4a1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-12-16T03:32:11.116Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于IPV6审核被拒的完整分析">
-<meta name="twitter:description" content="自从去年6月1号Apple明文规定所有开发者提交新版本都必须支持IPV6-Only的网络，估计很多iOS开发者都遇到由于IPV6网络不支持造成的审核被拒的情况, 我被坑的不轻啊, 下面就来分析一下IPV6问题如何解决。 首先附一个审核被拒的原文:  Guideline 2.1 - Performance - App Completeness  We discovered one or more b">
-<meta name="twitter:image" content="https://ooo.0o0.ooo/2017/06/30/5955ca4a92010.png">
+<meta name="twitter:title" content="iOS处理单双击手势冲突问题">
+<meta name="twitter:description" content="吃晚饭的时候, 朋友发了一组图片过来, 让我抠个图; 对, 没听错, 知道我是程序猿, 所以让我抠个图; 抠图这个说法, UI设计师们都接受不了; 身为程序猿当然要更高雅一些, 能敲代码的就绝不抠图;">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1893416-468ef184ce3e1947.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -158,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="https://binzi56.github.io/2017/06/30/appStore-ipv6/"/>
+  <link rel="canonical" href="https://binzi56.github.io/2017/12/16/iOS-electronic-signature/"/>
 
 
 
 
 
-  <title> 关于IPV6审核被拒的完整分析 | 火の玉 </title>
+  <title> iOS处理单双击手势冲突问题 | 火の玉 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -357,7 +349,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2017/06/30/appStore-ipv6/">
+    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2017/12/16/iOS-electronic-signature/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="火の玉">
@@ -378,7 +370,7 @@
             
             
               
-                关于IPV6审核被拒的完整分析
+                iOS处理单双击手势冲突问题
               
             
           </h1>
@@ -393,8 +385,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-30T10:18:16+08:00">
-                2017-06-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-16T16:57:51+08:00">
+                2017-12-16
               </time>
             
 
@@ -433,7 +425,7 @@
 
           
           
-             <span id="/2017/06/30/appStore-ipv6/" class="leancloud_visitors" data-flag-title="关于IPV6审核被拒的完整分析">
+             <span id="/2017/12/16/iOS-electronic-signature/" class="leancloud_visitors" data-flag-title="iOS处理单双击手势冲突问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -467,64 +459,26 @@
       
 
       
-        <p>自从去年6月1号Apple明文规定所有开发者提交新版本都必须支持IPV6-Only的网络，估计很多iOS开发者都遇到由于IPV6网络不支持造成的审核被拒的情况, 我被坑的不轻啊, 下面就来分析一下IPV6问题如何解决。</p>
-<p>首先附一个审核被拒的原文:</p>
-<blockquote>
-<p>Guideline 2.1 - Performance - App Completeness<br>  We discovered one or more bugs in your app when reviewed on iPad running iOS 10.3.2 on Wi-Fi connected to an IPv6 network.<br>  Specifically, the app launched to a blank page.<br>  Please see attached screenshots for details.</p>
-<p>Next Steps<br>  To resolve this issue, please run your app on a device while connected to an IPv6 network (all apps must support IPv6) to identify any issues, then revise and resubmit your app for review.<br>  If we misunderstood the intended behavior of your app, please reply to this message in Resolution Center to provide information on how these features were intended to work.<br>  For new apps, uninstall all previous versions of your app from a device, then install and follow the steps to reproduce the issue. For updates, install the new version as an update to the previous version, then follow the steps to reproduce the issue.</p>
-</blockquote>
+        <p>吃晚饭的时候, 朋友发了一组图片过来, 让我抠个图; 对, 没听错, 知道我是程序猿, 所以让我抠个图;<br><img src="http://upload-images.jianshu.io/upload_images/1893416-468ef184ce3e1947.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>抠图这个说法, UI设计师们都接受不了; 身为程序猿当然要更高雅一些, 能敲代码的就绝不抠图;<br><img src="http://upload-images.jianshu.io/upload_images/1893416-84dede82b6ccab5a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <a id="more"></a>
-<p>大意是在iPad上运行iOS 10.3.2 wi - fi连接到IPv6网络, 应用程序启动是一个空白页。请在设备上运行您的应用程序,连接到IPv6网络, 然后修改并重新提交你的应用程序进行审查。</p>
-<h3 id="一-简单介绍一下IPV6以及如何搭建检测环境"><a href="#一-简单介绍一下IPV6以及如何搭建检测环境" class="headerlink" title="一. 简单介绍一下IPV6以及如何搭建检测环境"></a>一. 简单介绍一下IPV6以及如何搭建检测环境</h3><p>首先IPV6，是对IPV4地址空间的扩充。目前当我们用iOS设备连接上Wifi、4G、3G等网络时，设备被分配的地址均是IPV4地址，但是随着运营商和企业逐渐部署IPV6 DNS64/NAT64网络之后，设备被分配的地址会变成IPV6的地址，而这些网络就是所谓的IPV6-Only网络，并且仍然可以通过此网络去获取IPV4地址提供的内容。简单来说就是IPV4不够用了, 要换IPV6, 这从苹果一向的以用户体验为主出发, 其实也是为了让用户能用着舒服;<br>测试是否支持IPV6网上已有更多详细的方法, 照着搭建就行, 下方附搭建环境的方法:</p>
-<ul>
-<li><a href="https://developer.apple.com/library/mac/documentation/NetworkingInternetWeb/Conceptual/NetworkingOverview/UnderstandingandPreparingfortheIPv6Transition/UnderstandingandPreparingfortheIPv6Transition.html#//apple_ref/doc/uid/TP40010220-CH213-SW1" target="_blank" rel="external">苹果官方文档的搭建方法</a></li>
-<li><a href="http://blog.csdn.net/iosworker/article/details/51595432" target="_blank" rel="external">苹果app上架因IPv6不支持而拒绝，本地IPV6测试方法</a></li>
-</ul>
-<h3 id="二-解决办法"><a href="#二-解决办法" class="headerlink" title="二. 解决办法"></a>二. 解决办法</h3><p>总的来说有三个方面的问题:</p>
-<ul>
-<li>服务器不支持IPV6</li>
-<li>项目中导入的第三方SDK不支持IPV6</li>
-<li>项目中涉及到的网络请求不支持IPV6</li>
-</ul>
-<p>除了这些, 还有些其他因素, 比如苹果正在审核, 而你们的后台在部署接口, 这种才是真的坑爹😤啊, 不多说, 感觉眼泪止不住往下流了;</p>
-<h4 id="1-服务器"><a href="#1-服务器" class="headerlink" title="1. 服务器"></a>1. 服务器</h4><p><strong>①检测服务器是否支持IPV6</strong><br>终端输入以下代码:(参照网上方法)</p>
+<p>好了, 进入正题; 其实分析一下, 需求也比较简单, 就是把图片中的白色或者接近白色的背景换为透明, 黑色签名露出来; 下面是图片处理前:<br><img src="http://upload-images.jianshu.io/upload_images/1893416-207a3d2599590cea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>首先说一下返回原始图片文字, 代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">//返回原始图像(将图片的背景置为透明)</div><div class="line">- (UIImage *)returnOrginImage:(UIImage *)sourceImage</div><div class="line">&#123;</div><div class="line">    //分配内存</div><div class="line">    const int imageWidth = sourceImage.size.width;</div><div class="line">    const int imageHeight = sourceImage.size.height;</div><div class="line">    size_t bytesPerRow = imageWidth * 4;</div><div class="line">    uint32_t* rgbImageBuf = (uint32_t*)malloc(bytesPerRow * imageHeight);</div><div class="line"></div><div class="line">    //创建context</div><div class="line">    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();</div><div class="line">    CGContextRef context = CGBitmapContextCreate(rgbImageBuf, imageWidth, imageHeight, 8, bytesPerRow, colorSpace,kCGBitmapByteOrder32Little | kCGImageAlphaNoneSkipLast);</div><div class="line">    CGContextDrawImage(context, CGRectMake(0, 0, imageWidth, imageHeight), sourceImage.CGImage);</div><div class="line"></div><div class="line">    //遍历像素</div><div class="line">    int pixelNum = imageWidth * imageHeight;</div><div class="line">    uint32_t* pCurPtr = rgbImageBuf;</div><div class="line">    for (int i = 0; i &lt; pixelNum; i++, pCurPtr++)&#123;</div><div class="line">        //接近白色</div><div class="line">        //将像素点转成子节数组来表示---RGBA</div><div class="line">        //ptr[0]:透明度,ptr[1]:R,ptr[2]:G,ptr[3]:B</div><div class="line"></div><div class="line">        //分别取出RGB值后。进行判断需不需要设成透明</div><div class="line">        uint8_t* ptr = (uint8_t*)pCurPtr;</div><div class="line">        if (ptr[1] &gt; 140 &amp;&amp; ptr[2] &gt; 140 &amp;&amp; ptr[3] &gt; 140) &#123;</div><div class="line">            //当RGB值都大于140则比较接近白色的都将透明度设为0</div><div class="line">            //demo中的图片有点灰, 所以设置了140, 可以根据需要自行设置</div><div class="line">            ptr[0] = 0;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //将内存转成image</div><div class="line">    CGDataProviderRef dataProvider =CGDataProviderCreateWithData(NULL, rgbImageBuf, bytesPerRow * imageHeight, nil);</div><div class="line">    CGImageRef imageRef = CGImageCreate(imageWidth, imageHeight,8, 32, bytesPerRow, colorSpace,kCGImageAlphaLast |kCGBitmapByteOrder32Little, dataProvider,NULL, true,kCGRenderingIntentDefault);</div><div class="line">    CGDataProviderRelease(dataProvider);</div><div class="line"></div><div class="line">    UIImage *resultUIImage = [UIImage imageWithCGImage:imageRef];</div><div class="line"></div><div class="line">    //释放</div><div class="line">    CGImageRelease(imageRef);</div><div class="line">    CGContextRelease(context);</div><div class="line">    CGColorSpaceRelease(colorSpace);</div><div class="line">    return resultUIImage;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>参数bytesPerRow代表被渲染内存区域中每行所占字节, 其中4代表每个像素点RGBA所占的字节, 之后乘以<code>imageHeight</code>得到所占内存空间;<code>colorspace</code>用于被渲染内存区域的颜色;最关键的代码就是将RGB值为白色或趋近与白色的透明度设为0;我这里取了140是因为这张图片背景有点灰, 大家可以自行设置;<br>效果如下:<br><img src="http://upload-images.jianshu.io/upload_images/1893416-b66dea0ad03274d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="原图图像"></p>
+<p>看得出文字有点模糊, 这是因为处理过程是对每一个像素直接设置为透明,  图片并不是只有黑白两个颜色, 所以文字周边的区域就会变暗了, 再加上原图给的也不是很清晰, 那应该怎么处理呢?<br>这里涉及到灰度图, 代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//返回灰度图像</div><div class="line">-(UIImage*)returnGrayImage:(UIImage*)sourceImage&#123;</div><div class="line">    int width = sourceImage.size.width;</div><div class="line">    int height = sourceImage.size.height;</div><div class="line"></div><div class="line">    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();</div><div class="line">    CGContextRef context = CGBitmapContextCreate (nil,width,height,8,0,colorSpace,kCGImageAlphaNone);</div><div class="line">    CGColorSpaceRelease(colorSpace);</div><div class="line"></div><div class="line">    if (context == NULL) &#123;</div><div class="line">        return nil;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    CGContextDrawImage(context,CGRectMake(0, 0, width, height), sourceImage.CGImage);</div><div class="line">    UIImage *grayImage = [UIImage imageWithCGImage:CGBitmapContextCreateImage(context)];</div><div class="line">    CGContextRelease(context);</div><div class="line"></div><div class="line">    return grayImage;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>效果图:<br><img src="http://upload-images.jianshu.io/upload_images/1893416-9d562934957373b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="灰度图"></p>
+<p>说到灰度图, 就不得不提一个很著名的彩色转灰度的心理学公式：<br><code>Gray = R*0.299 + G*0.587 + B*0.114</code></p>
 <blockquote>
-<p>dig +nocmd + nostats 你的域名 AAAA</p>
+<p>算法处理如下:<br>a.      首先将彩色图像转换为灰度图像<br>b.      计算灰度图像的算术平均值M<br>c.      以M为阈值，完成对灰度图二值化( 大于阈值M,像素点赋值为白色，否则赋值为黑<br>色)</p>
 </blockquote>
-<p>这是看看你们的服务器在IPV6下是否有回应。</p>
-<p><img src="https://ooo.0o0.ooo/2017/06/30/5955ca4a92010.png" alt="简书的域名检测"><br>有错误的话, 对照下面的表:</p>
-<p><img src="https://ooo.0o0.ooo/2017/06/30/5955cb2594ad3.jpeg" alt=""><br>改变DNS的配置，直到稳定返回 NOERROR 为止。</p>
-<p><strong>②更改服务器配置</strong><br><a href="https://jiandanxinli.github.io/2016-08-06.html" target="_blank" rel="external">阿里云 Ubuntu 支持 IPv6 的完整步骤</a></p>
-<h4 id="2-第三方SDK"><a href="#2-第三方SDK" class="headerlink" title="2. 第三方SDK"></a>2. 第三方SDK</h4><p>这些问题一般会出现在那些维护的APP里面, 由于是初次开发APP的人所处的时间相对较远, 所以项目里所用的SDK会有一些功能缺失; 下面介绍几个第三方SDK的问题;<br><strong>①Reachability</strong><br><img src="https://ooo.0o0.ooo/2017/06/30/5955ce07c06c1.png" alt=""><br>苹果都发话, 这个当然要改了;<br>新的sdk包将这个方法干掉了：reachabilityForLocalWiFi，只要自己的代码中干掉就行了，没什么影响。</p>
-<p>原因如下介绍：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#pragma mark reachabilityForLocalWiFi</div><div class="line"></div><div class="line">//reachabilityForLocalWiFi has been removed from the sample.  See ReadMe.md for more information.</div><div class="line"></div><div class="line">//+ (instancetype)reachabilityForLocalWiFi;</div></pre></td></tr></table></figure></p>
-<p><strong>②JPush极光推送(v2.1.7开始支持)</strong><br>这个是我们项目里遇到的问题, SDK版本低了, 不支持IPV6;</p>
-<p><img src="https://ooo.0o0.ooo/2017/06/30/5955df8f3b338.png" alt=""><br>从图中可以看出, 2.1.7版本才开始支持IPV6, 而我们版本是2.1.0; 唉😔, 乖乖升级咯;<br>附:<br><a href="https://docs.jiguang.cn/jpush/updates/" target="_blank" rel="external">极光文档地址</a></p>
-<p><strong>③微博SDK(v3.1.4开始支持)</strong></p>
-<p><img src="https://ooo.0o0.ooo/2017/06/30/5955e5ed3012a.png" alt=""><br>而且从官方文档上发现, 更新SDK, 实际上是更新Reachability库;</p>
-<p><img src="https://ooo.0o0.ooo/2017/06/30/5955e6d83e8ae.png" alt=""><br>附:<br><a href="https://github.com/sinaweibosdk/weibo_ios_sdk/blob/master/%E5%BE%AE%E5%8D%9AiOS%E5%B9%B3%E5%8F%B0SDK%E6%96%87%E6%A1%A3V3.2.0.pdf" target="_blank" rel="external">微博SDK文档地址</a></p>
-<p><strong>④友盟(v5.2.1开始支持)</strong></p>
-<p><img src="https://ooo.0o0.ooo/2017/06/30/5955e8d368d67.png" alt=""><br>附:<br><a href="http://dev.umeng.com/social/ios/sdk-download" target="_blank" rel="external">友盟文档地址</a></p>
-<p><strong>⑤微信(v1.5开始支持)</strong></p>
-<p><img src="https://ooo.0o0.ooo/2017/06/30/5955e9bfbce6a.png" alt=""><br>有简友说微信的sdk包是支持ipv6的，但是微信本身并不支持ipv6，所以说，即便你替换了最新的sdk包，在ipv6网络下还是不能用微信分享，因为你的app应用在ipv6网络环境下调不起微信，也就分享不了了，这个问题微信应该意识到了，估计后边的版本应该也是支持ipv6, 这个大家可以注意下;<br>附:<br><a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&amp;t=resource/res_list&amp;verify=1&amp;id=open1419319164&amp;lang=zh_CN" target="_blank" rel="external">微信文档地址</a></p>
-<p><strong>⑥QQ(未说明)</strong></p>
-<p><img src="https://ooo.0o0.ooo/2017/06/30/5955eec23edc2.png" alt=""><br>从变更历史也看不出从哪个版本开始支持的, 估计是觉得这点玩意儿不值得说吧. 大佬们的世界真是看不懂, 大家就按时间来估计吧;<br>附:<br><a href="http://wiki.open.qq.com/wiki/IOS_API调用说明" target="_blank" rel="external">QQ文档地址</a></p>
-<p><strong>⑦支付宝(未说明)</strong></p>
-<p><img src="https://ooo.0o0.ooo/2017/06/30/5955f29a74491.png" alt=""><br>看下载的demo里面, 版本更新历史对具体哪个版本更新的未说明, 万一是最近被苹果打压的才更新的, 也不一定, 反正最新版本肯定是有了, 而且还多了些其他功能;<br>附:<br><a href="https://docs.open.alipay.com/54/104509/" target="_blank" rel="external">支付宝文档地址</a></p>
-<p><strong>⑧百度地图(v3.0.0开始支持)</strong></p>
-<p><img src="https://ooo.0o0.ooo/2017/06/30/5955f3ccad535.png" alt=""><br>附:<br><a href="http://lbsyun.baidu.com/index.php?title=iossdk/theupdatelog" target="_blank" rel="external">百度地图文档地址</a></p>
-<p><strong>⑨环信(v3.1.3开始支持)</strong></p>
-<p><img src="https://ooo.0o0.ooo/2017/06/30/5955f55396eff.png" alt=""><br>附:<br><a href="http://docs.easemob.com/im/300iosclientintegration/130iosqa" target="_blank" rel="external">环信文档地址</a></p>
-<p><strong>⑩科大讯飞语音(v1.133开始支持)</strong></p>
-<p><img src="https://ooo.0o0.ooo/2017/06/30/5955f883a146c.png" alt=""><br>附:<br><a href="http://www.xfyun.cn/sdk/dispatcher" target="_blank" rel="external">科大讯飞语音文档地址</a></p>
-<p>当然还有很多其他的SDK, 这里就不一一列举了, 根据项目里用了哪些, 看下官方文档SDK版本历史比对一下就行;</p>
-<h4 id="3-网络请求"><a href="#3-网络请求" class="headerlink" title="3. 网络请求"></a>3. 网络请求</h4><p>其实对于ipv6_Only的处理，从两大方面进行自己审核：自身网络请求和三方涉及网络请求, 毕竟是由于网络问题;<br>关于AFNetworking是否支持IPV6, 下面是一网友的说法:</p>
-<p><img src="https://ooo.0o0.ooo/2017/06/30/5955f995570a4.png" alt=""></p>
-<p>而版本支持是在3.0以后;</p>
-<p><img src="https://ooo.0o0.ooo/2017/06/30/5955f9c5cecb7.png" alt=""></p>
-<p>当然, 听说网友还遇到了其他的问题:(这个我没遇到, 不过还是在这里记一下😆)<br>内网的访问下是不可能连接到自己的服务器，后面测试一下公网阿里云的服务器，能够正常连接，这个可能是DNS64在搜索ipv6的过程中，并没有搜索内网的网络，导致内网连接失败;</p>
-<p>如果这些还是没能解决你的问题, 可以看看下面这篇文章:<br><a href="http://www.jianshu.com/p/a6bab07c4062" target="_blank" rel="external">http://www.jianshu.com/p/a6bab07c4062</a></p>
-<p>最后感谢参考文章作者的分享, 希望攻城狮们早日解决bug, 继续撸代码, O(∩_∩)O哈哈~</p>
-<p>本文参考文章:<br><a href="http://www.jianshu.com/p/ba627e73e5b4" target="_blank" rel="external">iOS 被拒6次的ipv6</a><br><a href="http://www.jianshu.com/p/97b205933c15" target="_blank" rel="external">Ipv6_Only 简单的理解（已验证，项目已经上线）</a></p>
+<p>上面的代码还看不出来, 应该是方法内部做了处理, 咱们来看👇下面的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">for (size_t i = 0; i &lt; height; i++) &#123;</div><div class="line">       for (size_t j = 0; j &lt; width; j++)&#123;</div><div class="line">           // 设置每个像素的rgba值</div><div class="line">           size_t pixelIndex = i * width * 4 + j * 4;</div><div class="line">           unsigned char red   = data[pixelIndex];</div><div class="line">           unsigned char green = data[pixelIndex + 1];</div><div class="line">           unsigned char blue  = data[pixelIndex + 2];</div><div class="line"></div><div class="line">           //取灰度值</div><div class="line">           unsigned char gray = 0.299 * red + 0.587 * green + 0.114 * blue;</div><div class="line">           data[pixelIndex]     = gray;    // r</div><div class="line">           data[pixelIndex + 1] = gray;    // g</div><div class="line">           data[pixelIndex + 2] = gray;    // b</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>附:<br><a href="http://en.wikipedia.org/wiki/Grayscale#Converting_color_to_grayscale" target="_blank" rel="external">维基灰度算法</a></p>
+<p>处理成灰度图后基本只剩下黑白两种颜色; 为了寻求最优解, 我们再把屏幕中白色变透明, 黑色加深, 就得到所谓的高保真效果了;<br>代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">//返回高保真图像(只返回黑白两种颜色)</div><div class="line">- (UIImage *)returnHightQualityImage:(UIImage *)sourceImage&#123;</div><div class="line">    NSData *imageData = UIImagePNGRepresentation(sourceImage);</div><div class="line"></div><div class="line">    CGImageSourceRef sourceRef = CGImageSourceCreateWithData((CFDataRef)imageData, NULL);</div><div class="line">    CGImageRef imageRef = CGImageSourceCreateImageAtIndex(sourceRef, 0, NULL);</div><div class="line"></div><div class="line">    size_t width = CGImageGetWidth(imageRef);</div><div class="line">    size_t height = CGImageGetHeight(imageRef);</div><div class="line"></div><div class="line">    unsigned char *data = calloc(width * height * 4, sizeof(unsigned char)); // 取图片首地址</div><div class="line">    size_t bitsPerComponent = 8; // r g b a 每个component bits数目</div><div class="line">    size_t bytesPerRow = width * 4; // 一张图片每行字节数目 (每个像素点包含r g b a 四个字节)</div><div class="line">    CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB(); // 创建rgb颜色空间</div><div class="line"></div><div class="line">    CGContextRef context = CGBitmapContextCreate(data, width, height, bitsPerComponent, bytesPerRow, space, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);</div><div class="line">    CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef);</div><div class="line"></div><div class="line">    for (size_t i = 0; i &lt; height; i++)</div><div class="line">    &#123;</div><div class="line">        for (size_t j = 0; j &lt; width; j++)</div><div class="line">        &#123;</div><div class="line">            // 设置每个像素的rgba值</div><div class="line">            size_t pixelIndex = i * width * 4 + j * 4;</div><div class="line"></div><div class="line">            unsigned char red   = data[pixelIndex];</div><div class="line">            unsigned char green = data[pixelIndex + 1];</div><div class="line">            unsigned char blue  = data[pixelIndex + 2];</div><div class="line"></div><div class="line">            //取灰度值</div><div class="line">            unsigned char gray = 0.299 * red + 0.587 * green + 0.114 * blue;</div><div class="line">            gray = gray &gt; 150 ? 255 : 0;</div><div class="line">            data[pixelIndex]     = gray;    // r</div><div class="line">            data[pixelIndex + 1] = gray;    // g</div><div class="line">            data[pixelIndex + 2] = gray;    // b</div><div class="line">            data[pixelIndex + 3] = gray == 255 ? 0 : 255;    // a (255 代表透明)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    CGImageRef newImage = CGBitmapContextCreateImage(context);</div><div class="line">    UIImage *image = [[UIImage alloc] initWithCGImage:newImage];</div><div class="line">    return image;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>最终效果图:<br><img src="http://upload-images.jianshu.io/upload_images/1893416-2ed17a648b9b1d31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="高保真"></p>
+<p>最后附上github地址;<br><a href="https://github.com/binzi56/ChangeBgColorDemo" target="_blank" rel="external">demo下载</a></p>
+<blockquote>
+<p><strong>扩展</strong><br><a href="https://zhuanlan.zhihu.com/p/30745861" target="_blank" rel="external">用 C 语言画光–Milo Yip</a><br><img src="http://upload-images.jianshu.io/upload_images/1893416-fa2327db028f4a1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="效果图"></p>
+</blockquote>
 
       
     </div>
@@ -586,7 +540,7 @@
   <ul class="post-copyright">
   <li class="post-copyright-author">
     <strong>本文标题：</strong>
-    关于IPV6审核被拒的完整分析
+    iOS处理单双击手势冲突问题
   </li>
     <li class="post-copyright-author">
       <strong>本文作者：</strong>
@@ -594,7 +548,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://binzi56.github.io/2017/06/30/appStore-ipv6/" title="关于IPV6审核被拒的完整分析">https://binzi56.github.io/2017/06/30/appStore-ipv6/</a>
+      <a href="https://binzi56.github.io/2017/12/16/iOS-electronic-signature/" title="iOS处理单双击手势冲突问题">https://binzi56.github.io/2017/12/16/iOS-electronic-signature/</a>
     </li>
     <li class="post-copyright-author">
       <strong>联系邮箱：</strong>
@@ -614,9 +568,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/appStore/" rel="tag"><i class="fa fa-tag"></i> appStore</a>
-          
             <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/objective-c/" rel="tag"><i class="fa fa-tag"></i> objective-c</a>
           
         </div>
       
@@ -629,8 +583,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/28/iOS-http-error-code/" rel="next" title="iOS网络请求错误整理">
-                <i class="fa fa-chevron-left"></i> iOS网络请求错误整理
+              <a href="/2017/10/17/iOS-SVPullToRefresh/" rel="next" title="源码剖析--SVPullToRefresh">
+                <i class="fa fa-chevron-left"></i> 源码剖析--SVPullToRefresh
               </a>
             
           </div>
@@ -638,10 +592,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/03/lottie-simple-tutorial/" rel="prev" title="Lottie动画教程">
-                Lottie动画教程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -696,17 +646,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -824,22 +765,6 @@
       </div>-->
 
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-简单介绍一下IPV6以及如何搭建检测环境"><span class="nav-number">1.</span> <span class="nav-text">一. 简单介绍一下IPV6以及如何搭建检测环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-解决办法"><span class="nav-number">2.</span> <span class="nav-text">二. 解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-服务器"><span class="nav-number">2.1.</span> <span class="nav-text">1. 服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-第三方SDK"><span class="nav-number">2.2.</span> <span class="nav-text">2. 第三方SDK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-网络请求"><span class="nav-number">2.3.</span> <span class="nav-text">3. 网络请求</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

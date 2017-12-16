@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://binzi56.github.io/"/>
-  <updated>2017-10-16T16:38:39.000Z</updated>
+  <updated>2017-12-16T03:32:11.116Z</updated>
   <id>https://binzi56.github.io/</id>
   
   <author>
@@ -14,6 +14,51 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS处理单双击手势冲突问题</title>
+    <link href="https://binzi56.github.io/2017/12/16/iOS-electronic-signature/"/>
+    <id>https://binzi56.github.io/2017/12/16/iOS-electronic-signature/</id>
+    <published>2017-12-16T08:57:51.000Z</published>
+    <updated>2017-12-16T03:32:11.116Z</updated>
+    
+    <content type="html"><![CDATA[<p>吃晚饭的时候, 朋友发了一组图片过来, 让我抠个图; 对, 没听错, 知道我是程序猿, 所以让我抠个图;<br><img src="http://upload-images.jianshu.io/upload_images/1893416-468ef184ce3e1947.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>抠图这个说法, UI设计师们都接受不了; 身为程序猿当然要更高雅一些, 能敲代码的就绝不抠图;<br><img src="http://upload-images.jianshu.io/upload_images/1893416-84dede82b6ccab5a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<a id="more"></a>
+<p>好了, 进入正题; 其实分析一下, 需求也比较简单, 就是把图片中的白色或者接近白色的背景换为透明, 黑色签名露出来; 下面是图片处理前:<br><img src="http://upload-images.jianshu.io/upload_images/1893416-207a3d2599590cea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>首先说一下返回原始图片文字, 代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">//返回原始图像(将图片的背景置为透明)</div><div class="line">- (UIImage *)returnOrginImage:(UIImage *)sourceImage</div><div class="line">&#123;</div><div class="line">    //分配内存</div><div class="line">    const int imageWidth = sourceImage.size.width;</div><div class="line">    const int imageHeight = sourceImage.size.height;</div><div class="line">    size_t bytesPerRow = imageWidth * 4;</div><div class="line">    uint32_t* rgbImageBuf = (uint32_t*)malloc(bytesPerRow * imageHeight);</div><div class="line"></div><div class="line">    //创建context</div><div class="line">    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();</div><div class="line">    CGContextRef context = CGBitmapContextCreate(rgbImageBuf, imageWidth, imageHeight, 8, bytesPerRow, colorSpace,kCGBitmapByteOrder32Little | kCGImageAlphaNoneSkipLast);</div><div class="line">    CGContextDrawImage(context, CGRectMake(0, 0, imageWidth, imageHeight), sourceImage.CGImage);</div><div class="line"></div><div class="line">    //遍历像素</div><div class="line">    int pixelNum = imageWidth * imageHeight;</div><div class="line">    uint32_t* pCurPtr = rgbImageBuf;</div><div class="line">    for (int i = 0; i &lt; pixelNum; i++, pCurPtr++)&#123;</div><div class="line">        //接近白色</div><div class="line">        //将像素点转成子节数组来表示---RGBA</div><div class="line">        //ptr[0]:透明度,ptr[1]:R,ptr[2]:G,ptr[3]:B</div><div class="line"></div><div class="line">        //分别取出RGB值后。进行判断需不需要设成透明</div><div class="line">        uint8_t* ptr = (uint8_t*)pCurPtr;</div><div class="line">        if (ptr[1] &gt; 140 &amp;&amp; ptr[2] &gt; 140 &amp;&amp; ptr[3] &gt; 140) &#123;</div><div class="line">            //当RGB值都大于140则比较接近白色的都将透明度设为0</div><div class="line">            //demo中的图片有点灰, 所以设置了140, 可以根据需要自行设置</div><div class="line">            ptr[0] = 0;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //将内存转成image</div><div class="line">    CGDataProviderRef dataProvider =CGDataProviderCreateWithData(NULL, rgbImageBuf, bytesPerRow * imageHeight, nil);</div><div class="line">    CGImageRef imageRef = CGImageCreate(imageWidth, imageHeight,8, 32, bytesPerRow, colorSpace,kCGImageAlphaLast |kCGBitmapByteOrder32Little, dataProvider,NULL, true,kCGRenderingIntentDefault);</div><div class="line">    CGDataProviderRelease(dataProvider);</div><div class="line"></div><div class="line">    UIImage *resultUIImage = [UIImage imageWithCGImage:imageRef];</div><div class="line"></div><div class="line">    //释放</div><div class="line">    CGImageRelease(imageRef);</div><div class="line">    CGContextRelease(context);</div><div class="line">    CGColorSpaceRelease(colorSpace);</div><div class="line">    return resultUIImage;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>参数bytesPerRow代表被渲染内存区域中每行所占字节, 其中4代表每个像素点RGBA所占的字节, 之后乘以<code>imageHeight</code>得到所占内存空间;<code>colorspace</code>用于被渲染内存区域的颜色;最关键的代码就是将RGB值为白色或趋近与白色的透明度设为0;我这里取了140是因为这张图片背景有点灰, 大家可以自行设置;<br>效果如下:<br><img src="http://upload-images.jianshu.io/upload_images/1893416-b66dea0ad03274d6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="原图图像"></p>
+<p>看得出文字有点模糊, 这是因为处理过程是对每一个像素直接设置为透明,  图片并不是只有黑白两个颜色, 所以文字周边的区域就会变暗了, 再加上原图给的也不是很清晰, 那应该怎么处理呢?<br>这里涉及到灰度图, 代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">//返回灰度图像</div><div class="line">-(UIImage*)returnGrayImage:(UIImage*)sourceImage&#123;</div><div class="line">    int width = sourceImage.size.width;</div><div class="line">    int height = sourceImage.size.height;</div><div class="line"></div><div class="line">    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();</div><div class="line">    CGContextRef context = CGBitmapContextCreate (nil,width,height,8,0,colorSpace,kCGImageAlphaNone);</div><div class="line">    CGColorSpaceRelease(colorSpace);</div><div class="line"></div><div class="line">    if (context == NULL) &#123;</div><div class="line">        return nil;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    CGContextDrawImage(context,CGRectMake(0, 0, width, height), sourceImage.CGImage);</div><div class="line">    UIImage *grayImage = [UIImage imageWithCGImage:CGBitmapContextCreateImage(context)];</div><div class="line">    CGContextRelease(context);</div><div class="line"></div><div class="line">    return grayImage;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>效果图:<br><img src="http://upload-images.jianshu.io/upload_images/1893416-9d562934957373b1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="灰度图"></p>
+<p>说到灰度图, 就不得不提一个很著名的彩色转灰度的心理学公式：<br><code>Gray = R*0.299 + G*0.587 + B*0.114</code></p>
+<blockquote>
+<p>算法处理如下:<br>a.      首先将彩色图像转换为灰度图像<br>b.      计算灰度图像的算术平均值M<br>c.      以M为阈值，完成对灰度图二值化( 大于阈值M,像素点赋值为白色，否则赋值为黑<br>色)</p>
+</blockquote>
+<p>上面的代码还看不出来, 应该是方法内部做了处理, 咱们来看👇下面的:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">for (size_t i = 0; i &lt; height; i++) &#123;</div><div class="line">       for (size_t j = 0; j &lt; width; j++)&#123;</div><div class="line">           // 设置每个像素的rgba值</div><div class="line">           size_t pixelIndex = i * width * 4 + j * 4;</div><div class="line">           unsigned char red   = data[pixelIndex];</div><div class="line">           unsigned char green = data[pixelIndex + 1];</div><div class="line">           unsigned char blue  = data[pixelIndex + 2];</div><div class="line"></div><div class="line">           //取灰度值</div><div class="line">           unsigned char gray = 0.299 * red + 0.587 * green + 0.114 * blue;</div><div class="line">           data[pixelIndex]     = gray;    // r</div><div class="line">           data[pixelIndex + 1] = gray;    // g</div><div class="line">           data[pixelIndex + 2] = gray;    // b</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
+<p>附:<br><a href="http://en.wikipedia.org/wiki/Grayscale#Converting_color_to_grayscale" target="_blank" rel="external">维基灰度算法</a></p>
+<p>处理成灰度图后基本只剩下黑白两种颜色; 为了寻求最优解, 我们再把屏幕中白色变透明, 黑色加深, 就得到所谓的高保真效果了;<br>代码如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">//返回高保真图像(只返回黑白两种颜色)</div><div class="line">- (UIImage *)returnHightQualityImage:(UIImage *)sourceImage&#123;</div><div class="line">    NSData *imageData = UIImagePNGRepresentation(sourceImage);</div><div class="line"></div><div class="line">    CGImageSourceRef sourceRef = CGImageSourceCreateWithData((CFDataRef)imageData, NULL);</div><div class="line">    CGImageRef imageRef = CGImageSourceCreateImageAtIndex(sourceRef, 0, NULL);</div><div class="line"></div><div class="line">    size_t width = CGImageGetWidth(imageRef);</div><div class="line">    size_t height = CGImageGetHeight(imageRef);</div><div class="line"></div><div class="line">    unsigned char *data = calloc(width * height * 4, sizeof(unsigned char)); // 取图片首地址</div><div class="line">    size_t bitsPerComponent = 8; // r g b a 每个component bits数目</div><div class="line">    size_t bytesPerRow = width * 4; // 一张图片每行字节数目 (每个像素点包含r g b a 四个字节)</div><div class="line">    CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB(); // 创建rgb颜色空间</div><div class="line"></div><div class="line">    CGContextRef context = CGBitmapContextCreate(data, width, height, bitsPerComponent, bytesPerRow, space, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);</div><div class="line">    CGContextDrawImage(context, CGRectMake(0, 0, width, height), imageRef);</div><div class="line"></div><div class="line">    for (size_t i = 0; i &lt; height; i++)</div><div class="line">    &#123;</div><div class="line">        for (size_t j = 0; j &lt; width; j++)</div><div class="line">        &#123;</div><div class="line">            // 设置每个像素的rgba值</div><div class="line">            size_t pixelIndex = i * width * 4 + j * 4;</div><div class="line"></div><div class="line">            unsigned char red   = data[pixelIndex];</div><div class="line">            unsigned char green = data[pixelIndex + 1];</div><div class="line">            unsigned char blue  = data[pixelIndex + 2];</div><div class="line"></div><div class="line">            //取灰度值</div><div class="line">            unsigned char gray = 0.299 * red + 0.587 * green + 0.114 * blue;</div><div class="line">            gray = gray &gt; 150 ? 255 : 0;</div><div class="line">            data[pixelIndex]     = gray;    // r</div><div class="line">            data[pixelIndex + 1] = gray;    // g</div><div class="line">            data[pixelIndex + 2] = gray;    // b</div><div class="line">            data[pixelIndex + 3] = gray == 255 ? 0 : 255;    // a (255 代表透明)</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    CGImageRef newImage = CGBitmapContextCreateImage(context);</div><div class="line">    UIImage *image = [[UIImage alloc] initWithCGImage:newImage];</div><div class="line">    return image;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>最终效果图:<br><img src="http://upload-images.jianshu.io/upload_images/1893416-2ed17a648b9b1d31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="高保真"></p>
+<p>最后附上github地址;<br><a href="https://github.com/binzi56/ChangeBgColorDemo" target="_blank" rel="external">demo下载</a></p>
+<blockquote>
+<p><strong>扩展</strong><br><a href="https://zhuanlan.zhihu.com/p/30745861" target="_blank" rel="external">用 C 语言画光–Milo Yip</a><br><img src="http://upload-images.jianshu.io/upload_images/1893416-fa2327db028f4a1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="效果图"></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;吃晚饭的时候, 朋友发了一组图片过来, 让我抠个图; 对, 没听错, 知道我是程序猿, 所以让我抠个图;&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1893416-468ef184ce3e1947.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;抠图这个说法, UI设计师们都接受不了; 身为程序猿当然要更高雅一些, 能敲代码的就绝不抠图;&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/1893416-84dede82b6ccab5a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://binzi56.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://binzi56.github.io/tags/iOS/"/>
+    
+      <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
+    
+  </entry>
   
   <entry>
     <title>源码剖析--SVPullToRefresh</title>
@@ -280,9 +325,9 @@
       <category term="iOS" scheme="https://binzi56.github.io/categories/iOS/"/>
     
     
-      <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
-    
       <category term="iOS" scheme="https://binzi56.github.io/tags/iOS/"/>
+    
+      <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
     
   </entry>
   
@@ -863,9 +908,9 @@
       <category term="ionic" scheme="https://binzi56.github.io/categories/ionic/"/>
     
     
-      <category term="ionic" scheme="https://binzi56.github.io/tags/ionic/"/>
-    
       <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
+    
+      <category term="ionic" scheme="https://binzi56.github.io/tags/ionic/"/>
     
       <category term="plugin" scheme="https://binzi56.github.io/tags/plugin/"/>
     
@@ -939,9 +984,9 @@
       <category term="iOS" scheme="https://binzi56.github.io/categories/iOS/"/>
     
     
-      <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
-    
       <category term="iOS" scheme="https://binzi56.github.io/tags/iOS/"/>
+    
+      <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
     
   </entry>
   
