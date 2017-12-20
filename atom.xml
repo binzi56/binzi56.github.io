@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://binzi56.github.io/"/>
-  <updated>2017-12-16T03:32:11.116Z</updated>
+  <updated>2017-12-20T12:24:13.945Z</updated>
   <id>https://binzi56.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>iOS处理单双击手势冲突问题</title>
+    <title>iOS制作电子签章</title>
     <link href="https://binzi56.github.io/2017/12/16/iOS-electronic-signature/"/>
     <id>https://binzi56.github.io/2017/12/16/iOS-electronic-signature/</id>
     <published>2017-12-16T08:57:51.000Z</published>
-    <updated>2017-12-16T03:32:11.116Z</updated>
+    <updated>2017-12-20T12:24:13.945Z</updated>
     
     <content type="html"><![CDATA[<p>吃晚饭的时候, 朋友发了一组图片过来, 让我抠个图; 对, 没听错, 知道我是程序猿, 所以让我抠个图;<br><img src="http://upload-images.jianshu.io/upload_images/1893416-468ef184ce3e1947.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>抠图这个说法, UI设计师们都接受不了; 身为程序猿当然要更高雅一些, 能敲代码的就绝不抠图;<br><img src="http://upload-images.jianshu.io/upload_images/1893416-84dede82b6ccab5a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
