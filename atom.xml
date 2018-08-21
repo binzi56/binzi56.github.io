@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>火の玉</title>
-  <subtitle>一枚普通iOS程序猿</subtitle>
+  <subtitle>Just an iOS learner</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://binzi56.github.io/"/>
-  <updated>2017-12-20T12:24:13.945Z</updated>
+  <updated>2018-08-21T12:58:33.274Z</updated>
   <id>https://binzi56.github.io/</id>
   
   <author>
@@ -16,11 +16,56 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Xcode添加子工程及其环境配置</title>
+    <link href="https://binzi56.github.io/2018/03/25/iOS-create-subProject/"/>
+    <id>https://binzi56.github.io/2018/03/25/iOS-create-subProject/</id>
+    <published>2018-03-25T08:57:51.000Z</published>
+    <updated>2018-08-21T12:58:33.274Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近项目收到一个新需求，需要添加子工程分解项目一部分功能，👇将学到的一些东西分享下；<br>示例：<br><strong>主工程（AddSubProjectDemo）</strong><br><strong>子工程（subProject）</strong></p>
+<a id="more"></a>
+<h5 id="1-创建主工程（AddSubProjectDemo）以及子工程（subProject）"><a href="#1-创建主工程（AddSubProjectDemo）以及子工程（subProject）" class="headerlink" title="1. 创建主工程（AddSubProjectDemo）以及子工程（subProject）"></a>1. 创建主工程（AddSubProjectDemo）以及子工程（subProject）</h5><p>这里注意一下子工程创建的时候是<code>Cocoa Static Library</code>；<br><img src="https://upload-images.jianshu.io/upload_images/1893416-f08eeb84f4afcd77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="子工程创建示例图"><br>两个工程创建完毕如图：<br><img src="https://upload-images.jianshu.io/upload_images/1893416-92bb75b82d22ca60.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="2-添加子工程及其依赖"><a href="#2-添加子工程及其依赖" class="headerlink" title="2.添加子工程及其依赖"></a>2.添加子工程及其依赖</h5><h6 id="2-1-子工程拖进主工程文件目录中："><a href="#2-1-子工程拖进主工程文件目录中：" class="headerlink" title="2.1 子工程拖进主工程文件目录中："></a>2.1 子工程拖进主工程文件目录中：</h6><p><img src="https://upload-images.jianshu.io/upload_images/1893416-171dd213a7b49ac8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h6 id="2-2-打开主工程添加子工程"><a href="#2-2-打开主工程添加子工程" class="headerlink" title="2.2 打开主工程添加子工程"></a>2.2 打开主工程添加子工程</h6><p>这里可以选择Drag或Add File to “AddSubProjectDemo”,结束后如图：<br><img src="https://upload-images.jianshu.io/upload_images/1893416-6b027e77b4aa1c80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h6 id="2-3-在主工程中添加子工程依赖（-a文件）"><a href="#2-3-在主工程中添加子工程依赖（-a文件）" class="headerlink" title="2.3 在主工程中添加子工程依赖（.a文件）"></a>2.3 在主工程中添加子工程依赖（.a文件）</h6><p>在工程<code>target -&gt; Build Phases -&gt; Link Binary With Libraries</code>中添加<code>libsubProject.a</code><br><img src="https://upload-images.jianshu.io/upload_images/1893416-5746395f0e7daa00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h6 id="2-4-在主工程中添加子工程头文件"><a href="#2-4-在主工程中添加子工程头文件" class="headerlink" title="2.4 在主工程中添加子工程头文件"></a>2.4 在主工程中添加子工程头文件</h6><p>在工程<code>target -&gt; Build Settings -&gt; Search Paths -&gt; Header Search Paths</code>中加入子文件目录；<br><img src="https://upload-images.jianshu.io/upload_images/1893416-63f2ac7d48b54fb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<blockquote>
+<p>关于<code>Header Search Paths</code>这里说明一下：</p>
+<ol>
+<li><code>$(inherited)</code><br>target在设置自己路径的时候如果加了这个，那么就是继承project里设置的路径。如果不需要继承就不加，要不然乱加有可能整混导致路径错误。</li>
+<li>带引号的路径和不带引号的路径<br>带引号主要是预防路径里有空格导致本来一个路径变成了两个路径，因为空格分开就被解析位两个路径，所以最好路径带上引号。</li>
+<li><code>$(SRCROOT) / $(PROJECT_DIR)</code>基本没啥区别，都是指向<code>*.xcodeproj</code>所在的路径</li>
+<li><code>recursive</code>遍历该目录，<code>non-recursive</code>默认路径设置；不遍历该目录。</li>
+</ol>
+</blockquote>
+<p>工程环境配置好后，本例在子工程加了一个类方法打印，主工程回调，最终效果如下：<br><img src="https://upload-images.jianshu.io/upload_images/1893416-bc5eddf194b72e94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>附上demo工程：<br><a href="https://github.com/binzi56/AddSubProjectDemo.git" target="_blank" rel="external">demo下载</a></p>
+<p>参考文章：<br><a href="https://www.jianshu.com/p/f2bc7d155a86" target="_blank" rel="external">Xcode创建子工程以及工程依赖</a><br><a href="https://www.jianshu.com/p/9f9c1fd2e8b5" target="_blank" rel="external">Xcode Search Paths相关配置</a><br><a href="https://blog.csdn.net/ylwdi/article/details/26259207" target="_blank" rel="external">xcode环境设置</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近项目收到一个新需求，需要添加子工程分解项目一部分功能，👇将学到的一些东西分享下；&lt;br&gt;示例：&lt;br&gt;&lt;strong&gt;主工程（AddSubProjectDemo）&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;子工程（subProject）&lt;/strong&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="https://binzi56.github.io/categories/iOS/"/>
+    
+    
+      <category term="iOS" scheme="https://binzi56.github.io/tags/iOS/"/>
+    
+      <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
+    
+      <category term="Xcode" scheme="https://binzi56.github.io/tags/Xcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>iOS制作电子签章</title>
     <link href="https://binzi56.github.io/2017/12/16/iOS-electronic-signature/"/>
     <id>https://binzi56.github.io/2017/12/16/iOS-electronic-signature/</id>
     <published>2017-12-16T08:57:51.000Z</published>
-    <updated>2017-12-20T12:24:13.945Z</updated>
+    <updated>2017-12-20T12:24:13.946Z</updated>
     
     <content type="html"><![CDATA[<p>吃晚饭的时候, 朋友发了一组图片过来, 让我抠个图; 对, 没听错, 知道我是程序猿, 所以让我抠个图;<br><img src="http://upload-images.jianshu.io/upload_images/1893416-468ef184ce3e1947.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>抠图这个说法, UI设计师们都接受不了; 身为程序猿当然要更高雅一些, 能敲代码的就绝不抠图;<br><img src="http://upload-images.jianshu.io/upload_images/1893416-84dede82b6ccab5a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>

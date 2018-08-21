@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="火の玉" />
+  <meta name="keywords" content="iOS,objective-c,Xcode," />
 
 
 
@@ -104,15 +104,25 @@
 
 
 
-<meta name="description" content="火の玉">
-<meta property="og:type" content="website">
-<meta property="og:title" content="火の玉">
-<meta property="og:url" content="https://binzi56.github.io/page/4/index.html">
+<meta name="description" content="最近项目收到一个新需求，需要添加子工程分解项目一部分功能，👇将学到的一些东西分享下；示例：主工程（AddSubProjectDemo）子工程（subProject）">
+<meta name="keywords" content="iOS,objective-c,Xcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Xcode添加子工程及其环境配置">
+<meta property="og:url" content="https://binzi56.github.io/2018/03/25/iOS-create-subProject/index.html">
 <meta property="og:site_name" content="火の玉">
-<meta property="og:description" content="火の玉">
+<meta property="og:description" content="最近项目收到一个新需求，需要添加子工程分解项目一部分功能，👇将学到的一些东西分享下；示例：主工程（AddSubProjectDemo）子工程（subProject）">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1893416-f08eeb84f4afcd77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1893416-92bb75b82d22ca60.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1893416-171dd213a7b49ac8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1893416-6b027e77b4aa1c80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1893416-5746395f0e7daa00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1893416-63f2ac7d48b54fb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1893416-bc5eddf194b72e94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-08-21T12:58:33.274Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="火の玉">
-<meta name="twitter:description" content="火の玉">
+<meta name="twitter:title" content="Xcode添加子工程及其环境配置">
+<meta name="twitter:description" content="最近项目收到一个新需求，需要添加子工程分解项目一部分功能，👇将学到的一些东西分享下；示例：主工程（AddSubProjectDemo）子工程（subProject）">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1893416-f08eeb84f4afcd77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -140,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="https://binzi56.github.io/page/4/"/>
+  <link rel="canonical" href="https://binzi56.github.io/2018/03/25/iOS-create-subProject/"/>
 
 
 
 
 
-  <title> 火の玉 </title>
+  <title> Xcode添加子工程及其环境配置 | 火の玉 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -181,9 +191,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -330,9 +338,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -341,7 +349,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2017/06/23/ionic-article/">
+    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2018/03/25/iOS-create-subProject/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="火の玉">
@@ -362,10 +370,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/06/23/ionic-article/" itemprop="url">
-                  ionic优秀资源整理
-                </a>
+                Xcode添加子工程及其环境配置
               
             
           </h1>
@@ -380,175 +385,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T10:53:57+08:00">
-                2017-06-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ionic/" itemprop="url" rel="index">
-                    <span itemprop="name">ionic</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2017/06/23/ionic-article/" class="leancloud_visitors" data-flag-title="ionic优秀资源整理">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>网上关于ionic的资源比较少, 好多刚入门的开发者找不到入门指导资源, 下面就推荐一些个人觉得比较好的资源;</p>
-<p>一. 入门级指导<br>官方文档, 这个当然必不可少<br><a href="https://ionicframework.com/docs/" target="_blank" rel="external">https://ionicframework.com/docs/</a></p>
-<p>中文版的ionic文档，给英文不好的朋友<br> <a href="http://www.ionic.wang/js_doc-index.html" target="_blank" rel="external">http://www.ionic.wang/js_doc-index.html</a></p>
-<p>ionic菜鸟教程, 里面有许多基础知识<br><a href="http://www.runoob.com/ionic/ionic-install.html" target="_blank" rel="external">http://www.runoob.com/ionic/ionic-install.html</a><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/23/ionic-article/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-    <div>
-          
-    </div>
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2017/06/22/ios-article/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="火の玉">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="火の玉">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/22/ios-article/" itemprop="url">
-                  iOS处理单双击手势冲突问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-22T16:57:51+08:00">
-                2017-06-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-25T16:57:51+08:00">
+                2018-03-25
               </time>
             
 
@@ -587,7 +425,7 @@
 
           
           
-             <span id="/2017/06/22/ios-article/" class="leancloud_visitors" data-flag-title="iOS处理单双击手势冲突问题">
+             <span id="/2018/03/25/iOS-create-subProject/" class="leancloud_visitors" data-flag-title="Xcode添加子工程及其环境配置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -600,173 +438,13 @@
           
 
           
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这个是之前开发中遇到的一个问题. 当一个视图同时响应单双击手势, 而实际上需要它只响应一个手势就行; 这种情况当手势同时加在一个视图上或者两个视图的关系为父子级时出现, 下面就来介绍一下处理的方法;<br>这里展示一个demo:<br>如图所示, 在storyboard中拖入两个view, 分别为bigView和smallView, smallView为bigView的子视图;</p>
-<p><img src="https://ooo.0o0.ooo/2017/06/22/594b8b9fda051.png" alt=""><br>接下来给这两个视图拖入属性后, 给smallView加上单击事件, bigView加上双击事件;<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/22/ios-article/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-    <div>
-          
-    </div>
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2017/06/22/js-article/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="火の玉">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="火の玉">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/22/js-article/" itemprop="url">
-                  js处理手势冲突之冒泡用法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-22T12:07:01+08:00">
-                2017-06-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index">
-                    <span itemprop="name">js</span>
-                  </a>
-                </span>
-
-                
-                
-              
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
             </span>
           
 
           
-            
-          
-
-          
-          
-             <span id="/2017/06/22/js-article/" class="leancloud_visitors" data-flag-title="js处理手势冲突之冒泡用法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数 </span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
 
           
 
@@ -781,61 +459,162 @@
       
 
       
-        
-          <p><img src="https://ooo.0o0.ooo/2017/06/22/594b8239c64d5.jpeg" alt=""><br>​    嵌套的div元素，如果父级和子元素都绑定了一些事件，那么在点击最内层子元素时可能会触发父级元素的事件，下面介绍一下js阻止默认事件与js阻止事件冒泡示例.</p>
-<h4 id="一-event-preventDefault"><a href="#一-event-preventDefault" class="headerlink" title="一.event.preventDefault()"></a>一.event.preventDefault()</h4><p>​    阻止元素的默认事件。如:a元素的点击跳转的默认事件 ，button，radio等表单元素的默认事件 ，div 元素没有默认事件;<br>例:<br>   下方为html代码:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">link</span>=<span class="string">"https://www.baidu.com"</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div></pre></td></tr></table></figure></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/22/js-article/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>最近项目收到一个新需求，需要添加子工程分解项目一部分功能，👇将学到的一些东西分享下；<br>示例：<br><strong>主工程（AddSubProjectDemo）</strong><br><strong>子工程（subProject）</strong></p>
+<a id="more"></a>
+<h5 id="1-创建主工程（AddSubProjectDemo）以及子工程（subProject）"><a href="#1-创建主工程（AddSubProjectDemo）以及子工程（subProject）" class="headerlink" title="1. 创建主工程（AddSubProjectDemo）以及子工程（subProject）"></a>1. 创建主工程（AddSubProjectDemo）以及子工程（subProject）</h5><p>这里注意一下子工程创建的时候是<code>Cocoa Static Library</code>；<br><img src="https://upload-images.jianshu.io/upload_images/1893416-f08eeb84f4afcd77.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="子工程创建示例图"><br>两个工程创建完毕如图：<br><img src="https://upload-images.jianshu.io/upload_images/1893416-92bb75b82d22ca60.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h5 id="2-添加子工程及其依赖"><a href="#2-添加子工程及其依赖" class="headerlink" title="2.添加子工程及其依赖"></a>2.添加子工程及其依赖</h5><h6 id="2-1-子工程拖进主工程文件目录中："><a href="#2-1-子工程拖进主工程文件目录中：" class="headerlink" title="2.1 子工程拖进主工程文件目录中："></a>2.1 子工程拖进主工程文件目录中：</h6><p><img src="https://upload-images.jianshu.io/upload_images/1893416-171dd213a7b49ac8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h6 id="2-2-打开主工程添加子工程"><a href="#2-2-打开主工程添加子工程" class="headerlink" title="2.2 打开主工程添加子工程"></a>2.2 打开主工程添加子工程</h6><p>这里可以选择Drag或Add File to “AddSubProjectDemo”,结束后如图：<br><img src="https://upload-images.jianshu.io/upload_images/1893416-6b027e77b4aa1c80.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h6 id="2-3-在主工程中添加子工程依赖（-a文件）"><a href="#2-3-在主工程中添加子工程依赖（-a文件）" class="headerlink" title="2.3 在主工程中添加子工程依赖（.a文件）"></a>2.3 在主工程中添加子工程依赖（.a文件）</h6><p>在工程<code>target -&gt; Build Phases -&gt; Link Binary With Libraries</code>中添加<code>libsubProject.a</code><br><img src="https://upload-images.jianshu.io/upload_images/1893416-5746395f0e7daa00.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h6 id="2-4-在主工程中添加子工程头文件"><a href="#2-4-在主工程中添加子工程头文件" class="headerlink" title="2.4 在主工程中添加子工程头文件"></a>2.4 在主工程中添加子工程头文件</h6><p>在工程<code>target -&gt; Build Settings -&gt; Search Paths -&gt; Header Search Paths</code>中加入子文件目录；<br><img src="https://upload-images.jianshu.io/upload_images/1893416-63f2ac7d48b54fb7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<blockquote>
+<p>关于<code>Header Search Paths</code>这里说明一下：</p>
+<ol>
+<li><code>$(inherited)</code><br>target在设置自己路径的时候如果加了这个，那么就是继承project里设置的路径。如果不需要继承就不加，要不然乱加有可能整混导致路径错误。</li>
+<li>带引号的路径和不带引号的路径<br>带引号主要是预防路径里有空格导致本来一个路径变成了两个路径，因为空格分开就被解析位两个路径，所以最好路径带上引号。</li>
+<li><code>$(SRCROOT) / $(PROJECT_DIR)</code>基本没啥区别，都是指向<code>*.xcodeproj</code>所在的路径</li>
+<li><code>recursive</code>遍历该目录，<code>non-recursive</code>默认路径设置；不遍历该目录。</li>
+</ol>
+</blockquote>
+<p>工程环境配置好后，本例在子工程加了一个类方法打印，主工程回调，最终效果如下：<br><img src="https://upload-images.jianshu.io/upload_images/1893416-bc5eddf194b72e94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>附上demo工程：<br><a href="https://github.com/binzi56/AddSubProjectDemo.git" target="_blank" rel="external">demo下载</a></p>
+<p>参考文章：<br><a href="https://www.jianshu.com/p/f2bc7d155a86" target="_blank" rel="external">Xcode创建子工程以及工程依赖</a><br><a href="https://www.jianshu.com/p/9f9c1fd2e8b5" target="_blank" rel="external">Xcode Search Paths相关配置</a><br><a href="https://blog.csdn.net/ylwdi/article/details/26259207" target="_blank" rel="external">xcode环境设置</a></p>
+
       
     </div>
 
     <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------文章结束标记O(∩_∩)O哈哈~-------------</div>
+    
+</div>
+
       
     </div>
     <div>
           
+            
+
+          
     </div>
     <div>
+      
+        
+
       
     </div>
 
     <div>
       
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>知我者谓我心忧</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ospquvjh2.bkt.clouddn.com/17-9-7/54856753.jpg" alt="火の玉 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ospquvjh2.bkt.clouddn.com/17-9-7/47242159.jpg" alt="火の玉 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
     </div>
 
     <div>
+      
+        
+  <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文标题：</strong>
+    Xcode添加子工程及其环境配置
+  </li>
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      火の玉
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://binzi56.github.io/2018/03/25/iOS-create-subProject/" title="Xcode添加子工程及其环境配置">https://binzi56.github.io/2018/03/25/iOS-create-subProject/</a>
+    </li>
+    <li class="post-copyright-author">
+      <strong>联系邮箱：</strong>
+      1533607721@qq.com
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处！
+    </li>
+  </ul>
+
+
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"><i class="fa fa-tag"></i> iOS</a>
+          
+            <a href="/tags/objective-c/" rel="tag"><i class="fa fa-tag"></i> objective-c</a>
+          
+            <a href="/tags/Xcode/" rel="tag"><i class="fa fa-tag"></i> Xcode</a>
+          
+        </div>
       
 
       
+        
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/16/iOS-electronic-signature/" rel="next" title="iOS制作电子签章">
+                <i class="fa fa-chevron-left"></i> iOS制作电子签章
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
-  </nav>
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
 
+      
+    </div>
+  </div>
 
 
           </div>
@@ -843,6 +622,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTIyMS81Nzg4"></div>
+    
+  </div>
+
 
         </div>
         
@@ -862,8 +647,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -980,6 +774,22 @@
         <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=486194121&auto=0&height=66"></iframe>
       </div>-->
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-创建主工程（AddSubProjectDemo）以及子工程（subProject）"><span class="nav-number">1.</span> <span class="nav-text">1. 创建主工程（AddSubProjectDemo）以及子工程（subProject）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-添加子工程及其依赖"><span class="nav-number">2.</span> <span class="nav-text">2.添加子工程及其依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2-1-子工程拖进主工程文件目录中："><span class="nav-number">2.1.</span> <span class="nav-text">2.1 子工程拖进主工程文件目录中：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-2-打开主工程添加子工程"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 打开主工程添加子工程</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-3-在主工程中添加子工程依赖（-a文件）"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 在主工程中添加子工程依赖（.a文件）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-4-在主工程中添加子工程头文件"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 在主工程中添加子工程头文件</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1122,6 +932,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
