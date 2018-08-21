@@ -1962,7 +1962,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff01d0;
+  background: #f6d142;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3137,4 +3137,61 @@ img:hover {
   padding: 25px;
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+.wechat-author-image {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 10px;
+  max-width: 200px;
+  height: 150px;
+}
+.weixin-box {
+  position: absolute;
+  bottom: 43px;
+  left: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.35);
+}
+.weixin-menu {
+  position: relative;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+  background: url("https://upload-images.jianshu.io/upload_images/1893416-9970e51e1d2ff1f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240");
+  background-size: 24px 24px;
+}
+.weixin-hover {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 0px;
+  width: 0px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.35);
+  background: url("http://upload-images.jianshu.io/upload_images/1893416-dbd322b5baeea686.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240");
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: 150px 150px;
+  transition: all 0.35s ease-in-out;
+  z-index: 1024;
+  opacity: 0;
+}
+.weixin-menu:hover .weixin-hover {
+  bottom: 24px;
+  left: 24px;
+  height: 170px;
+  width: 150px;
+  opacity: 1;
+}
+.weixin-description {
+  opacity: 0;
+  position: absolute;
+  bottom: 3%;
+  left: 5%;
+  right: 5%;
+  font-size: 12px;
+  transition: all 0.35s cubic-bezier(1, 0, 0, 1);
+}
+.weixin-menu:hover .weixin-description {
+  opacity: 1;
 }

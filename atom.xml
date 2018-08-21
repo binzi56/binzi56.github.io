@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://binzi56.github.io/"/>
-  <updated>2018-08-21T12:58:33.274Z</updated>
+  <updated>2018-08-21T13:05:05.408Z</updated>
   <id>https://binzi56.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://binzi56.github.io/2018/03/25/iOS-create-subProject/"/>
     <id>https://binzi56.github.io/2018/03/25/iOS-create-subProject/</id>
     <published>2018-03-25T08:57:51.000Z</published>
-    <updated>2018-08-21T12:58:33.274Z</updated>
+    <updated>2018-08-21T13:05:05.408Z</updated>
     
     <content type="html"><![CDATA[<p>最近项目收到一个新需求，需要添加子工程分解项目一部分功能，👇将学到的一些东西分享下；<br>示例：<br><strong>主工程（AddSubProjectDemo）</strong><br><strong>子工程（subProject）</strong></p>
 <a id="more"></a>
@@ -40,7 +40,7 @@
 </blockquote>
 <p>工程环境配置好后，本例在子工程加了一个类方法打印，主工程回调，最终效果如下：<br><img src="https://upload-images.jianshu.io/upload_images/1893416-bc5eddf194b72e94.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>附上demo工程：<br><a href="https://github.com/binzi56/AddSubProjectDemo.git" target="_blank" rel="external">demo下载</a></p>
-<p>参考文章：<br><a href="https://www.jianshu.com/p/f2bc7d155a86" target="_blank" rel="external">Xcode创建子工程以及工程依赖</a><br><a href="https://www.jianshu.com/p/9f9c1fd2e8b5" target="_blank" rel="external">Xcode Search Paths相关配置</a><br><a href="https://blog.csdn.net/ylwdi/article/details/26259207" target="_blank" rel="external">xcode环境设置</a></p>
+<p>参考文章：<br><a href="https://www.jianshu.com/p/f2bc7d155a86" target="_blank" rel="external">Xcode创建子工程以及工程依赖</a><br><a href="https://www.jianshu.com/p/9f9c1fd2e8b5" target="_blank" rel="external">Xcode Search Paths相关配置</a><br><a href="https://blog.csdn.net/ylwdi/article/details/26259207" target="_blank" rel="external">Xcode环境设置</a></p>
 ]]></content>
     
     <summary type="html">
@@ -953,9 +953,9 @@
       <category term="ionic" scheme="https://binzi56.github.io/categories/ionic/"/>
     
     
-      <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
-    
       <category term="ionic" scheme="https://binzi56.github.io/tags/ionic/"/>
+    
+      <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
     
       <category term="plugin" scheme="https://binzi56.github.io/tags/plugin/"/>
     
