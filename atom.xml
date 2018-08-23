@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://binzi56.github.io/"/>
-  <updated>2018-08-23T14:07:46.550Z</updated>
+  <updated>2018-08-23T15:02:26.177Z</updated>
   <id>https://binzi56.github.io/</id>
   
   <author>
@@ -14,6 +14,89 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS架构由浅入深 | MVVM</title>
+    <link href="https://binzi56.github.io/2018/08/05/iOS-architecture-MVVM/"/>
+    <id>https://binzi56.github.io/2018/08/05/iOS-architecture-MVVM/</id>
+    <published>2018-08-05T08:10:00.000Z</published>
+    <updated>2018-08-23T15:02:26.177Z</updated>
+    
+    <content type="html"><![CDATA[<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本着大道至简，由浅入深的想法。本文会从一个简单的例子入手，逐步解析MVVM在iOS中的应用。说一说看法，比一比优劣，如有不足之处，还望各路大神耐心指出，晚辈不胜感激！</p>
+<h5 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h5><ul>
+<li>架构之争</li>
+<li>MVVM初探</li>
+<li>工程实践</li>
+<li>总结</li>
+</ul>
+<hr>
+<a id="more"></a>
+<h3 id="一-架构之争"><a href="#一-架构之争" class="headerlink" title="一.架构之争"></a>一.架构之争</h3><p><a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/CocoaEncyclopedia/Model-View-Controller/Model-View-Controller.html" target="_blank" rel="external">苹果官方</a>其实是推荐使用MVC，结构大致如下：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1893416-33068fa7e3990d85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MVC示意图"></p>
+<p>可以看出<code>View</code>跟<code>Model</code>事实上是没有交互的，由<code>Controller</code>负责<code>Model</code>与<code>View</code>之间的交互，交互越多，<code>Controller</code>就越臃肿，更别提实际运用中有些还去掉了<code>View</code>层或者<code>Model</code>层。目前对MVC架构划分是<code>Model</code>作为<code>数据管理者</code>，<code>View</code>作为<code>数据展示者</code>，<code>Controller</code>作为<code>数据加工者</code>。</p>
+<p>然而在iOS中<code>Controller</code>中由于有苹果内定的一些视图的生命周期在里面，比如<code>viewDidLoad</code>等等，于是就出现了一些关于iOS的MVC架构方面的争论，有些认为在iOS开发中并没有什么<code>View</code>和<code>Controller</code>，只有<code>Model+ViewController</code>；个人比较推崇<a href="https://casatwy.com/pages/about-me.html" target="_blank" rel="external">Casa Taloyum</a>的划分：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">M应该做的事：</div><div class="line">1.给ViewController提供数据</div><div class="line">2.给ViewController存储数据提供接口</div><div class="line">3.提供经过抽象的业务基本组件，供Controller调度</div><div class="line"></div><div class="line">C应该做的事：</div><div class="line">1.管理View Container的生命周期</div><div class="line">2.负责生成所有的View实例，并放入View Container</div><div class="line">3.监听来自View与业务有关的事件，通过与Model的合作，来完成对应事件的业务。</div><div class="line"></div><div class="line">V应该做的事：</div><div class="line">1.响应与业务无关的事件，并因此引发动画效果，点击反馈（如果合适的话，尽量还是放在View去做）等。</div><div class="line">2.界面元素表达</div></pre></td></tr></table></figure></p>
+<p>严格意义来说<code>Controller</code>确实做了视图相关的操作，但这个是苹果封装给开发者的视图容器，暴露一些模板方法方便调用，我们应该是在这个基础上进行iOS的MVC架构开发吧😝（PS：个人看法，随便唠唠）；<br>至于从MVC演变过来的MVVM，则做了进一步的优化：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1893416-cf59996bb2a425d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MVVM示意图"><br>抽出了<code>ViewModel</code>层负责数据与视图的交互部分，<code>Controller</code>仅协调各个部分的绑定关系以及必要的逻辑处理，具体各个模块之间的分配借用<a href="http://www.sprynthesis.com/2014/12/06/reactivecocoa-mvvm-introduction/" target="_blank" rel="external">ReactiveCocoa和MVVM，简介</a>的一张图：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1893416-913a19b31edcc079.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="视图层级功能展示图"></p>
+<p>介绍到这里，想必大家对MVC和MVVM有了一些基本的了解，具体要用什么架构大家各取所需，真正实现所选架构。</p>
+<hr>
+<p><strong><em>小结一下</em></strong><br>介绍一下两者对比结果：<br><strong>MVC</strong></p>
+<blockquote>
+<p><strong><em>优点：</em></strong><br>通用架构；<br>处理耦合度高的逻辑方便；<br><strong><em>缺点：</em></strong><br>耦合度高；<br>复用性差；<br>测试性差；</p>
+</blockquote>
+<p><strong>MVVM</strong></p>
+<blockquote>
+<p><strong><em>优点：</em></strong><br>耦合度低；<br>复用性高；<br>测试性高；<br>层次更清晰；<br>重构成本低；<br><strong><em>缺点：</em></strong><br>处理耦合度高的逻辑比较复杂；<br>若加入RAC，增加学习成本；<br>一些Bug比较难调试；</p>
+</blockquote>
+<h3 id="二-MVVM初探"><a href="#二-MVVM初探" class="headerlink" title="二.MVVM初探"></a>二.MVVM初探</h3><p>笔者选用RAC实现MVVM架构，当然不是必要的，重要的实现架构，用到的一些库都算是工具，也可以自己用KVO实现，原生的KVO实现会遇到一些<a href="https://www.cnblogs.com/wengzilin/p/4346775.html" target="_blank" rel="external">iOS下KVO使用过程中的陷阱</a>，还有诸如父类被子类KVO方法覆盖，收到监听消息的判断过于冗长等等；这里推荐使用Facebook开源的<a href="https://github.com/facebook/KVOController" target="_blank" rel="external">KVOController</a> 框架，跟示例差不多，就不重复列举了；</p>
+<p>好了，👇下面开始写代码了~<br>工程结构如下：<br><img src="https://upload-images.jianshu.io/upload_images/1893416-6fd2ce268a68b144.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MVVM案例一"></p>
+<h4 id="2-1-ZBMVVMSimpleViewController"><a href="#2-1-ZBMVVMSimpleViewController" class="headerlink" title="2.1 ZBMVVMSimpleViewController"></a>2.1 ZBMVVMSimpleViewController</h4><p>协调viewModel绑定model，view绑定viewModel；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- (void)viewDidLoad</div><div class="line">&#123;</div><div class="line">    [super viewDidLoad];</div><div class="line"></div><div class="line">    //初始化</div><div class="line">    self.simpleModel.name = @&quot;帅斌&quot;;</div><div class="line"></div><div class="line">    //创建视图</div><div class="line">    [self.view addSubview:self.simpleView];</div><div class="line"></div><div class="line">    /*绑定关系*/</div><div class="line">    //viewModel绑定model</div><div class="line">    [self.simpleViewModel bindModel:self.simpleModel];</div><div class="line">    //view绑定viewModel</div><div class="line">    [self.simpleView bindViewModel:self.simpleViewModel];   </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="2-2-ZBMVVMSimpleView"><a href="#2-2-ZBMVVMSimpleView" class="headerlink" title="2.2 ZBMVVMSimpleView"></a>2.2 ZBMVVMSimpleView</h4><p>创建视图，实现绑定viewModel的内部逻辑；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">- (instancetype)init</div><div class="line">&#123;</div><div class="line">    self = [super init];</div><div class="line">    if(self)&#123;</div><div class="line">        self.frame = [UIScreen mainScreen].bounds;</div><div class="line">        self.backgroundColor = [UIColor whiteColor];</div><div class="line"></div><div class="line">        self.nameButton = [UIButton buttonWithType:UIButtonTypeSystem];</div><div class="line">        _nameButton.frame = CGRectMake(0, 0, 100, 50);</div><div class="line">        _nameButton.center = CGPointMake(self.frame.size.width / 2.0, (self.frame.size.height / 3.0 * 1));</div><div class="line">        _nameButton.backgroundColor = [UIColor blackColor];</div><div class="line">        [_nameButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];</div><div class="line">        [_nameButton addTarget:self action:@selector(nameButtonAction) forControlEvents:UIControlEventTouchUpInside];</div><div class="line">        [self addSubview:_nameButton];</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line">//按钮点击方法</div><div class="line">- (void)nameButtonAction</div><div class="line">&#123;</div><div class="line">    if(self.viewModel)&#123;</div><div class="line">        [self.viewModel changeButtonTextAction];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//绑定viewModel</div><div class="line">- (void)bindViewModel:(id)viewModel</div><div class="line">&#123;</div><div class="line">    self.viewModel = viewModel;</div><div class="line">    @weakify(self);</div><div class="line">    [[RACObserve(self.viewModel, nameStr) ignore:nil] subscribeNext:^(id  _Nullable x) &#123;</div><div class="line">        @strongify(self);</div><div class="line">        [self.nameButton setTitle:x forState:UIControlStateNormal];</div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="2-3-ZBMVVMSimpleViewModel"><a href="#2-3-ZBMVVMSimpleViewModel" class="headerlink" title="2.3  ZBMVVMSimpleViewModel"></a>2.3  ZBMVVMSimpleViewModel</h4><p><code>ZBMVVMSimpleViewModel.h</code>部分：<br>对外暴露的一些可供调用的接口：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@interface ZBMVVMSimpleViewModel : NSObject</div><div class="line"></div><div class="line">@property (nonatomic, strong) NSString *nameStr;</div><div class="line"></div><div class="line">//绑定model</div><div class="line">- (void)bindModel:(id)model;</div><div class="line">//按钮点击方法的实现</div><div class="line">- (void)changeButtonTextAction;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p><code>ZBMVVMSimpleViewModel.m</code>部分：<br>实现绑定model，按钮更换name；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">@interface ZBMVVMSimpleViewModel()</div><div class="line"></div><div class="line">@property (nonatomic, strong) ZBMVVMSimpleModel *model;</div><div class="line">@property (nonatomic, assign) BOOL              isClick;</div><div class="line"></div><div class="line">@end</div><div class="line">@implementation ZBMVVMSimpleViewModel</div><div class="line">//绑定model</div><div class="line">- (void)bindModel:(id)model</div><div class="line">&#123;</div><div class="line">    self.model = model;</div><div class="line">    self.nameStr = self.model.name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//按钮点击方法的实现</div><div class="line">- (void)changeButtonTextAction</div><div class="line">&#123;</div><div class="line">    _isClick = !_isClick;</div><div class="line">    if(_isClick)&#123;</div><div class="line">       self.model.name = @&quot;火之玉&quot;;</div><div class="line">    &#125;else&#123;</div><div class="line">       self.model.name = @&quot;帅斌&quot;;</div><div class="line">    &#125;</div><div class="line">    self.nameStr = self.model.name;</div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>通过这个简单的案例，可以看出MVVM各个部分之间的关系以及如何实现这一架构；</p>
+<p>MVVM的<code>Model</code>和<code>View</code>没有交互，交互移步到<code>ViewModel</code>；<code>View</code>持有<code>ViewModel</code>，<code>ViewModel</code>持有<code>Model</code>，反过来持有的话<code>View</code>容易直接跟<code>Model</code>容易产生耦合，这样就失去了架构的意义；</p>
+<p><strong><em>小结一下：</em></strong></p>
+<blockquote>
+<p><strong>MVVM的核心在于：（个人意见）</strong><br>1.MVVM的双向绑定；<br>2.<code>Model</code>与<code>View</code>解耦；</p>
+</blockquote>
+<h3 id="三-工程实践"><a href="#三-工程实践" class="headerlink" title="三.工程实践"></a>三.工程实践</h3><p>参照<a href="https://www.jianshu.com/p/3beb21d5def2" target="_blank" rel="external">iOS MVVM+RAC 从框架到实战</a>自己实现了个小demo：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1893416-347bd0a1575e27f6.gif?imageMogr2/auto-orient/strip" alt="MVVM案例二"></p>
+<p>看了网上一些实现案例，最后选择了这种结构清晰，又方便管理的工程模式，顺便告诉作者一句，已点赞，已star。</p>
+<p>这里原本想抽出<code>tableView</code>的<code>dataSource</code>父类，但看到网上一个比较好的案例，<a href="https://www.jianshu.com/p/1f89513f3fb1" target="_blank" rel="external">基于MVVM，用于快速搭建设置页，个人信息页的框架</a>，也挺有意思的，学习了。</p>
+<p>说一下发现的一个小问题，<code>Masonry</code>的<code>block</code>中使用了<code>weak</code>；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (NSArray *)mas_makeConstraints:(void(^)(MASConstraintMaker *))block &#123;</div><div class="line">    self.translatesAutoresizingMaskIntoConstraints = NO;</div><div class="line">    MASConstraintMaker *constraintMaker = [[MASConstraintMaker alloc] initWithView:self];</div><div class="line">    block(constraintMaker);</div><div class="line">    return [constraintMaker install];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>通过源码可以看出<code>Masonry</code>的block是一个局部变量，在方法调用后就会释放，不存在相互持有，所以这里可以不用<code>weak</code>的；</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>MVVM模式一直是热议的话题，在众多语言里都有被模仿。虽然将<code>View</code>和<code>Model</code>分离了，但是也增加了数据绑定，数据分离的一些代码。总之有利有弊吧，供开发者自由选择。<code>ViewController</code>要想瘦身不光一种模式可以选择，实际开发过程中，可能工程模式已经固定，需要一步步进行代码优化，一下子转MVVM还真的有些困难。<a href="https://github.com/tangqiaoboy" target="_blank" rel="external">唐巧大神</a>在<a href="http://blog.devtang.com/2015/11/02/mvc-and-mvvm/" title="被误解的 MVC 和被神化的 MVVM" target="_blank" rel="external">被误解的 MVC 和被神化的 MVVM</a>提供了几个<code>ViewController</code>瘦身的思路，值得借鉴。</p>
+<p>好了，这次MVVM就分享这么多，以后还会分享更深入更有意思的内容，欢迎探讨~</p>
+<p>最后附上工程链接：<br><a href="https://github.com/binzi56/MVVM-Analyze-Example" target="_blank" rel="external">点此下载</a></p>
+<p>博文推荐：<br><a href="https://casatwy.com/iosying-yong-jia-gou-tan-viewceng-de-zu-zhi-he-diao-yong-fang-an.html" title="Permalink to iOS应用架构谈 view层的组织和调用方案" target="_blank" rel="external">iOS应用架构谈 view层的组织和调用方案</a><br><a href="http://yulingtianxia.com/blog/2015/05/21/ReactiveCocoa-and-MVVM-an-Introduction/" title="ReactiveCocoa 和 MVVM 入门" target="_blank" rel="external">ReactiveCocoa 和 MVVM 入门</a><br><a href="http://blog.devtang.com/2015/11/02/mvc-and-mvvm/" title="被误解的 MVC 和被神化的 MVVM" target="_blank" rel="external">被误解的 MVC 和被神化的 MVVM</a><br><a href="https://www.jianshu.com/p/3beb21d5def2" target="_blank" rel="external">iOS MVVM+RAC 从框架到实战</a><br><a href="http://gracelancy.com/blog/2016/01/06/ape-ios-arch-design/" target="_blank" rel="external">猿题库 iOS 客户端架构设计</a><br><a href="http://www.olinone.com/?p=510" target="_blank" rel="external">MVVM奇葩说</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;hr&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本着大道至简，由浅入深的想法。本文会从一个简单的例子入手，逐步解析MVVM在iOS中的应用。说一说看法，比一比优劣，如有不足之处，还望各路大神耐心指出，晚辈不胜感激！&lt;/p&gt;
+&lt;h5 id=&quot;文章目录&quot;&gt;&lt;a href=&quot;#文章目录&quot; class=&quot;headerlink&quot; title=&quot;文章目录&quot;&gt;&lt;/a&gt;文章目录&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;架构之争&lt;/li&gt;
+&lt;li&gt;MVVM初探&lt;/li&gt;
+&lt;li&gt;工程实践&lt;/li&gt;
+&lt;li&gt;总结&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+    
+    </summary>
+    
+      <category term="架构" scheme="https://binzi56.github.io/categories/%E6%9E%B6%E6%9E%84/"/>
+    
+    
+      <category term="iOS" scheme="https://binzi56.github.io/tags/iOS/"/>
+    
+      <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
+    
+      <category term="架构" scheme="https://binzi56.github.io/tags/%E6%9E%B6%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>【React Native 】系统的了解一下</title>
@@ -1018,9 +1101,9 @@
       <category term="ionic" scheme="https://binzi56.github.io/categories/ionic/"/>
     
     
-      <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
-    
       <category term="ionic" scheme="https://binzi56.github.io/tags/ionic/"/>
+    
+      <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
     
       <category term="plugin" scheme="https://binzi56.github.io/tags/plugin/"/>
     
