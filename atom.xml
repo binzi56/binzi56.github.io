@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://binzi56.github.io/"/>
-  <updated>2018-08-21T13:05:05.408Z</updated>
+  <updated>2018-08-23T14:07:46.550Z</updated>
   <id>https://binzi56.github.io/</id>
   
   <author>
@@ -14,6 +14,71 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【React Native 】系统的了解一下</title>
+    <link href="https://binzi56.github.io/2018/07/09/RN-learning-direction/"/>
+    <id>https://binzi56.github.io/2018/07/09/RN-learning-direction/</id>
+    <published>2018-07-09T13:12:03.000Z</published>
+    <updated>2018-08-23T14:07:46.550Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一-背景"><a href="#一-背景" class="headerlink" title="一.背景"></a>一.背景</h3><p>今年GMTC直接改为大前端技术大会，里面就有多个主题跟RN有关，可见其畅销程度。虽然前段时间也有<a href="http://www.cocoachina.com/apple/20180621/23881.html" target="_blank" rel="external">Airbnb 宣布放弃使用 React Native，回归使用原生技术</a>，但在国内RN还是占据混合开发主流，伴随着人口红利，很有可能你正面临别人已经解过的问题，O(∩_∩)O哈哈~</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1893416-02fbdce92880fcc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="常见跨平台开发集合"><br><a id="more"></a><br>附:<br><a href="https://juejin.im/post/5b395eb96fb9a00e556123ef" target="_blank" rel="external">移动端跨平台开发的深度解析</a><br><a href="http://www.itkeyword.com/doc/9969819919550055775" target="_blank" rel="external">如此繁荣的移动webapp开发市场：总结当下的一些移动web开发套件</a></p>
+<h3 id="二-配置"><a href="#二-配置" class="headerlink" title="二.配置"></a>二.配置</h3><p>环境及调试配置按照官网即可:<br>附:<br><strong><a href="https://www.baidu.com/link?url=IAgSBAGk50jXIvVvognX-wq7SwwFY2jmgJk8Kg-la1cIEflFu7BBUHop5wl5dGv4&amp;wd=&amp;eqid=8d293a1f000088d3000000065b3a53d4" target="_blank" rel="external">React Native 中文网</a></strong></p>
+<p><strong><em>启动指定设备:</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native run-ios --simulator &quot;iPhone 8”</div></pre></td></tr></table></figure></p>
+<p><strong><em>查看具体可用设备名称:</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xcrun simctl list devices</div></pre></td></tr></table></figure></p>
+<h4 id="2-1-导入RN到现有工程"><a href="#2-1-导入RN到现有工程" class="headerlink" title="2.1.导入RN到现有工程"></a>2.1.导入RN到现有工程</h4><p>按照官网可以初始化一个已配置好的RN工程, 这里介绍一下导入到现有工程:</p>
+<h5 id="2-1-1-手动导入"><a href="#2-1-1-手动导入" class="headerlink" title="2.1.1.手动导入"></a>2.1.1.手动导入</h5><p><a href="https://blog.csdn.net/wintelsui/article/details/59525889" target="_blank" rel="external">iOS-在现有项目中添加React Native（手动RNDemo）</a></p>
+<h5 id="2-1-2-cocoapods导入"><a href="#2-1-2-cocoapods导入" class="headerlink" title="2.1.2.cocoapods导入"></a>2.1.2.cocoapods导入</h5><p><a href="https://www.jianshu.com/p/572f007fe2c5" target="_blank" rel="external">iOS 和 React Native 混合编程（在现有的项目基础上导入React Native）</a><br>注：</p>
+<blockquote>
+<p>RN每次编译的时候运行的<code>react-native-xcode.sh</code>脚本路径是相对于工程<code>.xcodeproj</code>而言的, 如果工程文件层级变动需要更改下图该路径;xcode的文件路径<code>../</code>代表一级, <code>../../</code>代表两级,与js文件路径不同需要注意一下;<br><img src="https://upload-images.jianshu.io/upload_images/1893416-fc4ef490ec0e49db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="脚本路径"></p>
+</blockquote>
+<h4 id="2-2-打包相关"><a href="#2-2-打包相关" class="headerlink" title="2.2.打包相关"></a>2.2.打包相关</h4><h5 id="2-2-1-离线包"><a href="#2-2-1-离线包" class="headerlink" title="2.2.1.离线包"></a>2.2.1.离线包</h5><p><a href="https://blog.csdn.net/xiangzhihong8/article/details/70162784" target="_blank" rel="external">React Native之打包</a><br>附:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">react-native bundle [参数]</div><div class="line">构建js离线包</div><div class="line">选项:</div><div class="line">-h, --help 输出如何使用的信息</div><div class="line">--entry-file &lt;path&gt; RN入口文件的路径, 绝对路径或相对路径</div><div class="line">--platform [string] iOS或Andorid</div><div class="line">--transformer [string] 指定一个transformer被使用</div><div class="line">--dev [boolean] 如果为false, 警告会不显示并且打出的包的大小会变小</div><div class="line">--prepack 当通过时, 打包输出将使用Prepack格式化</div><div class="line">--bridge-config [string] 使用Prepack的一个json格式的文件__fbBatchedBridgeConfig 例如: ./bridgeConfig.json</div><div class="line">--bundle-output &lt;string&gt; 打包后的文件输出目录, 例: /tmp/groups.bundle</div><div class="line">--bundle-encoding [string] 打离线包的格式 可参考链接(https://nodejs.org/api/buffer.html#buffer_buffer).</div><div class="line">--sourcemap-output [string] 生成Source Map，但0.14之后不再自动生成source map，需要手动指定这个参数。例: /tmp/groups.map --assets-dest [string] 打包时图片资源的存储路径</div><div class="line">--verbose 显示打包过程</div><div class="line">--reset-cache 移除缓存文件</div><div class="line">--config [string] 命令行的配置文件路径</div><div class="line"></div><div class="line">eg:</div><div class="line">react-native bundle --entry-file index.ios.js --bundle-output ./ios/main.jsbundle --platform ios --assets-dest ./bundle --dev false</div></pre></td></tr></table></figure></p>
+<p><a href="https://www.jianshu.com/p/bb7c5f1d304e" target="_blank" rel="external">ReactNative - 打离线包 (一) 原生RN命令打包</a><br><a href="https://www.jianshu.com/p/e40fb735550c" target="_blank" rel="external">ReactNative - 打离线包 (二) 携程 Moles-Packer 框架命令打包</a></p>
+<h5 id="2-2-2-拆包及热更新"><a href="#2-2-2-拆包及热更新" class="headerlink" title="2.2.2.拆包及热更新"></a>2.2.2.拆包及热更新</h5><p><a href="https://www.jianshu.com/p/8e08c7661275" target="_blank" rel="external">react-native热更新全方位讲解</a><br><a href="http://www.sohu.com/a/206550367_781946" target="_blank" rel="external">58同城:基于拆分包的React Native在iOS端加载性能优化</a><br><a href="https://www.jianshu.com/p/9e3b4a133bcc" target="_blank" rel="external">React Native热更新部署/热更新-CodePush最新集成总结(新)</a><br><a href="https://segmentfault.com/a/1190000004352162" target="_blank" rel="external">ReactNative增量升级方案</a></p>
+<h3 id="三-工程"><a href="#三-工程" class="headerlink" title="三.工程"></a>三.工程</h3><p>下面介绍一下RN工程中的几个点:</p>
+<h4 id="3-1-Bundle"><a href="#3-1-Bundle" class="headerlink" title="3.1.Bundle"></a>3.1.Bundle</h4><blockquote>
+<ol>
+<li>bundle文件只有js代码，不包含图片等静态资源；</li>
+<li><strong>debug模式：</strong>会为真机打bundle包，不会为模拟器打bundle包；<br><strong>release模式：</strong>必须用xcode编译才会打bundle包，此时无论是在模拟器还是在真机运行，都会打bundle包；</li>
+</ol>
+</blockquote>
+<p><a href="http://androidev.coding.me/2017/09/06/react-native-bundle/" target="_blank" rel="external">react-native bundle 解释与拆解 </a><br><a href="https://blog.desmondyao.com/rn-split/" target="_blank" rel="external">React Native打包代码解析与拆分Bundle做法</a></p>
+<hr>
+<p>注：<br><code>react-native-xcode.sh</code>脚本生成的bundle位置:<br><img src="https://upload-images.jianshu.io/upload_images/1893416-659279fde967eaf6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="示例工程:MyApp"><br><strong>MyApp.app -&gt; MyApp(显示包内容)</strong></p>
+<hr>
+<h4 id="3-2-工程介绍"><a href="#3-2-工程介绍" class="headerlink" title="3.2.工程介绍"></a>3.2.工程介绍</h4><p><img src="https://upload-images.jianshu.io/upload_images/1893416-cdfdc0b258a4ea8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="JS和OC交互"></p>
+<blockquote>
+<p><strong>RN工程中JS与OC的实现过程:</strong><br>JSX(React) —-&gt; 转化成javaScript —-&gt; OC读取 —-&gt; 利用JavaScriptCore执行 —-&gt; javaScript代码返回一个数组(包含OC的对象，属性，方法)并执行;</p>
+</blockquote>
+<p>附：<br><a href="https://www.jianshu.com/p/5cc61ec04b39" target="_blank" rel="external">【React Native】从源码一步一步解析它的实现原理</a></p>
+<h4 id="3-3-性能优化"><a href="#3-3-性能优化" class="headerlink" title="3.3.性能优化"></a>3.3.性能优化</h4><p><img src="https://upload-images.jianshu.io/upload_images/1893416-d99fd937e1f53cc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="RN性能优化"><br>附：<br><a href="https://github.com/amandakelake/blog/issues/49" target="_blank" rel="external">React Native性能优化总结</a></p>
+<h3 id="四-学习"><a href="#四-学习" class="headerlink" title="四.学习"></a>四.学习</h3><p><strong>blog：</strong>(简书专题整理)<br><a href="https://www.jianshu.com/c/7ce5c26f6c67" target="_blank" rel="external">React Native学习资料</a></p>
+<p><strong>github：</strong>(star较多的学习资料)</p>
+<ul>
+<li><a href="https://github.com/wabg/awesome-react-native" target="_blank" rel="external">awesome-react-native</a></li>
+<li><a href="https://github.com/crazycodeboy/RNStudyNotes" target="_blank" rel="external">RNStudyNotes</a></li>
+<li><a href="https://github.com/huzidaha/react-naive-book" target="_blank" rel="external">react-naive-book</a></li>
+<li><a href="https://github.com/reactnativecn/react-native-guide" target="_blank" rel="external">react-native-guide</a></li>
+<li><a href="https://github.com/vczero/react-native-lesson" target="_blank" rel="external">react-native-lesson</a></li>
+</ul>
+<p><strong>video：</strong><br><a href="https://pan.baidu.com/s/1gj43kD7slEEt55EZsk6Hkw" target="_blank" rel="external">点击进入</a><br>密码:dttp</p>
+<p>本文主要是对React Native一些知识点总结，分享一些优秀资源，同时感谢🙏文中所引用链接作者的付出！！！！！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;一-背景&quot;&gt;&lt;a href=&quot;#一-背景&quot; class=&quot;headerlink&quot; title=&quot;一.背景&quot;&gt;&lt;/a&gt;一.背景&lt;/h3&gt;&lt;p&gt;今年GMTC直接改为大前端技术大会，里面就有多个主题跟RN有关，可见其畅销程度。虽然前段时间也有&lt;a href=&quot;http://www.cocoachina.com/apple/20180621/23881.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Airbnb 宣布放弃使用 React Native，回归使用原生技术&lt;/a&gt;，但在国内RN还是占据混合开发主流，伴随着人口红利，很有可能你正面临别人已经解过的问题，O(∩_∩)O哈哈~&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/1893416-02fbdce92880fcc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;常见跨平台开发集合&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="ReactNative" scheme="https://binzi56.github.io/categories/ReactNative/"/>
+    
+    
+      <category term="ReactNative，iOS" scheme="https://binzi56.github.io/tags/ReactNative%EF%BC%8CiOS/"/>
+    
+  </entry>
   
   <entry>
     <title>Xcode添加子工程及其环境配置</title>
@@ -953,9 +1018,9 @@
       <category term="ionic" scheme="https://binzi56.github.io/categories/ionic/"/>
     
     
-      <category term="ionic" scheme="https://binzi56.github.io/tags/ionic/"/>
-    
       <category term="objective-c" scheme="https://binzi56.github.io/tags/objective-c/"/>
+    
+      <category term="ionic" scheme="https://binzi56.github.io/tags/ionic/"/>
     
       <category term="plugin" scheme="https://binzi56.github.io/tags/plugin/"/>
     

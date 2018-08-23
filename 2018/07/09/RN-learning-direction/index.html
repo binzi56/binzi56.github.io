@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="火の玉" />
+  <meta name="keywords" content="ReactNative，iOS," />
 
 
 
@@ -104,15 +104,23 @@
 
 
 
-<meta name="description" content="火の玉">
-<meta property="og:type" content="website">
-<meta property="og:title" content="火の玉">
-<meta property="og:url" content="https://binzi56.github.io/tags/源码剖析/index.html">
+<meta name="description" content="一.背景今年GMTC直接改为大前端技术大会，里面就有多个主题跟RN有关，可见其畅销程度。虽然前段时间也有Airbnb 宣布放弃使用 React Native，回归使用原生技术，但在国内RN还是占据混合开发主流，伴随着人口红利，很有可能你正面临别人已经解过的问题，O(∩_∩)O哈哈~">
+<meta name="keywords" content="ReactNative，iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【React Native 】系统的了解一下">
+<meta property="og:url" content="https://binzi56.github.io/2018/07/09/RN-learning-direction/index.html">
 <meta property="og:site_name" content="火の玉">
-<meta property="og:description" content="火の玉">
+<meta property="og:description" content="一.背景今年GMTC直接改为大前端技术大会，里面就有多个主题跟RN有关，可见其畅销程度。虽然前段时间也有Airbnb 宣布放弃使用 React Native，回归使用原生技术，但在国内RN还是占据混合开发主流，伴随着人口红利，很有可能你正面临别人已经解过的问题，O(∩_∩)O哈哈~">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1893416-02fbdce92880fcc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1893416-fc4ef490ec0e49db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1893416-659279fde967eaf6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1893416-cdfdc0b258a4ea8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/1893416-d99fd937e1f53cc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-08-23T14:07:46.550Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="火の玉">
-<meta name="twitter:description" content="火の玉">
+<meta name="twitter:title" content="【React Native 】系统的了解一下">
+<meta name="twitter:description" content="一.背景今年GMTC直接改为大前端技术大会，里面就有多个主题跟RN有关，可见其畅销程度。虽然前段时间也有Airbnb 宣布放弃使用 React Native，回归使用原生技术，但在国内RN还是占据混合开发主流，伴随着人口红利，很有可能你正面临别人已经解过的问题，O(∩_∩)O哈哈~">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/1893416-02fbdce92880fcc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -140,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="https://binzi56.github.io/tags/源码剖析/"/>
+  <link rel="canonical" href="https://binzi56.github.io/2018/07/09/RN-learning-direction/"/>
 
 
 
 
 
-  <title> 火の玉 </title>
+  <title> 【React Native 】系统的了解一下 | 火の玉 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -181,9 +189,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -330,9 +336,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -341,7 +347,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2017/10/17/iOS-SVPullToRefresh/">
+    <link itemprop="mainEntityOfPage" href="https://binzi56.github.io/2018/07/09/RN-learning-direction/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="火の玉">
@@ -362,10 +368,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/10/17/iOS-SVPullToRefresh/" itemprop="url">
-                  源码剖析--SVPullToRefresh
-                </a>
+                【React Native 】系统的了解一下
               
             
           </h1>
@@ -380,8 +383,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-17T00:29:17+08:00">
-                2017-10-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-09T21:12:03+08:00">
+                2018-07-09
               </time>
             
 
@@ -403,8 +406,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
                   </a>
                 </span>
 
@@ -420,7 +423,7 @@
 
           
           
-             <span id="/2017/10/17/iOS-SVPullToRefresh/" class="leancloud_visitors" data-flag-title="源码剖析--SVPullToRefresh">
+             <span id="/2018/07/09/RN-learning-direction/" class="leancloud_visitors" data-flag-title="【React Native 】系统的了解一下">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -432,6 +435,11 @@
              </span>
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
           
 
           
@@ -449,67 +457,181 @@
       
 
       
-        
-          <p>阅读源码之路终于开启了, 小白一枚, 大神们要多多照顾啊, 有什么建议可以评论或私信, 在此多谢了!!!!</p>
+        <h3 id="一-背景"><a href="#一-背景" class="headerlink" title="一.背景"></a>一.背景</h3><p>今年GMTC直接改为大前端技术大会，里面就有多个主题跟RN有关，可见其畅销程度。虽然前段时间也有<a href="http://www.cocoachina.com/apple/20180621/23881.html" target="_blank" rel="external">Airbnb 宣布放弃使用 React Native，回归使用原生技术</a>，但在国内RN还是占据混合开发主流，伴随着人口红利，很有可能你正面临别人已经解过的问题，O(∩_∩)O哈哈~</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1893416-02fbdce92880fcc6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="常见跨平台开发集合"><br><a id="more"></a><br>附:<br><a href="https://juejin.im/post/5b395eb96fb9a00e556123ef" target="_blank" rel="external">移动端跨平台开发的深度解析</a><br><a href="http://www.itkeyword.com/doc/9969819919550055775" target="_blank" rel="external">如此繁荣的移动webapp开发市场：总结当下的一些移动web开发套件</a></p>
+<h3 id="二-配置"><a href="#二-配置" class="headerlink" title="二.配置"></a>二.配置</h3><p>环境及调试配置按照官网即可:<br>附:<br><strong><a href="https://www.baidu.com/link?url=IAgSBAGk50jXIvVvognX-wq7SwwFY2jmgJk8Kg-la1cIEflFu7BBUHop5wl5dGv4&amp;wd=&amp;eqid=8d293a1f000088d3000000065b3a53d4" target="_blank" rel="external">React Native 中文网</a></strong></p>
+<p><strong><em>启动指定设备:</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">react-native run-ios --simulator &quot;iPhone 8”</div></pre></td></tr></table></figure></p>
+<p><strong><em>查看具体可用设备名称:</em></strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xcrun simctl list devices</div></pre></td></tr></table></figure></p>
+<h4 id="2-1-导入RN到现有工程"><a href="#2-1-导入RN到现有工程" class="headerlink" title="2.1.导入RN到现有工程"></a>2.1.导入RN到现有工程</h4><p>按照官网可以初始化一个已配置好的RN工程, 这里介绍一下导入到现有工程:</p>
+<h5 id="2-1-1-手动导入"><a href="#2-1-1-手动导入" class="headerlink" title="2.1.1.手动导入"></a>2.1.1.手动导入</h5><p><a href="https://blog.csdn.net/wintelsui/article/details/59525889" target="_blank" rel="external">iOS-在现有项目中添加React Native（手动RNDemo）</a></p>
+<h5 id="2-1-2-cocoapods导入"><a href="#2-1-2-cocoapods导入" class="headerlink" title="2.1.2.cocoapods导入"></a>2.1.2.cocoapods导入</h5><p><a href="https://www.jianshu.com/p/572f007fe2c5" target="_blank" rel="external">iOS 和 React Native 混合编程（在现有的项目基础上导入React Native）</a><br>注：</p>
+<blockquote>
+<p>RN每次编译的时候运行的<code>react-native-xcode.sh</code>脚本路径是相对于工程<code>.xcodeproj</code>而言的, 如果工程文件层级变动需要更改下图该路径;xcode的文件路径<code>../</code>代表一级, <code>../../</code>代表两级,与js文件路径不同需要注意一下;<br><img src="https://upload-images.jianshu.io/upload_images/1893416-fc4ef490ec0e49db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="脚本路径"></p>
+</blockquote>
+<h4 id="2-2-打包相关"><a href="#2-2-打包相关" class="headerlink" title="2.2.打包相关"></a>2.2.打包相关</h4><h5 id="2-2-1-离线包"><a href="#2-2-1-离线包" class="headerlink" title="2.2.1.离线包"></a>2.2.1.离线包</h5><p><a href="https://blog.csdn.net/xiangzhihong8/article/details/70162784" target="_blank" rel="external">React Native之打包</a><br>附:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">react-native bundle [参数]</div><div class="line">构建js离线包</div><div class="line">选项:</div><div class="line">-h, --help 输出如何使用的信息</div><div class="line">--entry-file &lt;path&gt; RN入口文件的路径, 绝对路径或相对路径</div><div class="line">--platform [string] iOS或Andorid</div><div class="line">--transformer [string] 指定一个transformer被使用</div><div class="line">--dev [boolean] 如果为false, 警告会不显示并且打出的包的大小会变小</div><div class="line">--prepack 当通过时, 打包输出将使用Prepack格式化</div><div class="line">--bridge-config [string] 使用Prepack的一个json格式的文件__fbBatchedBridgeConfig 例如: ./bridgeConfig.json</div><div class="line">--bundle-output &lt;string&gt; 打包后的文件输出目录, 例: /tmp/groups.bundle</div><div class="line">--bundle-encoding [string] 打离线包的格式 可参考链接(https://nodejs.org/api/buffer.html#buffer_buffer).</div><div class="line">--sourcemap-output [string] 生成Source Map，但0.14之后不再自动生成source map，需要手动指定这个参数。例: /tmp/groups.map --assets-dest [string] 打包时图片资源的存储路径</div><div class="line">--verbose 显示打包过程</div><div class="line">--reset-cache 移除缓存文件</div><div class="line">--config [string] 命令行的配置文件路径</div><div class="line"></div><div class="line">eg:</div><div class="line">react-native bundle --entry-file index.ios.js --bundle-output ./ios/main.jsbundle --platform ios --assets-dest ./bundle --dev false</div></pre></td></tr></table></figure></p>
+<p><a href="https://www.jianshu.com/p/bb7c5f1d304e" target="_blank" rel="external">ReactNative - 打离线包 (一) 原生RN命令打包</a><br><a href="https://www.jianshu.com/p/e40fb735550c" target="_blank" rel="external">ReactNative - 打离线包 (二) 携程 Moles-Packer 框架命令打包</a></p>
+<h5 id="2-2-2-拆包及热更新"><a href="#2-2-2-拆包及热更新" class="headerlink" title="2.2.2.拆包及热更新"></a>2.2.2.拆包及热更新</h5><p><a href="https://www.jianshu.com/p/8e08c7661275" target="_blank" rel="external">react-native热更新全方位讲解</a><br><a href="http://www.sohu.com/a/206550367_781946" target="_blank" rel="external">58同城:基于拆分包的React Native在iOS端加载性能优化</a><br><a href="https://www.jianshu.com/p/9e3b4a133bcc" target="_blank" rel="external">React Native热更新部署/热更新-CodePush最新集成总结(新)</a><br><a href="https://segmentfault.com/a/1190000004352162" target="_blank" rel="external">ReactNative增量升级方案</a></p>
+<h3 id="三-工程"><a href="#三-工程" class="headerlink" title="三.工程"></a>三.工程</h3><p>下面介绍一下RN工程中的几个点:</p>
+<h4 id="3-1-Bundle"><a href="#3-1-Bundle" class="headerlink" title="3.1.Bundle"></a>3.1.Bundle</h4><blockquote>
+<ol>
+<li>bundle文件只有js代码，不包含图片等静态资源；</li>
+<li><strong>debug模式：</strong>会为真机打bundle包，不会为模拟器打bundle包；<br><strong>release模式：</strong>必须用xcode编译才会打bundle包，此时无论是在模拟器还是在真机运行，都会打bundle包；</li>
+</ol>
+</blockquote>
+<p><a href="http://androidev.coding.me/2017/09/06/react-native-bundle/" target="_blank" rel="external">react-native bundle 解释与拆解 </a><br><a href="https://blog.desmondyao.com/rn-split/" target="_blank" rel="external">React Native打包代码解析与拆分Bundle做法</a></p>
 <hr>
-<h2 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h2><p><img src="http://upload-images.jianshu.io/upload_images/1893416-e1f3d71f45bb56e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文件结构"></p>
-<h5 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h5><ul>
-<li>前言</li>
-<li>API说明</li>
-<li>原理解析</li>
-<li>总结</li>
+<p>注：<br><code>react-native-xcode.sh</code>脚本生成的bundle位置:<br><img src="https://upload-images.jianshu.io/upload_images/1893416-659279fde967eaf6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="示例工程:MyApp"><br><strong>MyApp.app -&gt; MyApp(显示包内容)</strong></p>
+<hr>
+<h4 id="3-2-工程介绍"><a href="#3-2-工程介绍" class="headerlink" title="3.2.工程介绍"></a>3.2.工程介绍</h4><p><img src="https://upload-images.jianshu.io/upload_images/1893416-cdfdc0b258a4ea8f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="JS和OC交互"></p>
+<blockquote>
+<p><strong>RN工程中JS与OC的实现过程:</strong><br>JSX(React) —-&gt; 转化成javaScript —-&gt; OC读取 —-&gt; 利用JavaScriptCore执行 —-&gt; javaScript代码返回一个数组(包含OC的对象，属性，方法)并执行;</p>
+</blockquote>
+<p>附：<br><a href="https://www.jianshu.com/p/5cc61ec04b39" target="_blank" rel="external">【React Native】从源码一步一步解析它的实现原理</a></p>
+<h4 id="3-3-性能优化"><a href="#3-3-性能优化" class="headerlink" title="3.3.性能优化"></a>3.3.性能优化</h4><p><img src="https://upload-images.jianshu.io/upload_images/1893416-d99fd937e1f53cc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="RN性能优化"><br>附：<br><a href="https://github.com/amandakelake/blog/issues/49" target="_blank" rel="external">React Native性能优化总结</a></p>
+<h3 id="四-学习"><a href="#四-学习" class="headerlink" title="四.学习"></a>四.学习</h3><p><strong>blog：</strong>(简书专题整理)<br><a href="https://www.jianshu.com/c/7ce5c26f6c67" target="_blank" rel="external">React Native学习资料</a></p>
+<p><strong>github：</strong>(star较多的学习资料)</p>
+<ul>
+<li><a href="https://github.com/wabg/awesome-react-native" target="_blank" rel="external">awesome-react-native</a></li>
+<li><a href="https://github.com/crazycodeboy/RNStudyNotes" target="_blank" rel="external">RNStudyNotes</a></li>
+<li><a href="https://github.com/huzidaha/react-naive-book" target="_blank" rel="external">react-naive-book</a></li>
+<li><a href="https://github.com/reactnativecn/react-native-guide" target="_blank" rel="external">react-native-guide</a></li>
+<li><a href="https://github.com/vczero/react-native-lesson" target="_blank" rel="external">react-native-lesson</a></li>
 </ul>
-<hr>
-<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>作为一个刷新框架, <a href="https://github.com/samvermette/SVPullToRefresh" target="_blank" rel="external">SVPullToRefresh</a>以其简洁, 通俗易懂为大家所推崇. 对于刚开始读源码的我来说, 再合适不过了, 而且最近正在做一个刷新demo, 用到, 顺便整理一下, 学习学习.<br>SV是个熟悉的前缀, 就算没听过<a href="https://github.com/samvermette/SVPullToRefresh" target="_blank" rel="external">SVPullToRefresh</a>, 也听过<a href="https://github.com/samvermette/SVProgressHUD" target="_blank" rel="external">SVProgressHUD</a>吧. 除了这些, 作者<a href="http://samvermette.com" target="_blank" rel="external">Sam</a>还有其他优秀的开源代码, 大家感兴趣可以看看.</p>
-<hr>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/17/iOS-SVPullToRefresh/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<p><strong>video：</strong><br><a href="https://pan.baidu.com/s/1gj43kD7slEEt55EZsk6Hkw" target="_blank" rel="external">点击进入</a><br>密码:dttp</p>
+<p>本文主要是对React Native一些知识点总结，分享一些优秀资源，同时感谢🙏文中所引用链接作者的付出！！！！！</p>
+
       
     </div>
 
     <div>
+      
+      <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------文章结束标记O(∩_∩)O哈哈~-------------</div>
+    
+</div>
+
       
     </div>
     <div>
           
+            
+
+          
     </div>
     <div>
+      
+        
+
       
     </div>
 
     <div>
       
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>知我者谓我心忧</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ospquvjh2.bkt.clouddn.com/17-9-7/54856753.jpg" alt="火の玉 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ospquvjh2.bkt.clouddn.com/17-9-7/47242159.jpg" alt="火の玉 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
     </div>
 
     <div>
+      
+        
+  <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文标题：</strong>
+    【React Native 】系统的了解一下
+  </li>
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      火の玉
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://binzi56.github.io/2018/07/09/RN-learning-direction/" title="【React Native 】系统的了解一下">https://binzi56.github.io/2018/07/09/RN-learning-direction/</a>
+    </li>
+    <li class="post-copyright-author">
+      <strong>联系邮箱：</strong>
+      1533607721@qq.com
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议，转载请注明出处！
+    </li>
+  </ul>
+
+
       
     </div>
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/ReactNative，iOS/" rel="tag"><i class="fa fa-tag"></i> ReactNative，iOS</a>
+          
+        </div>
       
 
       
+        
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/25/iOS-create-subProject/" rel="next" title="Xcode添加子工程及其环境配置">
+                <i class="fa fa-chevron-left"></i> Xcode添加子工程及其环境配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -517,6 +639,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTIyMS81Nzg4"></div>
+    
+  </div>
+
 
         </div>
         
@@ -536,8 +664,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -654,6 +791,22 @@
         <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=486194121&auto=0&height=66"></iframe>
       </div>-->
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-背景"><span class="nav-number">1.</span> <span class="nav-text">一.背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-配置"><span class="nav-number">2.</span> <span class="nav-text">二.配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-导入RN到现有工程"><span class="nav-number">2.1.</span> <span class="nav-text">2.1.导入RN到现有工程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-1-手动导入"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1.手动导入</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-2-cocoapods导入"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.1.2.cocoapods导入</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-打包相关"><span class="nav-number">2.2.</span> <span class="nav-text">2.2.打包相关</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-1-离线包"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.2.1.离线包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-2-拆包及热更新"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2.2.拆包及热更新</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-工程"><span class="nav-number">3.</span> <span class="nav-text">三.工程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-Bundle"><span class="nav-number">3.1.</span> <span class="nav-text">3.1.Bundle</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-工程介绍"><span class="nav-number">3.2.</span> <span class="nav-text">3.2.工程介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-性能优化"><span class="nav-number">3.3.</span> <span class="nav-text">3.3.性能优化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-学习"><span class="nav-number">4.</span> <span class="nav-text">四.学习</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -804,6 +957,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
